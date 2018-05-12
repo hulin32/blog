@@ -25,3 +25,11 @@
 ### TypeScript
 
 - [learn typescript in one file](https://github.com/flyingalex/blog/issues/7)
+
+### React
+
+- [React 相关知识总结](https://github.com/flyingalex/blog/issues/9)
+
+### 算法
+
+- [那些我们需要掌握的算法，了解一下？](https://github.com/flyingalex/blog/issues/10)
