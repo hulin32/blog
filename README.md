@@ -32,4 +32,5 @@
 
 ### 算法
 
-- [那些我们需要掌握的算法，了解一下？](https://github.com/flyingalex/blog/issues/10)
+- [那些我们需要掌握的算法，了解一下？---概述](https://github.com/flyingalex/blog/issues/10)
+- [那些我们需要掌握的算法，了解一下？---排序](https://github.com/flyingalex/blog/issues/11)
