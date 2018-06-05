@@ -29,6 +29,7 @@
 ### React
 
 - [React 相关知识总结](https://github.com/flyingalex/blog/issues/9)
+- [为什么你应该尝试@reach/route](https://github.com/flyingalex/blog/issues/13)
 
 ### 算法
 
