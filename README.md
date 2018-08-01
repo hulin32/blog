@@ -30,6 +30,7 @@
 
 - [React 相关知识总结](https://github.com/flyingalex/blog/issues/9)
 - [为什么你应该尝试@reach/route](https://github.com/flyingalex/blog/issues/13)
+- [100 行代码给你app国际化](https://github.com/flyingalex/blog/issues/14)
 
 ### 算法
 
