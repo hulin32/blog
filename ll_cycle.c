@@ -3,6 +3,7 @@
 #define FALSE 0;
 #define TRUE 1;
 
+// 链表闭环判断 Floyd's Tortoise and Hare
 typedef struct node {
     int value;
     struct node *next;
