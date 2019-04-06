@@ -12,7 +12,7 @@ function initShaders(gl, vshader, fshader) {
     console.log('Failed to create program');
     return false;
   }
-
+  // 创建后需要use,这些步骤真多
   gl.useProgram(program);
   gl.program = program;
 
@@ -68,7 +68,7 @@ function createProgram(gl, vshader, fshader) {
  * @return created shader object, or null if the creation has failed.
  */
 function loadShader(gl, type, source) {
-  // Create shader object
+  // 创建type类型的shader
   var shader = gl.createShader(type);
   if (shader == null) {
     console.log('unable to create shader');

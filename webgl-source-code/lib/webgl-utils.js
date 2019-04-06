@@ -119,9 +119,11 @@ var setupWebGL = function(canvas, opt_attribs, opt_onError) {
       container.innerHTML = makeFailHTML(str);
     }
   };
-
+  // 默认错误处理方法
   opt_onError = opt_onError || handleCreationError;
 
+
+  // 添加到canvas上
   if (canvas.addEventListener) {
     canvas.addEventListener("webglcontextcreationerror", function(event) {
           opt_onError(event.statusMessage);
@@ -146,6 +148,7 @@ var setupWebGL = function(canvas, opt_attribs, opt_onError) {
  * @return {!WebGLContext} The created context.
  */
 var create3DContext = function(canvas, opt_attribs) {
+  // 创建canvas环境，因为众多浏览器实现不一样，所以需要向后兼容，不过感觉现在应该不需要了
   var names = ["webgl", "experimental-webgl", "webkit-3d", "moz-webgl"];
   var context = null;
   for (var ii = 0; ii < names.length; ++ii) {
