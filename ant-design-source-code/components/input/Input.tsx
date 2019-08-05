@@ -221,9 +221,7 @@ class Input extends React.Component<InputProps, any> {
 
     const wrapperClassName = `${prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
-    const addonBeforeNode = addonBefore ? (
-      <span className={addonClassName}>{addonBefore}</span>
-    ) : null;
+    const addonBeforeNode = addonBefore ? (<span className={addonClassName}>{addonBefore}</span>) : null;
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
@@ -256,9 +254,7 @@ class Input extends React.Component<InputProps, any> {
       return children;
     }
 
-    const prefix = props.prefix ? (
-      <span className={`${prefixCls}-prefix`}>{props.prefix}</span>
-    ) : null;
+    const prefix = props.prefix ? (<span className={`${prefixCls}-prefix`}>{props.prefix}</span>) : null;
 
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
       [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
