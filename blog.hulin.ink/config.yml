@@ -1,0 +1,11 @@
+baseURL: "https://www.hulin.ink"
+languageCode: "en-us"
+title: "INNER PEACE"
+theme: "casper3"
+
+menu:
+  main:
+  - name: Github
+    url: https://github.com/flyingalex
+  - name: About
+    url: /about

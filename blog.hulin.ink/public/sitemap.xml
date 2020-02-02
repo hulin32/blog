@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.hulin.ink/</loc>
+    <lastmod>2020-02-02T18:44:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/about/</loc>
+    <lastmod>2020-02-02T18:44:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/posts/</loc>
+    <lastmod>2020-02-02T18:03:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/posts/wuhan_ncov/</loc>
+    <lastmod>2020-02-02T18:03:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tags/</loc>
+  </url>
+  
+</urlset>

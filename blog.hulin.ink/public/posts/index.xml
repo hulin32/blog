@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on INNER PEACE</title>
+    <link>https://www.hulin.ink/posts/</link>
+    <description>Recent content in Posts on INNER PEACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Feb 2020 18:03:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.hulin.ink/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify</title>
+      <link>https://www.hulin.ink/posts/wuhan_ncov/</link>
+      <pubDate>Sun, 02 Feb 2020 18:03:23 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/posts/wuhan_ncov/</guid>
+      <description>最近国内冠状病毒施虐，推迟上班，在家快发毛了，研究了一下Github Action, 发现可以用它来实现网站的自动化部署，通过netlify，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？</description>
+    </item>
+    
+  </channel>
+</rss>
