@@ -3,6 +3,8 @@ title: "中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: g
 date: 2020-02-02T18:03:23+08:00
 feature_image: /images/mouth-guard-4787018_1920.jpg
 aliases: ["武汉肺炎","自动部署"]
+slug: github-action-and-netlify
+gitalk: true
 ---
 
 使用github和netlify搭建自己免费静态网站
