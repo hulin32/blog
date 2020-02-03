@@ -17,7 +17,7 @@
       <pubDate>Sun, 02 Feb 2020 18:03:23 +0800</pubDate>
       
       <guid>https://www.hulin.ink/posts/wuhan_ncov/</guid>
-      <description>最近国内冠状病毒施虐，推迟上班，在家快发毛了，研究了一下Github Action, 发现可以用它来实现网站的自动化部署，通过netlify，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？</description>
+      <description>&lt;p&gt;使用github和netlify搭建自己免费静态网站&lt;/p&gt;</description>
     </item>
     
   </channel>
