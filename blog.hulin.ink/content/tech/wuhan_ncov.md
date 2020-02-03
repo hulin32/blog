@@ -1,7 +1,7 @@
 ---
 title: "中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action + netlify"
 date: 2020-02-02T18:03:23+08:00
-feature_image: "/images/mouth-guard-4787018_1920.jpg"
+feature_image: /images/mouth-guard-4787018_1920.jpg
 aliases: ["武汉肺炎","自动部署"]
 ---
 

@@ -24,11 +24,29 @@ github: https://github.com/flyingalex</description>
     
     <item>
       <title>中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify</title>
-      <link>https://www.hulin.ink/posts/wuhan_ncov/</link>
+      <link>https://www.hulin.ink/tech/wuhan_ncov/</link>
       <pubDate>Sun, 02 Feb 2020 18:03:23 +0800</pubDate>
       
-      <guid>https://www.hulin.ink/posts/wuhan_ncov/</guid>
+      <guid>https://www.hulin.ink/tech/wuhan_ncov/</guid>
       <description>&lt;p&gt;使用github和netlify搭建自己免费静态网站&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>老文章地址</title>
+      <link>https://www.hulin.ink/tech/old_articles/</link>
+      <pubDate>Sat, 01 Feb 2020 12:36:44 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/old_articles/</guid>
+      <description>&lt;p&gt;以前的文章就不搬过来了，老地方看&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>板块介绍</title>
+      <link>https://www.hulin.ink/life/intro/</link>
+      <pubDate>Tue, 21 Nov 2017 12:05:02 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/life/intro/</guid>
+      <description>&lt;p&gt;简单介绍&lt;/p&gt;</description>
     </item>
     
   </channel>

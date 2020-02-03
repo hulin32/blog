@@ -9,3 +9,7 @@ menu:
     url: https://github.com/flyingalex
   - name: About
     url: /about
+  - name: Life
+    url: /life
+  - name: Tech
+    url: /tech
