@@ -2,7 +2,10 @@ baseURL: "https://www.hulin.ink"
 languageCode: "en-us"
 title: "INNER PEACE"
 theme: "casper3"
-
+algolia:
+  index: "blog"
+  key: "093601b4bd8cea8a8c59a9f58ed2dad4"
+  appID: "DIISOO4383"
 menu:
   main:
   - name: Github
