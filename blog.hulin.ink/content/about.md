@@ -10,6 +10,8 @@ author: 一介文夫
 - 小程序，React，Vuejs，后端CURD
 - 比较喜欢新的技术
 
-联系我: hulinalex@163.com
+email: hulinalex@163.com
 
 github: https://github.com/flyingalex
+
+![](/images/wechat.jpeg)
