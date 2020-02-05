@@ -28,21 +28,19 @@
   </url>
   
   <url>
-    <loc>https://www.hulin.ink/life/</loc>
-    <lastmod>2017-11-21T12:05:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/life/intro/</loc>
-    <lastmod>2017-11-21T12:05:02+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.hulin.ink/categories/</loc>
   </url>
   
   <url>
+    <loc>https://www.hulin.ink/life/</loc>
+  </url>
+  
+  <url>
     <loc>https://www.hulin.ink/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/life/intro/</loc>
   </url>
   
 </urlset>
