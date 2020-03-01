@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>前端常用的一些工具包 · INNER PEACE</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.4729ae15768726bb9a2b258f42d8198180e9583e09750ae1a19e8db9c8fe051f.css" />
+
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+        
+        
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="/about">About</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/life">Life</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tech">Tech</a></li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+
+                <h1 class="post-full-title">前端常用的一些工具包</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        
+
+                        <section class="post-full-byline-meta">
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2020-33-03">1 March 2020</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+            <figure class="post-full-image">
+                <img src="/images/tool.jpeg" alt="前端常用的一些工具包" />
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>聊聊前端开发中常使用的一些工具包</p>
+<p>在前端开发中使用一些类库可以提高我们的效率，也让我们的开发体验更好，所以使用一些还是有必要的。我主要做react开发，还有小程序，这里说一下我自己会用到的一些类库，只是抛个砖，有更好的欢迎补充。</p>
+<h3 id="form表单">Form表单</h3>
+<p><a href="https://github.com/jaredpalmer/formik">formik</a>
+是在一些比较出名的库(redux-form这样的)出来后才火的，我记得官方好想都推荐过，它是把form所有的状态放在本地管理，所以很快，并且少了很多的样板代码，另外搭配<a href="https://github.com/jquense/yup">yup</a>做验证的错误信息处理简直无敌，写表单再也不纠结了。</p>
+<p>小程序中的话因为考虑到项目体积，一般建议尽量少用包，但是验证我觉得还是可以找一些辅助代码，我主要用的是<a href="https://github.com/ChanceYu/we-validator">we-validator</a>，因为代码不多，就600行左右，我把源码直接复制进了项目，然后根据自己的需要去改，这个给平时开发做表单验证减轻了不少负担，当然其实如果你对react项目的包体积有比较苛刻的要求的话，我觉得也可以不用formik那套，因为yup那边使用了loadash，会增加包体积，直接使用we-validator我觉得也够用</p>
+<h3 id="icon加载">Icon加载</h3>
+<p>一般一个项目内都会有图标，至于怎么去加载这些图片内就是工程师们自己的责任了，以前公司会使用字体文件，并且还专门付费买了https://icomoon.io账号用于项目的图标字体文件的生成，不过一直用着有个让人很不舒服的地方是如果要增加一个新图标，全部图片都需要拿去重新构建字体文件，这操作很不美丽，后面偶然间在和社区内其他人讨论时发现svg-sprite，恨啦，早该用它了，svg-sprite主要是把图片用svg的形式来加载，不仅不会失真，而且每次添加新图标的时候，只需要把svg文件放进项目，在使用的地方将其名字放在css的class中就可以引用了，方面效果还好。react项目中可以使用webpack的插件<a href="https://github.com/JetBrains/svg-sprite-loader">svg-sprite-loader</a></p>
+<h3 id="dayjs">Dayjs</h3>
+<p>时间处理，现在一般都会用<a href="https://github.com/iamkun/dayjs">dayjs</a>, 小，满足需求，感觉比<a href="https://github.com/moment/moment">moment</a>好很多</p>
+<h3 id="css">CSS</h3>
+<p>一般项目都会要响应式，<a href="https://github.com/twbs/bootstrap">bootstrap</a>的栅格系统我觉得很好用，你可以只使用/引用这部分，我也就只使用这部分，这样可以减少打包体积，另外在写响应式网站时，记得<strong>mobile first</strong>，这不是一句空话，会让你的css维护其他好很多，另外使用media query时用<code>min-width</code>和栅格系统保持一直，写下来那叫一个舒服，只要遵守这个规则，我觉得写出来的网站不会差到哪里去。</p>
+<h3 id="webpack">Webpack</h3>
+<p><a href="https://developers.google.com/web/fundamentals/performance/webpack">看这里</a>，google出的一个文档，很好很强大</p>
+<h3 id="reference">reference</h3>
+<ol>
+<li>formik: <a href="https://github.com/jaredpalmer/formik">https://github.com/jaredpalmer/formik</a></li>
+<li>yup: <a href="https://github.com/jquense/yup">https://github.com/jquense/yup</a></li>
+<li>svg-sprite-loader: <a href="https://github.com/JetBrains/svg-sprite-loader">https://github.com/JetBrains/svg-sprite-loader</a></li>
+<li>dayjs: <a href="https://github.com/iamkun/dayjs">https://github.com/iamkun/dayjs</a></li>
+<li>momentjs: <a href="https://github.com/moment/moment">https://github.com/moment/moment</a></li>
+<li>bootstrap: <a href="https://github.com/twbs/bootstrap">https://github.com/twbs/bootstrap</a></li>
+<li>webpack performance: <a href="https://developers.google.com/web/fundamentals/performance/webpack">https://developers.google.com/web/fundamentals/performance/webpack</a></li>
+</ol>
+                </div>
+            </section>
+            <div class="post-full-content" id="gitalk-container"></div>
+        </article>
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed"><article class="post-card post
+
+
+ ">
+
+        
+            <a class="post-card-image-link" href="https://www.hulin.ink/tech/github-action-and-netlify/">
+                <img class="post-card-image"src="/images/mouth-guard-4787018_1920.jpg" alt="中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify"/>
+            </a>
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/github-action-and-netlify/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>使用github和netlify搭建自己免费静态网站</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2020-62-02">2 February 2020</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            
+        </div>
+    </div>
+</aside>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    admin: ['flyingalex'],
+    id: 'tool',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2020</section>
+                <nav class="site-footer-nav">
+                    <a href="https://www.hulin.ink">Latest Posts</a>
+                    
+                    
+                    
+                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
