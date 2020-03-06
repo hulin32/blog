@@ -3307,12 +3307,12 @@ body {
 }
 
 .highlight {
-    min-width: 100%;
+    max-width: 100%;
 }
 
-.post-full-content a {
-    box-shadow: none ;
-}
+// .post-full-content a {
+//     box-shadow: none ;
+// }
 
 #site-main a {
     color: #26a8ed;
