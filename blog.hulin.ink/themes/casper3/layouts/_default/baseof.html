@@ -13,7 +13,7 @@
 
     {{ $styles := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" />
-
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body class="{{ block "body_class" . }} {{ end }}">
 
@@ -30,6 +30,15 @@
                     {{ if .Site.Params.twitter }}<a href="{{ .Site.Params.twitter }}" target="_blank" rel="noopener">Twitter</a>{{ end }}
                     {{ if .Site.Params.github }}<a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">Github</a>{{ end }}
                     <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+                <nav class="site-footer-nav">
+                  <span id="busuanzi_container_site_pv">
+                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+                  </span>
+                  &nbsp;
+                  <span id="busuanzi_container_site_uv">
+                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
                 </nav>
             </div>
         </footer>
