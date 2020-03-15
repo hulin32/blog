@@ -6,10 +6,19 @@
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Mar 2020 20:08:17 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 10:03:23 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>小程序新功能更新日志，自动部署: github action &#43; netlify</title>
+      <link>https://www.hulin.ink/tech/github-action-and-netlify/</link>
+      <pubDate>Sun, 15 Mar 2020 10:03:23 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/github-action-and-netlify/</guid>
+      <description>&lt;p&gt;使用github和netlify搭建自己免费静态网站&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>cache in js call</title>
@@ -43,15 +52,6 @@ github: https://github.com/flyingalex
 微信小程序新功能更新记录: https://github.com/flyingalex/mpupdates
 设计模式相关: https://github.com/flyingalex/design-patterns-by-php
 cpp脚本语言: https://github.com/flyingalex/cpp_lox</description>
-    </item>
-    
-    <item>
-      <title>中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify</title>
-      <link>https://www.hulin.ink/tech/github-action-and-netlify/</link>
-      <pubDate>Sun, 02 Feb 2020 18:03:23 +0800</pubDate>
-      
-      <guid>https://www.hulin.ink/tech/github-action-and-netlify/</guid>
-      <description>&lt;p&gt;使用github和netlify搭建自己免费静态网站&lt;/p&gt;</description>
     </item>
     
     <item>

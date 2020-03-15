@@ -6,7 +6,7 @@
 
     
     
-    <title>中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify · INNER PEACE</title>
+    <title>小程序新功能更新日志，自动部署: github action &#43; netlify · INNER PEACE</title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,7 +55,7 @@
 
                 
 
-                <h1 class="post-full-title">中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify</h1>
+                <h1 class="post-full-title">小程序新功能更新日志，自动部署: github action &#43; netlify</h1>
 
                 
 
@@ -67,7 +67,7 @@
                         <section class="post-full-byline-meta">
                             
                             <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="2020-62-02">2 February 2020</time>
+                                <time class="byline-meta-date" datetime="2020-103-03">15 March 2020</time>
                                 <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
                                 <span class="bull">&bull;</span>
                                 <span id="busuanzi_container_page_pv">
@@ -84,14 +84,15 @@
 
             
             <figure class="post-full-image">
-                <img src="/images/mouth-guard-4787018_1920.jpg" alt="中国武汉新型冠状病毒2019-nCoV市级分布图，自动部署: github action &#43; netlify" />
+                <img src="/images/miniprogram.png" alt="小程序新功能更新日志，自动部署: github action &#43; netlify" />
             </figure>
             
 
             <section class="post-full-content">
                 <div class="post-content">
                     <p>使用github和netlify搭建自己免费静态网站</p>
-<p>最近国内冠状病毒爆发，推迟上班，研究了一下<a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions">Github Action</a>, 发现可以用它来实现网站的自动化部署，通过<a href="https://www.netlify.com/">netlify</a>，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？</p>
+<p>最近比较多的做小程序，因为小程序的功能更新比较频繁，浩瀚的文档中难以去找新功能，他们也没有统一的出处，所以我就根据他们的文档自动生成了一版，通过接口的版本号来判断哪些是新的功能，然后部署成静态网站方便查阅。</p>
+<p>研究了一下<a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions">Github Action</a>, 发现可以用它来实现网站的自动化部署，通过<a href="https://www.netlify.com/">netlify</a>，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？小程序功能更新网站在 <a href="http://mp.hulin.ink/">http://mp.hulin.ink/</a></p>
 <p>其实有两个方式来实现自动化部署，看你的需要</p>
 <h3 id="只用通过netlify的部署功能">只用通过netlify的部署功能</h3>
 <p>在netlify上你可以选择 <code>New sit from Git</code>, 然后选择一个目录，你就可以把那个目录下的静态网站部署到netlify上了，如果你想要自己配置域名，netlify上也可以做，上面还有很多功能，你可以看一下</p>
@@ -101,17 +102,17 @@
 <p>git项目: <a href="https://github.com/flyingalex/blog">https://github.com/flyingalex/blog</a>，<code>/blog.hulin.ink/public</code> 目录，我这个网站是用<a href="https://gohugo.io/">hugo</a>建的，跑完命令<code>hugo -D</code>就会生成<code>public</code>部署目录</p>
 </li>
 <li>
-<p>在netlify上build的时候选择这个项目的这个目录，直接就可以部署了</p>
+<p>在netlify上build的时候选择这个项目的这个目录，直接就会部署了</p>
 </li>
 <li>
 <p>以后每次更新这个目录，会触发netlify的钩子函数，实现自动部署</p>
 </li>
 </ol>
 <h3 id="github-action--netlify">Github Action + netlify</h3>
-<p>先看创建的网站<a href="http://ncov.hulin.ink/">http://ncov.hulin.ink/</a>, 这个网站的数据来自<a href="https://ncov.dxy.cn/ncovh5/view/pneumonia">丁香园疫情地图</a>,每四个小时拉去一次数据更新</p>
+<p>先看创建的网站<a href="http://mp.hulin.ink/">http://mp.hulin.ink/</a>, 数据都是官方文档拉的,每天凌晨1点钟去拉一次数据更新</p>
 <ol>
 <li>
-<p>git项目，这个疫情地图是一个react项目，<a href="https://github.com/flyingalex/2019-nCoV">代码在这里</a></p>
+<p>git项目，parcel+js，parcel还挺好用的，<a href="https://github.com/flyingalex/mpupdates">代码在这里</a></p>
 </li>
 <li>
 <p>在项目内创建<code>.github/workflow/main.yml</code>, 内容大概是这样的</p>
@@ -124,7 +125,8 @@
     <span style="color:#66d9ef">branches</span>:
       - master
   <span style="color:#66d9ef">schedule</span>:
-    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 */4 * * *&#39;</span>
+    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
+
 
 <span style="color:#66d9ef">jobs</span>:
   <span style="color:#66d9ef">build</span>:
@@ -139,7 +141,9 @@
       <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
 </span><span style="color:#e6db74">       </span><span style="color:#e6db74"> </span><span style="color:#e6db74">python -m pip install --upgrade pip</span>
         pip install -r requirements.txt
-        python main.py
+        cd spider
+        scrapy crawl mpcomponent -o mpcomponent.json
+        scrapy crawl mpapi -o mpapi.json
     - <span style="color:#66d9ef">name</span>: build frontend
       <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
 </span><span style="color:#e6db74">       </span><span style="color:#e6db74"> </span><span style="color:#e6db74">npm install</span>
@@ -147,25 +151,33 @@
     - <span style="color:#66d9ef">name</span>: publish to netlify
       <span style="color:#66d9ef">uses</span>: netlify/actions/cli@master
       <span style="color:#66d9ef">with</span>:
-        <span style="color:#66d9ef">args</span>: deploy --dir=build --prod
+        <span style="color:#66d9ef">args</span>: deploy --dir=public --prod
       <span style="color:#66d9ef">env</span>:
-        <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: `NETLIFY_AUTH_TOKEN`
-        <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: `NETLIFY_SITE_ID`
+        <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: NETLIFY_AUTH_TOKEN
+        <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: NETLIFY_SITE_ID
 </code></pre></div><p>主要看:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#66d9ef">name</span>: publish to netlify
   <span style="color:#66d9ef">uses</span>: netlify/actions/cli@master
   <span style="color:#66d9ef">with</span>:
-    <span style="color:#66d9ef">args</span>: deploy --dir=build --prod
+    <span style="color:#66d9ef">args</span>: deploy --dir=public --prod
   <span style="color:#66d9ef">env</span>:
-    <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: `NETLIFY_AUTH_TOKEN`
-    <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: `NETLIFY_SITE_ID`
+    <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: NETLIFY_AUTH_TOKEN
+    <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: NETLIFY_SITE_ID
 </code></pre></div><p>其余代码都是构建静态网站用的
-使用了<code>netlify/actions/cli@master</code>, <code>--dir=build</code>代表你部署的目录
+使用了<code>netlify/actions/cli@master</code>, <code>--dir=public</code>代表你部署的目录
 然后<code>NETLIFY_AUTH_TOKEN</code>和<code>NETLIFY_SITE_ID</code>都可以到他们<a href="https://github.com/netlify/actions/tree/master/cli">cli repo</a>找到出处</p>
 <p>另外每四个小时部署一次是在这里的:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">schedule</span>:
-    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 */4 * * *&#39;</span>
-</code></pre></div><p>黎明就快来了!</p>
+    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
+</code></pre></div><p>就这样，一个免费的自动化部署网站就好了</p>
+<p>referrence:</p>
+<ol>
+<li><a href="https://netlify.com/">https://netlify.com/</a></li>
+<li><a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions">https://help.github.com/en/actions/automating-your-workflow-with-github-actions</a></li>
+<li><a href="https://github.com/flyingalex/blog">https://github.com/flyingalex/blog</a></li>
+<li><a href="https://github.com/flyingalex/mpupdates">https://github.com/flyingalex/mpupdates</a></li>
+<li><a href="https://github.com/netlify/actions/tree/master/cli">https://github.com/netlify/actions/tree/master/cli</a></li>
+</ol>
                 </div>
             </section>
             <div class="post-full-content" id="gitalk-container"></div>
@@ -175,23 +187,28 @@
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed"><article class="post-card post
- no-image
+
+
  ">
 
+        
+            <a class="post-card-image-link" href="https://www.hulin.ink/tech/performance/">
+                <img class="post-card-image"src="/images/cache.jpg" alt="cache in js call"/>
+            </a>
         
     
         <div class="post-card-content">
     
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/old_articles/">
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/performance/">
     
                 <header class="post-card-header">
                     
 
-                    <h2 class="post-card-title">老文章地址</h2>
+                    <h2 class="post-card-title">cache in js call</h2>
                 </header>
     
                 <section class="post-card-excerpt">
-                    <p><p>以前的文章就不搬过来了，老地方看</p></p>
+                    <p><p>js中的缓存做法</p></p>
                 </section>
     
             </a>
@@ -207,8 +224,8 @@
                     </ul>
                     <div class="post-card-byline-content">
                         <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-122-02">1 February 2020</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
+                        <span class="post-card-byline-date"><time datetime="2020-83-03">5 March 2020</time>
+                            <span class="bull">&bull;</span> 2 min read</span>
                     </div>
                 </footer>
     
@@ -217,53 +234,7 @@
 </article>
     
 
-            <article class="post-card post
-
-
- ">
-
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/tech/tool/">
-                <img class="post-card-image"src="/images/tool.jpeg" alt="前端常用的一些工具包"/>
-            </a>
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/tool/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">前端常用的一些工具包</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>聊聊前端开发中常使用的一些工具包</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-33-03">1 March 2020</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
+            
         </div>
     </div>
 </aside>

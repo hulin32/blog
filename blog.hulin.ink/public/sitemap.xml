@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.hulin.ink/tech/performance/</loc>
-    <lastmod>2020-03-05T20:08:17+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.hulin.ink/</loc>
-    <lastmod>2020-03-05T20:08:17+08:00</lastmod>
+    <lastmod>2020-03-15T10:03:23+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.hulin.ink/tech/</loc>
+    <lastmod>2020-03-15T10:03:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tech/github-action-and-netlify/</loc>
+    <lastmod>2020-03-15T10:03:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tech/performance/</loc>
     <lastmod>2020-03-05T20:08:17+08:00</lastmod>
   </url>
   
@@ -25,11 +30,6 @@
   <url>
     <loc>https://www.hulin.ink/about/</loc>
     <lastmod>2020-02-02T18:44:23+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/github-action-and-netlify/</loc>
-    <lastmod>2020-02-02T18:03:23+08:00</lastmod>
   </url>
   
   <url>
