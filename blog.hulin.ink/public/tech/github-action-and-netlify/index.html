@@ -91,7 +91,7 @@
             <section class="post-full-content">
                 <div class="post-content">
                     <p>使用github和netlify搭建自己免费静态网站</p>
-<p>最近国内冠状病毒爆发，推迟上班，在家快发毛了，研究了一下<a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions">Github Action</a>, 发现可以用它来实现网站的自动化部署，通过<a href="https://www.netlify.com/">netlify</a>，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？</p>
+<p>最近国内冠状病毒爆发，推迟上班，研究了一下<a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions">Github Action</a>, 发现可以用它来实现网站的自动化部署，通过<a href="https://www.netlify.com/">netlify</a>，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？</p>
 <p>其实有两个方式来实现自动化部署，看你的需要</p>
 <h3 id="只用通过netlify的部署功能">只用通过netlify的部署功能</h3>
 <p>在netlify上你可以选择 <code>New sit from Git</code>, 然后选择一个目录，你就可以把那个目录下的静态网站部署到netlify上了，如果你想要自己配置域名，netlify上也可以做，上面还有很多功能，你可以看一下</p>
@@ -165,7 +165,7 @@
 <p>另外每四个小时部署一次是在这里的:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">schedule</span>:
     - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 */4 * * *&#39;</span>
-</code></pre></div>
+</code></pre></div><p>黎明就快来了!</p>
                 </div>
             </section>
             <div class="post-full-content" id="gitalk-container"></div>

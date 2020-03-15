@@ -9,7 +9,7 @@ gitalk: true
 使用github和netlify搭建自己免费静态网站
 <!--more-->
 
-最近国内冠状病毒爆发，推迟上班，在家快发毛了，研究了一下[Github Action](https://help.github.com/en/actions/automating-your-workflow-with-github-actions), 发现可以用它来实现网站的自动化部署，通过[netlify](https://www.netlify.com/)，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？
+最近国内冠状病毒爆发，推迟上班，研究了一下[Github Action](https://help.github.com/en/actions/automating-your-workflow-with-github-actions), 发现可以用它来实现网站的自动化部署，通过[netlify](https://www.netlify.com/)，可以做一个免费的自动化部署的静态网站，这个网站也是这样做的，这篇文章就是跟大家说一下怎么做？
 
 其实有两个方式来实现自动化部署，看你的需要
 
@@ -88,3 +88,5 @@ jobs:
 schedule:
     - cron:  '0 */4 * * *'
 ```
+
+黎明就快来了!
