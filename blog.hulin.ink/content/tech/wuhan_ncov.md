@@ -29,7 +29,7 @@ gitalk: true
 
 先看创建的网站[http://ncov.hulin.ink/](http://ncov.hulin.ink/), 这个网站的数据来自[丁香园疫情地图](https://ncov.dxy.cn/ncovh5/view/pneumonia),每四个小时拉去一次数据更新
 
-1. git项目，这个疫情地图是一个react项目，因为里面有用到密钥相关的东西，我就没开放了，反正只要是一个能用的今天网站就行
+1. git项目，这个疫情地图是一个react项目，[代码在这里](https://github.com/flyingalex/2019-nCoV)
 
 2. 在项目内创建`.github/workflow/main.yml`, 内容大概是这样的
 ```yml
