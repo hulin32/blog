@@ -3310,21 +3310,24 @@ body {
     width: 100%;
 }
 
+#site-main a {
+    color: #26a8ed;
+}
 
 // article link animation
-#site-main a {
+.post-full-content a {
     color: #26a8ed;
     text-decoration: none;
     position: relative;
     transition: color .4s ease-out;
 }
 
-#site-main a:hover {
+.post-full-content a:hover {
     color: #1772B4;
     text-decoration: none;
 }
 
-#site-main a::after {
+.post-full-content a::after {
     border-radius: 1em;
     content: "";
     border-top: .1em solid #2f56b0;
@@ -3336,7 +3339,7 @@ body {
         border-color .4s ease-out;
 }
 
-#site-main a:hover::after {
+.post-full-content a:hover::after {
     border-color: #1772B4;
     animation: anchor-underline 2s cubic-bezier(0, 0.5, 0, 1) infinite;
 }
