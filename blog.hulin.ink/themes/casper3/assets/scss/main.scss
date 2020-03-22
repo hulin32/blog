@@ -3323,14 +3323,14 @@ body {
 }
 
 .post-full-content a:hover {
-    color: #1772B4;
+    color: #1772B4 !important;
     text-decoration: none;
 }
 
 .post-full-content a::after {
     border-radius: 1em;
     content: "";
-    border-top: .1em solid #2f56b0;
+    border-top: .1em solid #26a8ed;
     position: absolute;
     bottom: -0.1em;
     right: 100%;

@@ -30,6 +30,9 @@ gitalk: true
 ### Webpack
 [看这里](https://developers.google.com/web/fundamentals/performance/webpack)，google出的一个文档，很好很强大
 
+### 视差
+[rellax](https://github.com/dixonandmoe/rellax)
+
 ### reference
 
 1. formik: https://github.com/jaredpalmer/formik
@@ -39,3 +42,4 @@ gitalk: true
 5. momentjs: https://github.com/moment/moment
 5. bootstrap: https://github.com/twbs/bootstrap
 5. webpack performance: https://developers.google.com/web/fundamentals/performance/webpack
+6. rellax: https://github.com/dixonandmoe/rellax
