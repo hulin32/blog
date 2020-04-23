@@ -6,10 +6,19 @@
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2020 10:03:23 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2020 22:41:39 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tailwindcss 初体验</title>
+      <link>https://www.hulin.ink/tech/css/</link>
+      <pubDate>Thu, 23 Apr 2020 22:41:39 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/css/</guid>
+      <description>&lt;p&gt;css新的写法&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>小程序新功能更新日志，自动部署: github action &#43; netlify</title>
