@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.hulin.ink/</loc>
-    <lastmod>2020-04-23T22:41:39+08:00</lastmod>
+    <loc>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</loc>
+    <lastmod>2020-05-13T07:31:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.hulin.ink/tech/css/</loc>
-    <lastmod>2020-04-23T22:41:39+08:00</lastmod>
+    <loc>https://www.hulin.ink/</loc>
+    <lastmod>2020-05-13T07:31:18+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.hulin.ink/tech/</loc>
+    <lastmod>2020-05-13T07:31:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tech/css/</loc>
     <lastmod>2020-04-23T22:41:39+08:00</lastmod>
   </url>
   

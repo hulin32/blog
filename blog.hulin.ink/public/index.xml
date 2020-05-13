@@ -6,10 +6,19 @@
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2020 22:41:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 07:31:18 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CS教育中缺少的课程</title>
+      <link>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</link>
+      <pubDate>Wed, 13 May 2020 07:31:18 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</guid>
+      <description>&lt;p&gt;丰富你的工具集&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Tailwindcss 初体验</title>
