@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>INNER PEACE</title>
+    <link>https://www.hulin.ink/en/</link>
+    <description>Recent content on INNER PEACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 15 May 2020 07:43:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.hulin.ink/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React source reading--Events</title>
+      <link>https://www.hulin.ink/en/tech/react-event-source-code-reading/</link>
+      <pubDate>Fri, 15 May 2020 07:43:32 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/react-event-source-code-reading/</guid>
+      <description>&lt;p&gt;react event source codes reading(v16.13.0)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CS教育中缺少的课程</title>
+      <link>https://www.hulin.ink/en/tech/the-missing-semester-of-your-cs-education/</link>
+      <pubDate>Wed, 13 May 2020 07:31:18 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/the-missing-semester-of-your-cs-education/</guid>
+      <description>&lt;p&gt;丰富你的工具集&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tailwindcss 初体验</title>
+      <link>https://www.hulin.ink/en/tech/css/</link>
+      <pubDate>Thu, 23 Apr 2020 22:41:39 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/css/</guid>
+      <description>&lt;p&gt;css新的写法&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>cache in js call</title>
+      <link>https://www.hulin.ink/en/tech/performance/</link>
+      <pubDate>Thu, 05 Mar 2020 20:08:17 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/performance/</guid>
+      <description>&lt;p&gt;Caching in js&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>前端常用的一些工具包</title>
+      <link>https://www.hulin.ink/en/tech/tool/</link>
+      <pubDate>Sun, 01 Mar 2020 15:50:02 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/tool/</guid>
+      <description>&lt;p&gt;聊聊前端开发中常使用的一些工具包&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://www.hulin.ink/en/about/</link>
+      <pubDate>Sun, 02 Feb 2020 18:44:23 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/about/</guid>
+      <description>I am a medical student, was taken awry, now I am a frontend dev at a foreign company
+ Mini program，React，Vuejs，BE&amp;rsquo;s CURD I like new tech very much  email: hulinalex@163.com
+github: https://github.com/flyingalex
+twitter: https://twitter.com/hulin50
+Personal repo:
+2019-nCoV map: https://github.com/flyingalex/2019-nCoV
+Design patterns: https://github.com/flyingalex/design-patterns-by-php
+script lang based on cpp: https://github.com/flyingalex/cpp_lox</description>
+    </item>
+    
+    <item>
+      <title>Area intro</title>
+      <link>https://www.hulin.ink/en/life/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.hulin.ink/en/life/intro/</guid>
+      <description>&lt;p&gt;Simple intro&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

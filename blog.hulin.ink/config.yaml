@@ -1,18 +1,39 @@
 baseURL: "https://www.hulin.ink"
-languageCode: "en-us"
-title: "INNER PEACE"
+defaultContentLanguage: "zh"
+languages:
+  en:
+    contentDir: "content/en"
+    title: "INNER PEACE"
+    menu:
+      main:
+      - name: Github
+        url: https://github.com/flyingalex
+      - name: About
+        url: /en/about
+      - name: Life
+        url: /en/life
+      - name: Tech
+        url: /en/tech
+      - name: 中文
+        url: /
+  zh:
+    contentDir: "content/zh"
+    title: "INNER PEACE"
+    menu:
+      main:
+      - name: Github
+        url: https://github.com/flyingalex
+      - name: 关于
+        url: /about
+      - name: 生活
+        url: /life
+      - name: 技术
+        url: /tech
+      - name: EN
+        url: /en
+
 theme: "casper3"
 algolia:
   index: "blog"
   key: "093601b4bd8cea8a8c59a9f58ed2dad4"
   appID: "DIISOO4383"
-menu:
-  main:
-  - name: Github
-    url: https://github.com/flyingalex
-  - name: About
-    url: /about
-  - name: Life
-    url: /life
-  - name: Tech
-    url: /tech

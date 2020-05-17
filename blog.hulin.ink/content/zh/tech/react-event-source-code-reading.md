@@ -2,6 +2,8 @@
 title: React源码--事件
 feature_image: /images/react-event.png
 date: 2020-05-15T07:43:32+08:00
+slug: react
+gitalk: true
 ---
 
 react事件源码阅读(v16.13.0)

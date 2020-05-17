@@ -1,71 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://www.hulin.ink/</loc>
-    <lastmod>2020-05-15T07:43:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/react-event-source-code-reading/</loc>
-    <lastmod>2020-05-15T07:43:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/</loc>
-    <lastmod>2020-05-15T07:43:32+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</loc>
-    <lastmod>2020-05-13T07:31:18+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/css/</loc>
-    <lastmod>2020-04-23T22:41:39+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/github-action-and-netlify/</loc>
-    <lastmod>2020-03-15T10:03:23+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/performance/</loc>
-    <lastmod>2020-03-05T20:08:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/tool/</loc>
-    <lastmod>2020-03-01T15:50:02+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/about/</loc>
-    <lastmod>2020-02-02T18:44:23+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tech/old_articles/</loc>
-    <lastmod>2020-02-01T12:36:44+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/life/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/life/intro/</loc>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>https://www.hulin.ink/en/sitemap.xml</loc>
+		
+	   	<lastmod>2020-05-15T07:43:32+08:00</lastmod>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://www.hulin.ink/zh/sitemap.xml</loc>
+		
+	   	<lastmod>2020-05-15T07:43:32+08:00</lastmod>
+		
+	</sitemap>
+	
+</sitemapindex>

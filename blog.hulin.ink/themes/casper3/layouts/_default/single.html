@@ -80,6 +80,7 @@
     clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
     repo: 'blog-comments',
     owner: 'flyingalex',
+    language: "{{if eq .Site.LanguagePrefix "/en"}}en{{else}}zh-CN{{end}}",
     admin: ['flyingalex'],
     id: '{{ .Slug }}',
     perPage: 50,

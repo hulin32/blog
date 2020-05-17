@@ -5,7 +5,6 @@
     <link>https://www.hulin.ink/</link>
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     <lastBuildDate>Fri, 15 May 2020 07:43:32 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/index.xml" rel="self" type="application/rss+xml" />
@@ -13,19 +12,19 @@
     
     <item>
       <title>React源码--事件</title>
-      <link>https://www.hulin.ink/tech/react-event-source-code-reading/</link>
+      <link>https://www.hulin.ink/tech/react/</link>
       <pubDate>Fri, 15 May 2020 07:43:32 +0800</pubDate>
       
-      <guid>https://www.hulin.ink/tech/react-event-source-code-reading/</guid>
+      <guid>https://www.hulin.ink/tech/react/</guid>
       <description>&lt;p&gt;react事件源码阅读(v16.13.0)&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>CS教育中缺少的课程</title>
-      <link>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</link>
+      <link>https://www.hulin.ink/tech/learning/</link>
       <pubDate>Wed, 13 May 2020 07:31:18 +0800</pubDate>
       
-      <guid>https://www.hulin.ink/tech/the-missing-semester-of-your-cs-education/</guid>
+      <guid>https://www.hulin.ink/tech/learning/</guid>
       <description>&lt;p&gt;丰富你的工具集&lt;/p&gt;</description>
     </item>
     
@@ -74,6 +73,7 @@
       <description>医学生，被带歪了，现在一外企做前端
  小程序，React，Vuejs，后端CURD 比较喜欢新的技术  email: hulinalex@163.com
 github: https://github.com/flyingalex
+twitter: https://twitter.com/hulin50
 个人项目:
 2019疫情地图: https://github.com/flyingalex/2019-nCoV
 微信小程序新功能更新记录: https://github.com/flyingalex/mpupdates

@@ -2,6 +2,7 @@
 title: CS教育中缺少的课程
 feature_image: /images/the-missing-semester-of-your-cs-education.png
 date: 2020-05-13T07:31:18+08:00
+draft: true
 ---
 
 丰富你的工具集
