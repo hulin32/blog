@@ -1,7 +1,7 @@
 ---
 title: 前端常用的一些工具包
 date: 2020-03-01T15:50:02+08:00
-feature_image: /images/tool.jpeg
+feature_image: /images/tool.png
 slug: tool
 gitalk: true
 ---

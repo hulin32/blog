@@ -1,7 +1,7 @@
 ---
 title: cache in js call
 date: 2020-03-05T20:08:17+08:00
-feature_image: /images/cache.jpg
+feature_image: /images/cache.png
 slug: performance
 gitalk: true
 ---
