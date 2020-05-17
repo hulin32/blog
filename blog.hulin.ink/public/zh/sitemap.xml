@@ -50,31 +50,11 @@
   <url>
     <loc>https://www.hulin.ink/tech/learning/</loc>
     <lastmod>2020-05-13T07:31:18+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/tech/the-missing-semester-of-your-cs-education/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/tech/learning/"
-                />
   </url>
   
   <url>
     <loc>https://www.hulin.ink/tech/css/</loc>
     <lastmod>2020-04-23T22:41:39+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/tech/css/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/tech/css/"
-                />
   </url>
   
   <url>
@@ -100,16 +80,6 @@
   <url>
     <loc>https://www.hulin.ink/tech/tool/</loc>
     <lastmod>2020-03-01T15:50:02+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/tech/tool/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/tech/tool/"
-                />
   </url>
   
   <url>
