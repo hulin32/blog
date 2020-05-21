@@ -1,21 +1,6 @@
 baseURL: "https://www.hulin.ink"
 defaultContentLanguage: "zh"
 languages:
-  en:
-    contentDir: "content/en"
-    title: "INNER PEACE"
-    menu:
-      main:
-      - name: Github
-        url: https://github.com/flyingalex
-      - name: About
-        url: /en/about
-      - name: Life
-        url: /en/life
-      - name: Tech
-        url: /en/tech
-      - name: 中文
-        url: /
   zh:
     contentDir: "content/zh"
     title: "INNER PEACE"
@@ -29,9 +14,27 @@ languages:
         url: /life
       - name: 技术
         url: /tech
+      - name: 工具
+        url: /tool
       - name: EN
         url: /en
-
+  en:
+    contentDir: "content/en"
+    title: "INNER PEACE"
+    menu:
+      main:
+      - name: Github
+        url: https://github.com/flyingalex
+      - name: About
+        url: /en/about
+      - name: Life
+        url: /en/life
+      - name: Tech
+        url: /en/tech
+      # - name: Tool
+        # url: /en/tool
+      - name: 中文
+        url: /
 theme: "casper3"
 algolia:
   index: "blog"

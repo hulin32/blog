@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://www.hulin.ink/</loc>
-    <lastmod>2020-05-15T07:43:32+08:00</lastmod>
+    <lastmod>2020-05-20T21:56:07+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,6 +15,16 @@
                 hreflang="zh"
                 href="https://www.hulin.ink/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tool/notion/</loc>
+    <lastmod>2020-05-20T21:56:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/tool/</loc>
+    <lastmod>2020-05-20T21:56:07+08:00</lastmod>
   </url>
   
   <url>
