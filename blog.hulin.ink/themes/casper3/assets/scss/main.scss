@@ -3359,3 +3359,9 @@ body {
     }
 }
 // article link animation stop
+
+#busuanzi_container_page_pv,
+#busuanzi_container_site_pv,
+#busuanzi_container_site_uv {
+    display: none !important;
+}
