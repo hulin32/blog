@@ -43,26 +43,6 @@
   </url>
   
   <url>
-    <loc>https://www.hulin.ink/life/</loc>
-    <lastmod>2020-06-08T23:17:48+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/life/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/life/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/life/postgraduate-road/</loc>
-    <lastmod>2020-06-08T23:17:48+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.hulin.ink/tool/notion/</loc>
     <lastmod>2020-05-20T21:56:07+08:00</lastmod>
   </url>
@@ -295,6 +275,20 @@
   <url>
     <loc>https://www.hulin.ink/categories/vim/</loc>
     <lastmod>2017-12-22T22:41:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/life/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/life/"
+                />
   </url>
   
   <url>
