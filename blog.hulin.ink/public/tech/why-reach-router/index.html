@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>为什么你应该尝试@reach/router · INNER PEACE</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+        
+
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
+                
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+
+                <h1 class="post-full-title">为什么你应该尝试@reach/router</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        
+
+                        <section class="post-full-byline-meta">
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2018-106-06">5 June 2018</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                                <span class="bull">&bull;</span>
+                                <span id="busuanzi_container_page_pv">
+                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
+                                </span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>为什么</p>
+<p>最近react-router的一个作者另外写了一个类react-router的组件<a href="https://github.com/reach/router"><code>@reach/router</code></a>，尝试后感觉太棒了。如果你的项目只是web端的话我认为可以把你的react-router换掉了。</p>
+<p>下面是我到目前看到的所有非常好的点。</p>
+<ol>
+<li>
+<p>小，就4kb,压缩后比react-router小40kb左右。</p>
+</li>
+<li>
+<p>更少的配置</p>
+<p>a. react-router需要3个包(<code>history</code>, <code>react-router-dom</code>, <code>react-router-redux</code>)，reach-router只需要一个。</p>
+<p>b. 不需要在store配置router相关信息</p>
+<p>c. 不需要显示的使用history</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// in store config file
+</span><span style="color:#75715e"></span><span style="color:#75715e">//react-router
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">routerMiddleware</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-redux&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">createHistory</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;history/createBrowserHistory&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">history</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createHistory</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">middleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">routerMiddleware</span>(<span style="color:#a6e22e">history</span>);
+<span style="color:#66d9ef">export</span> { <span style="color:#a6e22e">history</span> };
+
+<span style="color:#75715e">//reach/router, nothing
+</span><span style="color:#75715e"></span>
+</code></pre></div></li>
+<li>
+<p>更好用</p>
+<p>a. 当你想跳转页面时</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// react-router
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">push</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-redux&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+<span style="color:#75715e">// use it
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/see-you&#39;</span>));
+
+<span style="color:#a6e22e">FooComponent</span>.<span style="color:#a6e22e">contextTypes</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">store</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>,
+};
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// reach/router
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">navigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@reach/router&#34;</span>;
+<span style="color:#a6e22e">navigate</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">/lol</span><span style="color:#e6db74">`</span>);
+</code></pre></div><p>b.当你想取url里面的参数时</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// react-router
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withRouter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+
+<span style="color:#75715e">//use it
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">match</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">iAmHere</span> } } } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+<span style="color:#a6e22e">FooComponent</span>.<span style="color:#a6e22e">propTypes</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">match</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>,
+};
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withRouter</span>(<span style="color:#a6e22e">FooComponent</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// reach/router
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">iAmHere</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+</code></pre></div></li>
+<li>
+<p>基本一样的api,学习成本非常低</p>
+</li>
+<li>
+<p>源码非常简洁，总共就3个文件，900行，如果你想深入理解单页应用的路由是怎么实现的，reach-router,绝对是绝佳的下手资料。</p>
+</li>
+</ol>
+<p>不说了，去看看吧
+<a href="https://github.com/reach/router">https://github.com/reach/router</a></p>
+                </div>
+            </section>
+            <div class="post-full-content" id="gitalk-container"></div>
+        </article>
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed"><article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/learn-typescript-in-one-file/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">Learn Typescript in One File</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>尝试在一个文件中装下ts的全部特性</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-103-03">25 March 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            <article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/i18n-with-100-lines/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">100 行代码给你app国际化</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>npm轮子</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-106-06">18 June 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="https://www.hulin.ink">Latest Posts</a>
+                    
+                    
+                    
+                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+                <nav class="site-footer-nav">
+                  <span id="busuanzi_container_site_pv">
+                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+                  </span>
+                  &nbsp;
+                  <span id="busuanzi_container_site_uv">
+                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

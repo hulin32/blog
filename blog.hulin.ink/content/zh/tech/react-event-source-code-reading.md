@@ -2,11 +2,11 @@
 title: React源码--事件
 feature_image: /images/react-event.png
 date: 2020-05-15T07:43:32+08:00
-slug: react
+categories: react
 gitalk: true
 ---
 
-react事件源码阅读(v16.13.0)
+React事件源码阅读(v16.13.0)
 <!--more-->
 
 根据官方文档,react内的事件是通过一个合成事件SyntheticEvent来实现的，自己写了一个wrapper,并且为了性能考虑用了事件池,

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>Learn Some Vim and Save Your Time · INNER PEACE</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+        
+
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
+                
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+
+                <h1 class="post-full-title">Learn Some Vim and Save Your Time</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        
+
+                        <section class="post-full-byline-meta">
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2017-1012-12">22 December 2017</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
+                                <span class="bull">&bull;</span>
+                                <span id="busuanzi_container_page_pv">
+                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
+                                </span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>vim无敌</p>
+<p>自己学vim使用的一些命令，大多数在文后的链接能找到</p>
+<h3 id="survive">Survive</h3>
+<ul>
+<li>vi/vim -&gt; open the editor</li>
+<li>:q -&gt; Quit</li>
+<li>:wq -&gt; Save and Quit</li>
+<li>:q! -&gt; Quit and Not Save</li>
+<li>i -&gt; Insert mode</li>
+<li>x -&gt; Delete the char under the cursor</li>
+<li>dd -&gt; Delete the current line</li>
+<li>pP -&gt; Paste to above or under the current line</li>
+<li>yy -&gt; Copy current line</li>
+<li>hjkl -&gt; Right, Down, Up, Left</li>
+</ul>
+<h3 id="feel-comfortable">Feel comfortable</h3>
+<ul>
+<li>a -&gt; Insert after the cursor</li>
+<li>oO -&gt; Insert a new line after/before the current one</li>
+<li>0 -&gt; Go to the first column</li>
+<li>^ -&gt; go to the first non-blank character of the line</li>
+<li>$ -&gt; go to the end of line</li>
+<li>g_ -&gt; go to the last non-blank character of line</li>
+<li>/pattern -&gt; search for pattern</li>
+<li>u -&gt; undo</li>
+<li><code>&lt;C-r&gt;</code> -&gt; redo</li>
+<li>:e <code>&lt;path/to/file&gt;</code> -&gt; open file</li>
+<li>bn,bp -&gt; show next/previous file (buffer)</li>
+</ul>
+<h3 id="feel-better-stronger-faster">Feel Better, Stronger, Faster</h3>
+<ul>
+<li>. -&gt; Repeat the last command</li>
+<li><code>N&lt;command&gt;</code> -&gt; Repeat the command N times.</li>
+<li>NG -&gt; Go to N line</li>
+<li>gg -&gt; Go to first line</li>
+<li>G -&gt; Go to last line</li>
+<li>b -&gt; Open one buffer file</li>
+<li>% -&gt; Go to the corresponding (, {, [.</li>
+<li><code>*</code> -&gt; go to next/previous(#) occurrence of the word under the cursor</li>
+</ul>
+<h3 id="vim-superpowers">Vim Superpowers</h3>
+<ul>
+<li><code>f&lt;char&gt;</code>, <code>;</code>, <code>,</code> -&gt; Find one char on the current line, <code>;</code> go to the next same char, &lsquo;,&rsquo; go back to the last same char</li>
+<li>t, -&gt; Go to just before the character ,</li>
+<li>F,T -&gt; Like f and t but backward</li>
+<li><code>&lt;C-p&gt;</code> -&gt; Go to the previous line</li>
+<li><code>&lt;C-n&gt;</code> -&gt; GO to the next line</li>
+<li><code>&lt;C-d&gt;</code> -&gt; Go down a half screen</li>
+<li><code>&lt;c-u&gt;</code> -&gt; Go up a half screen</li>
+<li>{,} -&gt; previous/next empty line</li>
+<li>v,V,<code>&lt;C-v&gt;</code> -&gt; Visual mode</li>
+<li>:split, :vsplit -&gt; split the window</li>
+<li>tabnew -&gt; open a new tab</li>
+</ul>
+<p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a></p>
+<p><a href="http://coolshell.cn/articles/5426.html">简明 VIM 练级攻略</a></p>
+<p><a href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a></p>
+<p><a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=sr_1_1?ie=UTF8&amp;qid=1488958924&amp;sr=8-1&amp;keywords=practical-vim">Practical Vim: Edit Text at the Speed of Thought</a></p>
+<p><a href="https://github.com/flyingalex/Practical-Vim">Practical-Vim 整理</a></p>
+                </div>
+            </section>
+            <div class="post-full-content" id="gitalk-container"></div>
+        </article>
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+
+            <article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/fe-optimization-img/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">前端性能优化---图片</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>前端优化</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-102-02">7 February 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2017</section>
+                <nav class="site-footer-nav">
+                    <a href="https://www.hulin.ink">Latest Posts</a>
+                    
+                    
+                    
+                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+                <nav class="site-footer-nav">
+                  <span id="busuanzi_container_site_pv">
+                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+                  </span>
+                  &nbsp;
+                  <span id="busuanzi_container_site_uv">
+                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>Learn Typescript in One File · INNER PEACE</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+        
+
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
+                
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+
+                <h1 class="post-full-title">Learn Typescript in One File</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        
+
+                        <section class="post-full-byline-meta">
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2018-103-03">25 March 2018</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                                <span class="bull">&bull;</span>
+                                <span id="busuanzi_container_page_pv">
+                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
+                                </span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>尝试在一个文件中装下ts的全部特性</p>
+<p>typescript 是javascript的超级，在原来的基础上引入了类型系统，让代码更加好维护，正经typescript我也还没怎么写过，但在学习中比较没有类型系统时，明显会感觉typescript在项目大后会更好的维护(还没在项目中验证)，希望在今后的代码中也能将起引入。</p>
+<p>这里我想通过创建一个类来尽量诠释其全部的概念</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#75715e">// 枚举
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Gender</span> { <span style="color:#a6e22e">Female</span>, <span style="color:#a6e22e">Male</span> };
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Human</span> {
+  <span style="color:#75715e">// string 类型
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;碳水化合物&#39;</span>;
+}
+
+<span style="color:#75715e">// 接口
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Character</span> {
+  <span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>;
+}
+
+<span style="color:#75715e">// 继承和实现
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Female</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Human</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Character</span> {
+  <span style="color:#a6e22e">gender</span>: <span style="color:#66d9ef">Gender</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Gender</span>.<span style="color:#a6e22e">Female</span>;
+  <span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>;
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">years</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+  <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>, <span style="color:#a6e22e">years</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
+    <span style="color:#66d9ef">super</span>();
+    <span style="color:#a6e22e">kindly</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">kindly</span>;
+    <span style="color:#a6e22e">years</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">years</span>;
+  }
+  <span style="color:#75715e">// void 表示没有返回值
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">sayHi</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sentence</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">Hello, I am </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">years</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> years old</span><span style="color:#e6db74">`</span>; <span style="color:#75715e">// 类型推断
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sentence</span>);
+  }
+}
+</code></pre></div><p>待补充&hellip;..</p>
+                </div>
+            </section>
+            <div class="post-full-content" id="gitalk-container"></div>
+        </article>
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed"><article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/fe-optimization-font/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">前端性能优化---字体</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>前端优化</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-102-02">9 February 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            <article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/why-reach-router/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">为什么你应该尝试@reach/router</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>为什么</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-106-06">5 June 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="https://www.hulin.ink">Latest Posts</a>
+                    
+                    
+                    
+                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+                <nav class="site-footer-nav">
+                  <span id="busuanzi_container_site_pv">
+                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+                  </span>
+                  &nbsp;
+                  <span id="busuanzi_container_site_uv">
+                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

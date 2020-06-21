@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>一些 Shell 小技巧 · INNER PEACE</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+        
+
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
+                
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+
+                <h1 class="post-full-title">一些 Shell 小技巧</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        
+
+                        <section class="post-full-byline-meta">
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2018-1012-12">12 December 2018</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                                <span class="bull">&bull;</span>
+                                <span id="busuanzi_container_page_pv">
+                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
+                                </span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>真的小</p>
+<h3 id="1-pushd-popd-dirs---终端目录栈管理">1. pushd, popd, dirs&mdash;终端目录栈管理</h3>
+<p>这几条命令可以达到的目的是在不同目录之前快速切换。
+<code>pushd</code>用于将目录压入目录栈内，<code>popd</code>弹出，<code>dirs</code>显示目录栈的内容
+<!-- raw HTML omitted -->
+当在<code>pushd</code>或 <code>popd</code>后面使用数字时是对目录栈内的内容操作，如果是目录就是新的内容</p>
+<h5 id="个人感觉-一般">个人感觉： 一般</h5>
+<h3 id="2-终端快速移动">2. 终端快速移动</h3>
+<p><code>Meta + f</code>: 向前移动一个单词
+<code>Meta + b</code>: 向后移动一个单词
+<code>Ctrl + y</code>: 粘贴最后一次的剪切
+<code>Ctrl +  a</code>: 移动到段首
+<code>Ctrl + e</code>: 移动到段尾
+<code>Ctrl + k</code>: 从当前删到段尾
+<code>Meta + d</code>: 从当前删到单词末
+<code>Ctrl + w</code>: 从当前删到前一个空白符</p>
+<p>(Meta在Mac上的设置位置Terminal &gt; Preferences &gt; Settings &gt; Keyboard）</p>
+<h5 id="个人感觉-特别是12两个很棒">个人感觉： 特别是1，2两个，很棒</h5>
+<p>###. 3 找文件&mdash;<code>find</code>
+说说应用场景，当在编辑器中想改某个名字的时候，文件内的内容都可以搜索到，但是如果要改文件名的话，编辑器可能就不好使了，这时<code>find</code>就派上用场了.
+命令格式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find options starting/path expression
+</code></pre></div><p>例子</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 搜索当前目录下的包含hello的文件名</span>
+find  .  -name  <span style="color:#e6db74">&#34;*hello*&#34;</span>
+
+<span style="color:#75715e"># 忽略大小写</span>
+find  .  -iname  <span style="color:#e6db74">&#34;*hello*&#34;</span>
+
+<span style="color:#75715e"># 可以提供-type过滤文件类型, 常用的有d(目录) 和 f(文件)</span>
+find  .  -iname  <span style="color:#e6db74">&#34;*hello*&#34;</span> -type f
+find  .  -iname <span style="color:#e6db74">&#34;*hello*&#34;</span> -type d
+</code></pre></div><h5 id="个人感觉真的很好用">个人感觉：真的很好用</h5>
+<h3 id="4待续">4.待续</h3>
+<p>参考：</p>
+<ol>
+<li><a href="http://teohm.com/blog/shortcuts-to-move-faster-in-bash-command-line/">Shortcuts to move faster in Bash command line</a></li>
+</ol>
+                </div>
+            </section>
+            <div class="post-full-content" id="gitalk-container"></div>
+        </article>
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed"><article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/i18n-with-100-lines/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">100 行代码给你app国际化</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>npm轮子</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2018-106-06">18 June 2018</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            <article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="https://www.hulin.ink/tech/mpvue-issues/">
+    
+                <header class="post-card-header">
+                    
+
+                    <h2 class="post-card-title">Mpvue Issues</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p><p>小坑总结</p></p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip"></div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
+
+</a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span></span>
+                        <span class="post-card-byline-date"><time datetime="2019-102-02">19 February 2019</time>
+                            <span class="bull">&bull;</span> 1 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+        </div>
+    </div>
+</aside>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2018</section>
+                <nav class="site-footer-nav">
+                    <a href="https://www.hulin.ink">Latest Posts</a>
+                    
+                    
+                    
+                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
+                </nav>
+                <nav class="site-footer-nav">
+                  <span id="busuanzi_container_site_pv">
+                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
+                  </span>
+                  &nbsp;
+                  <span id="busuanzi_container_site_uv">
+                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
