@@ -5,10 +5,19 @@
     <link>https://www.hulin.ink/en/tech/</link>
     <description>Recent content in Teches on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 May 2020 07:43:32 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 09:50:29 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/en/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java JVM XX Options</title>
+      <link>https://www.hulin.ink/en/tech/java-jvm-xx-options/</link>
+      <pubDate>Sun, 19 Jul 2020 09:50:29 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/en/tech/java-jvm-xx-options/</guid>
+      <description>&lt;p&gt;jvm -xx options&amp;rsquo; description&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>React source reading--Events</title>

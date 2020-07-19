@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://www.hulin.ink/</loc>
-    <lastmod>2020-06-21T22:45:21+08:00</lastmod>
+    <lastmod>2020-07-19T09:50:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,8 +18,23 @@
   </url>
   
   <url>
+    <loc>https://www.hulin.ink/tech/java-jvm-xx-options/</loc>
+    <lastmod>2020-07-19T09:50:29+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/tech/java-jvm-xx-options/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/tech/java-jvm-xx-options/"
+                />
+  </url>
+  
+  <url>
     <loc>https://www.hulin.ink/tech/</loc>
-    <lastmod>2020-06-21T22:45:21+08:00</lastmod>
+    <lastmod>2020-07-19T09:50:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

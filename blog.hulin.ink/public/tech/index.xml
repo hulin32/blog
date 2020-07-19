@@ -5,10 +5,19 @@
     <link>https://www.hulin.ink/tech/</link>
     <description>Recent content in Teches on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Jun 2020 22:45:21 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 09:50:29 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java JVM XX Options</title>
+      <link>https://www.hulin.ink/tech/java-jvm-xx-options/</link>
+      <pubDate>Sun, 19 Jul 2020 09:50:29 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/java-jvm-xx-options/</guid>
+      <description>&lt;p&gt;虚拟机jvm的参数解释&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>博客搬运</title>
