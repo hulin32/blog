@@ -5,10 +5,19 @@
     <link>https://www.hulin.ink/tech/</link>
     <description>Recent content in Teches on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Jul 2020 09:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2020 23:30:23 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Timezone</title>
+      <link>https://www.hulin.ink/tech/timezone/</link>
+      <pubDate>Wed, 26 Aug 2020 23:30:23 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/timezone/</guid>
+      <description>&lt;p&gt;蛋疼的时区问题&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Java JVM XX Options</title>
