@@ -16,6 +16,8 @@ languages:
         url: /tech
       - name: 工具
         url: /tool
+      - name: Archive
+        url: /categories
       - name: EN
         url: /en
   en:

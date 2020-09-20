@@ -3,6 +3,7 @@ title: "Java初体验"
 date: 2020-06-08T23:28:59+08:00
 feature_image: /images/springinaction.jpg
 tag: Java
+categories: java
 ---
 
 看Spring In Actio有感

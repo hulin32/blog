@@ -1,6 +1,7 @@
 ---
 title: "Java JVM XX Options"
 date: 2020-07-19T09:50:29+08:00
+categories: java
 ---
 
 虚拟机jvm的参数解释
