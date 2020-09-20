@@ -5,7 +5,7 @@
     <link>https://www.hulin.ink/categories/</link>
     <description>Recent content in Categories on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 May 2020 07:43:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2020 22:25:46 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,9 +13,18 @@
     <item>
       <title>react</title>
       <link>https://www.hulin.ink/categories/react/</link>
-      <pubDate>Fri, 15 May 2020 07:43:32 +0800</pubDate>
+      <pubDate>Sat, 19 Sep 2020 22:25:46 +0800</pubDate>
       
       <guid>https://www.hulin.ink/categories/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://www.hulin.ink/categories/java/</link>
+      <pubDate>Sun, 19 Jul 2020 09:50:29 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/categories/java/</guid>
       <description></description>
     </item>
     

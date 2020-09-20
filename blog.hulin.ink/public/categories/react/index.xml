@@ -5,10 +5,19 @@
     <link>https://www.hulin.ink/categories/react/</link>
     <description>Recent content in react on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 15 May 2020 07:43:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2020 22:25:46 +0800</lastBuildDate>
     
 	<atom:link href="https://www.hulin.ink/categories/react/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React源码--constructor</title>
+      <link>https://www.hulin.ink/tech/react-core-super-in-constructor/</link>
+      <pubDate>Sat, 19 Sep 2020 22:25:46 +0800</pubDate>
+      
+      <guid>https://www.hulin.ink/tech/react-core-super-in-constructor/</guid>
+      <description>&lt;p&gt;React构造器源码阅读(v16.13.0)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>React源码--事件</title>
