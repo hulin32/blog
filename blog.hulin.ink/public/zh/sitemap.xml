@@ -35,11 +35,31 @@
   <url>
     <loc>https://www.hulin.ink/categories/react/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/categories/react/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/categories/react/"
+                />
   </url>
   
   <url>
     <loc>https://www.hulin.ink/tech/react-core-super-in-constructor/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/tech/react-core-super-in-constructor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/tech/react-core-super-in-constructor/"
+                />
   </url>
   
   <url>

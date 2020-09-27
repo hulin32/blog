@@ -3,8 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.hulin.ink/en/categories/</loc>
+    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/categories/"
+                />
+  </url>
+  
+  <url>
     <loc>https://www.hulin.ink/en/</loc>
-    <lastmod>2020-07-19T09:50:29+08:00</lastmod>
+    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -14,6 +29,51 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.ink/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/en/categories/react/</loc>
+    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/categories/react/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/categories/react/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/en/tech/react-core-super-in-constructor/</loc>
+    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/tech/react-core-super-in-constructor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/tech/react-core-super-in-constructor/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://www.hulin.ink/en/tech/</loc>
+    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.ink/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.ink/en/tech/"
                 />
   </url>
   
@@ -29,21 +89,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.ink/en/tech/java-jvm-xx-options/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/en/tech/</loc>
-    <lastmod>2020-07-19T09:50:29+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/tech/"
                 />
   </url>
   
@@ -103,20 +148,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.ink/en/life/intro/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://www.hulin.ink/en/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.ink/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.ink/en/categories/"
                 />
   </url>
   

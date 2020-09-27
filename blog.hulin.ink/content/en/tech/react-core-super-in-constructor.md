@@ -1,14 +1,13 @@
 ---
-title: React源码--constructor
+title: React source reading--constructor
 feature_image: /images/react.png
 date: 2020-09-19T22:25:46+08:00
 categories: react
-gitalk: true
 ---
 
-React构造器源码阅读(v16.13.0)
+react event source codes reading(v16.13.0)
 <!--more-->
-该文章的demo
+article's demo
 ```jsx
 import React from './react-dev/react';
 import { render } from './react-dev/react-dom';
@@ -39,14 +38,14 @@ class App extends React.Component {
 render(<App />, document.getElementById('app'));
 ```
 
-我们写react代码的时候每次在写construtor的时候写`super(props)`，其实它做了什么真不知道，根据官方文档
-> 在为 React.Component 子类实现构造函数时，应在其他语句之前前调用 super(props)。否则，this.props 在构造函数中可能会出现未定义的 bug。
+When we write the actual codes, we write `super(props)` every time when we write construtor, in fact, I don't know what's happen when we call it, according to the official documentation
+> When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.
 
-从源码的角度看是怎么回事呢，通过命令编译上面的demo
+To see what's going on from a source-code perspective, compile above demo with this command:
 ```shell
 ./node_modules/.bin/babel src/index.jsx
 ```
-当有`super(props)`的时候
+when `super(props)` is there
 ```jsx
 function App(propss) {
     var _this;
@@ -61,7 +60,7 @@ function App(propss) {
     return _this;
 }
 ```
-当没有的时候
+otherwise
 ```jsx
 function App(props) {
     var _this;
@@ -77,14 +76,12 @@ function App(props) {
 }
 ```
 
-看出什么了吗？`super(props)`就是去定义this的，如果没有的话，this就没有值，后面的代码都会报错。
-其实我觉得上面官方的说法应该更硬气一点: 写constructor时必须调用super方法🐶
+See what I mean? `super(props)` is to define `this`, if not there, then this has no value, and all the rest of the codes will report an error.
+In fact, I think above official statement should be more rigid: you must call the super method when writing the constructor 🐶.
 
-另外props又是做什么的呢，其实就是绑定从调用者那边传入的props到this对象上。
+Also what's `props`, it binds the props passed from parent.
 
-另外当你调用super时，如果你的编辑器有代码提示的话就可以看到其实super是可以传入`props, context, updater`3个变量的，不过一般使用就是用第一个，context在这里也是很少用的
-
-
+In addition, when you call `super`, if your editor has a code hint, you can see that super can pass in `props, context, updater` three variables, but the general use is to use the first one, context is also rarely used here!
 
 referrence:
 1. [https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/](https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/)

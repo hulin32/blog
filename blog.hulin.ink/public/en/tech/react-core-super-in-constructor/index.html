@@ -6,7 +6,7 @@
 
     
     
-    <title>React源码--constructor · INNER PEACE</title>
+    <title>React source reading--constructor · INNER PEACE</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -22,25 +22,21 @@
     <div class="inner"><nav class="site-nav">
     <div class="site-nav-left">
         
-            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
+            <a class="site-nav-logo" href="https://www.hulin.ink/en">INNER PEACE</a>
         
 
         <div class="site-nav-content">
             <ul class="nav" role="menu">
                 
-                <li class="nav-home" role="menuitem"><a href="/categories">Archive</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
+                <li class="nav-home" role="menuitem"><a href="/en/about">About</a></li>
                 
                 <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
                 
-                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
+                <li class="nav-home" role="menuitem"><a href="/en/life">Life</a></li>
                 
-                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
+                <li class="nav-home" role="menuitem"><a href="/en/tech">Tech</a></li>
                 
-                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
+                <li class="nav-home" role="menuitem"><a href="/">中文</a></li>
                 
             </ul>
         </div>
@@ -60,7 +56,7 @@
 
                 
 
-                <h1 class="post-full-title">React源码--constructor</h1>
+                <h1 class="post-full-title">React source reading--constructor</h1>
 
                 
 
@@ -73,7 +69,7 @@
                             
                             <div class="byline-meta-content">
                                 <time class="byline-meta-date" datetime="2020-109-09">19 September 2020</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 2 min read</span>
                                 <span class="bull">&bull;</span>
                                 <span id="busuanzi_container_page_pv">
                                   本文阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -89,14 +85,14 @@
 
             
             <figure class="post-full-image">
-                <img src="/images/react.png" alt="React源码--constructor" />
+                <img src="/images/react.png" alt="React source reading--constructor" />
             </figure>
             
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <p>React构造器源码阅读(v16.13.0)</p>
-<p>该文章的demo</p>
+                    <p>react event source codes reading(v16.13.0)</p>
+<p>article&rsquo;s demo</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./react-dev/react&#39;</span>;
 <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">render</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./react-dev/react-dom&#39;</span>;
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
@@ -124,13 +120,13 @@
 }
 
 <span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">App</span> /&gt;, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>));
-</code></pre></div><p>我们写react代码的时候每次在写construtor的时候写<code>super(props)</code>，其实它做了什么真不知道，根据官方文档</p>
+</code></pre></div><p>When we write the actual codes, we write <code>super(props)</code> every time when we write construtor, in fact, I don&rsquo;t know what&rsquo;s happen when we call it, according to the official documentation</p>
 <blockquote>
-<p>在为 React.Component 子类实现构造函数时，应在其他语句之前前调用 super(props)。否则，this.props 在构造函数中可能会出现未定义的 bug。</p>
+<p>When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.</p>
 </blockquote>
-<p>从源码的角度看是怎么回事呢，通过命令编译上面的demo</p>
+<p>To see what&rsquo;s going on from a source-code perspective, compile above demo with this command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./node_modules/.bin/babel src/index.jsx
-</code></pre></div><p>当有<code>super(props)</code>的时候</p>
+</code></pre></div><p>when <code>super(props)</code> is there</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>(<span style="color:#a6e22e">propss</span>) {
     <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_this</span>;
 
@@ -143,7 +139,7 @@
     <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">handleClick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">handleClick</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">_assertThisInitialized</span>(<span style="color:#a6e22e">_this</span>));
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_this</span>;
 }
-</code></pre></div><p>当没有的时候</p>
+</code></pre></div><p>otherwise</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>(<span style="color:#a6e22e">props</span>) {
     <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_this</span>;
 
@@ -156,10 +152,10 @@
     <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">handleClick</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">handleClick</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">_assertThisInitialized</span>(<span style="color:#a6e22e">_this</span>));
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_possibleConstructorReturn</span>(<span style="color:#a6e22e">_this</span>);
 }
-</code></pre></div><p>看出什么了吗？<code>super(props)</code>就是去定义this的，如果没有的话，this就没有值，后面的代码都会报错。
-其实我觉得上面官方的说法应该更硬气一点: 写constructor时必须调用super方法🐶</p>
-<p>另外props又是做什么的呢，其实就是绑定从调用者那边传入的props到this对象上。</p>
-<p>另外当你调用super时，如果你的编辑器有代码提示的话就可以看到其实super是可以传入<code>props, context, updater</code>3个变量的，不过一般使用就是用第一个，context在这里也是很少用的</p>
+</code></pre></div><p>See what I mean? <code>super(props)</code> is to define <code>this</code>, if not there, then this has no value, and all the rest of the codes will report an error.
+In fact, I think above official statement should be more rigid: you must call the super method when writing the constructor 🐶.</p>
+<p>Also what&rsquo;s <code>props</code>, it binds the props passed from parent.</p>
+<p>In addition, when you call <code>super</code>, if your editor has a code hint, you can see that super can pass in <code>props, context, updater</code> three variables, but the general use is to use the first one, context is also rarely used here!</p>
 <p>referrence:</p>
 <ol>
 <li><a href="https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/">https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/</a></li>
@@ -174,28 +170,23 @@
 <aside class="read-next outer">
     <div class="inner">
         <div class="read-next-feed"><article class="post-card post
-
-
+ no-image
  ">
 
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/tech/timezone/">
-                <img class="post-card-image"src="/images/timezone.png" alt="Timezone"/>
-            </a>
         
     
         <div class="post-card-content">
     
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/timezone/">
+            <a class="post-card-content-link" href="https://www.hulin.ink/en/tech/java-jvm-xx-options/">
     
                 <header class="post-card-header">
                     
 
-                    <h2 class="post-card-title">Timezone</h2>
+                    <h2 class="post-card-title">Java JVM XX Options</h2>
                 </header>
     
                 <section class="post-card-excerpt">
-                    <p><p>蛋疼的时区问题</p></p>
+                    <p><p>jvm -xx options&rsquo; description</p></p>
                 </section>
     
             </a>
@@ -211,8 +202,8 @@
                     </ul>
                     <div class="post-card-byline-content">
                         <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-118-08">26 August 2020</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
+                        <span class="post-card-byline-date"><time datetime="2020-97-07">19 July 2020</time>
+                            <span class="bull">&bull;</span> 94 min read</span>
                     </div>
                 </footer>
     
@@ -225,22 +216,6 @@
         </div>
     </div>
 </aside>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: '1a6c85caadf5d3eed793',
-    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "zh-CN",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-  });
-  gitalk.render('gitalk-container');
-</script>
-
 
 
 
