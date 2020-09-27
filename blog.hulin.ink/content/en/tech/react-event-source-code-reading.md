@@ -2,6 +2,7 @@
 title: React source reading--Events
 feature_image: /images/react-event.png
 date: 2020-05-15T07:43:32+08:00
+gitalk: true
 ---
 
 react event source codes reading(v16.13.0)

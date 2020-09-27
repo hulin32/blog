@@ -3,6 +3,7 @@ title: React source reading--constructor
 feature_image: /images/react.png
 date: 2020-09-19T22:25:46+08:00
 categories: react
+gitalk: true
 ---
 
 react event source codes reading(v16.13.0)
