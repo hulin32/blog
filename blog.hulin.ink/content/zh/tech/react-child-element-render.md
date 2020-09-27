@@ -2,6 +2,7 @@
 title: React子元素的渲染逻辑
 date: 2019-07-02T21:48:30+08:00
 categories: react
+gitalk: true
 ---
 
 React 源码

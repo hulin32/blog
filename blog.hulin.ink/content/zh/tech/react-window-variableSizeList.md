@@ -2,6 +2,7 @@
 title: react-window 源码解析--VariableSizeList
 date: 2019-06-12T21:55:21+08:00
 categories: react-window
+gitalk: true
 ---
 
 VariableSizeList解析

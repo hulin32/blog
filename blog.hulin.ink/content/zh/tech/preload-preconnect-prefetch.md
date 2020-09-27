@@ -2,6 +2,7 @@
 title: Preload,Preconnect,Prefetch
 date: 2019-02-28T22:23:38+08:00
 categories: optimization
+gitalk: true
 ---
 
 script额外参数

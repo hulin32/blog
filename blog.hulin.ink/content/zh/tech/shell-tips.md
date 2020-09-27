@@ -2,6 +2,7 @@
 title: 一些 Shell 小技巧
 date: 2018-12-12T22:29:52+08:00
 categoires: shell
+gitalk: true
 ---
 
 真的小

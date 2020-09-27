@@ -2,6 +2,7 @@
 title: "Learn Some Vim and Save Your Time"
 date: 2017-12-22T22:41:13+08:00
 categories: vim
+gitalk: true
 ---
 
 vim无敌

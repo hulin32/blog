@@ -2,6 +2,7 @@
 title: "Shell Config"
 date: 2019-04-23T21:58:34+08:00
 categoires: shell
+gitalk: true
 ---
 
 shell相关

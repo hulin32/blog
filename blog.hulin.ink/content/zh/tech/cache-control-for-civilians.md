@@ -2,6 +2,7 @@
 title: "Cache Control for Civilians"
 date: 2019-03-10T22:01:47+08:00
 categories: translation
+gitalk: true
 ---
 
 第一篇译文

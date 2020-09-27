@@ -2,6 +2,7 @@
 title: "Hooks First Time"
 date: 2019-03-02T22:43:32+08:00
 categories: react
+gitalk: true
 ---
 React 新特性
 <!--more-->

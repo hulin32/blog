@@ -2,6 +2,7 @@
 title: "Mpvue Issues"
 date: 2019-02-19T22:28:37+08:00
 categories: mpvue
+gitalk: true
 ---
 
 小坑总结

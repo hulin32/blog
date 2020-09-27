@@ -85,4 +85,4 @@ In addition, when you call `super`, if your editor has a code hint, you can see 
 
 referrence:
 1. [https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/](https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/)
-2. [https://overreacted.io/zh-hans/why-do-we-write-super-props](https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/)
+2. [https://overreacted.io/why-do-we-write-super-props](https://overreacted.io/why-do-we-write-super-props)

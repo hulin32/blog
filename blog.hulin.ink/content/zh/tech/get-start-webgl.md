@@ -2,6 +2,7 @@
 title: WebGL 入门
 date: 2019-02-28T22:23:38+08:00
 categories: webgl
+gitalk: true
 ---
 
 webgl尝鲜

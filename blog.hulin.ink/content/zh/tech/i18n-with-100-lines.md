@@ -2,6 +2,7 @@
 title: 100 行代码给你app国际化
 date: 2018-06-18T22:32:18+08:00
 categories: wheel
+gitalk: true
 ---
 
 npm轮子

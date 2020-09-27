@@ -2,6 +2,7 @@
 title: "Timezone"
 date: 2020-08-26T23:30:23+08:00
 feature_image: /images/timezone.png
+gitalk: true
 ---
 
 蛋疼的时区问题

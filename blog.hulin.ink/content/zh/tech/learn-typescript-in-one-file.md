@@ -1,7 +1,7 @@
 ---
 title: "Learn Typescript in One File"
 date: 2018-03-25T22:35:55+08:00
-categories: 
+gitalk: true
 ---
 尝试在一个文件中装下ts的全部特性
 <!--more-->
