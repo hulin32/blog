@@ -37,7 +37,7 @@ languages:
         # url: /en/tool
       - name: 中文
         url: /
-theme: "casper3"
+theme: "framer"
 algolia:
   index: "blog"
   key: "093601b4bd8cea8a8c59a9f58ed2dad4"
