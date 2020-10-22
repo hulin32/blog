@@ -1,14 +1,16 @@
-<div id="nav-border" class="container">
-  <nav id="nav" class="nav justify-content-center">
+<div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo" href="{{ $.Site.BaseURL }}{{ $.Site.LanguagePrefix }}">{{ $.Site.Title }}</a>
       {{ range .Site.Menus.main }}
-      <a class="nav-link" href="{{ .URL }}">
-      {{ if .Pre }}
-      {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
-      {{ $icon }}
-      {{ end }}
-      {{ $text := print .Name | safeHTML }}
-      {{ $text }}
-      </a>
+        <a class="display-block padding-10 word-break-kepp uppercase white" href="{{ .URL }}">
+          {{ if .Pre }}
+            {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+            {{ $icon }}
+          {{ end }}
+
+          {{ $text := print .Name | safeHTML }}
+          {{ $text }}
+        </a>
       {{ end }}
   </nav>
 </div>
