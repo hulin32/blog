@@ -1,93 +1,67 @@
 <!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html lang=""><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    
-    
-    <title>Java JVM XX Options · INNER PEACE</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <title>Java JVM XX Options · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.f9c0fd82b75a41816508d95036d6610ba091cef3d2b1bcbbd01c166e9fda7e80.css" />
 </head>
-<body class=" post-template ">
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.ink/en">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en/about">
+          
 
-    <div class="site-wrapper">
+          
+          About
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
 
-<header class="site-header"><div class="outer site-nav-main">
-    <div class="inner"><nav class="site-nav">
-    <div class="site-nav-left">
-        
-            <a class="site-nav-logo" href="https://www.hulin.ink/en">INNER PEACE</a>
-        
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en/life">
+          
 
-        <div class="site-nav-content">
-            <ul class="nav" role="menu">
-                
-                <li class="nav-home" role="menuitem"><a href="/en/about">About</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/en/life">Life</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/en/tech">Tech</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/">中文</a></li>
-                
-            </ul>
-        </div>
+          
+          Life
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en/tech">
+          
 
-    </div>
-</nav>
+          
+          Tech
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/">
+          
 
+          
+          中文
+        </a>
+      
+  </nav>
 </div>
-</div></header>
-
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <article class="post-full post  no-image ">
-
-            <header class="post-full-header">
-
-                
-
-                <h1 class="post-full-title">Java JVM XX Options</h1>
-
-                
-
-                <div class="post-full-byline">
-                    <section class="post-full-byline-content">
-
-                        
-
-                        <section class="post-full-byline-meta">
-                            
-                            <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="2020-97-07">19 July 2020</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> 94 min read</span>
-                                <span class="bull">&bull;</span>
-                                <span id="busuanzi_container_page_pv">
-                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
-                                </span>
-                            </div>
-                        </section>
-
-                    </section>
+<div id="content" class="main-padding-x">
+<h1>Java JVM XX Options</h1>
 
 
-                </div>
-            </header>
+<time datetime="2020-07-19">Jul 19, 2020</time>
 
-            
 
-            <section class="post-full-content">
-                <div class="post-content">
-                    <p>jvm -xx options&rsquo; description</p>
+<br><br>
+<p>jvm -xx options&rsquo; description</p>
 <p>when you want to optimize JVM&rsquo;s performacen, you needs to know how to set parameters, I compiled a version of OpenJDK SlowDebug, and then run this command</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">java -XX:+UnlockDiagnosticVMOptions -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal -XX:+PrintFlagsWithComments -version
 </code></pre></div><p>to print all the options for JVM, also their description(scroll to right)</p>
@@ -127,7 +101,7 @@
      bool AlwaysActAsServerClassMachine            <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Always act like a server-class machine
      bool AlwaysCompileLoopMethods                 <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       When using recompilation, never interpret methods containing loops
      bool AlwaysIncrementalInline                  <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       <span style="color:#66d9ef">do</span> all inlining incrementally
-     bool AlwaysLockClassLoader                    <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Require the VM to acquire the class loader lock before calling loadClass<span style="color:#f92672">(</span><span style="color:#f92672">)</span> even <span style="color:#66d9ef">for</span> class loaders registering as parallel capable
+     bool AlwaysLockClassLoader                    <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Require the VM to acquire the class loader lock before calling loadClass<span style="color:#f92672">()</span> even <span style="color:#66d9ef">for</span> class loaders registering as parallel capable
      bool AlwaysPreTouch                           <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Force all freshly committed pages to be pre-touched
      bool AlwaysRestoreFPU                         <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Restore the FPU control word after every JNI call <span style="color:#f92672">(</span>expensive<span style="color:#f92672">)</span>
      bool AlwaysTenure                             <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Always tenure objects in eden <span style="color:#f92672">(</span>ParallelGC only<span style="color:#f92672">)</span>
@@ -335,7 +309,7 @@ ccstrlist DeoptimizeOnlyAt                         <span style="color:#f92672">=
      bool DeoptimizeRandom                         <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Deoptimize random frames on random exit from the runtime system
      intx DesiredMethodLimit                       <span style="color:#f92672">=</span> <span style="color:#ae81ff">8000</span>                                      <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The desired maximum method size <span style="color:#f92672">(</span>in bytecodes<span style="color:#f92672">)</span> after inlining
      bool DisableAttachMechanism                   <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Disable mechanism that allows tools to attach to this VM
-     bool DisableExplicitGC                        <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Ignore calls to System.gc<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+     bool DisableExplicitGC                        <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Ignore calls to System.gc<span style="color:#f92672">()</span>
 ccstrlist DisableIntrinsic                         <span style="color:#f92672">=</span>                                        <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       <span style="color:#66d9ef">do</span> not expand intrinsics whose <span style="color:#f92672">(</span>internal<span style="color:#f92672">)</span> names appear here
      bool DisableStartThread                       <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Disable starting of additional Java threads <span style="color:#f92672">(</span><span style="color:#66d9ef">for</span> debugging only<span style="color:#f92672">)</span>
      bool DisplayVMOutput                          <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Display all VM output on the tty, independently of LogVMOutput
@@ -368,7 +342,7 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
      bool EnableThreadSMRStatistics                <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enable Thread SMR Statistics
    size_t ErgoHeapSizeLimit                        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum ergonomically set heap size <span style="color:#f92672">(</span>in bytes<span style="color:#f92672">)</span>; zero means use MaxRAM * MaxRAMPercentage / <span style="color:#ae81ff">100</span>
     ccstr ErrorFile                                <span style="color:#f92672">=</span>                                           <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If an error occurs, save the error data to this file <span style="color:#f92672">[</span>default: ./hs_err_pid%p.log<span style="color:#f92672">]</span> <span style="color:#f92672">(</span>%p replaced with pid<span style="color:#f92672">)</span>
-    uintx ErrorHandlerTest                         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If &gt; 0, provokes an error after VM initialization; the value determines which error to provoke. See test_error_handler<span style="color:#f92672">(</span><span style="color:#f92672">)</span> in vmError.cpp.
+    uintx ErrorHandlerTest                         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If &gt; 0, provokes an error after VM initialization; the value determines which error to provoke. See test_error_handler<span style="color:#f92672">()</span> in vmError.cpp.
  uint64_t ErrorLogTimeout                          <span style="color:#f92672">=</span> <span style="color:#ae81ff">120</span>                                       <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Timeout, in seconds, to limit the time spent on writing an error log in <span style="color:#66d9ef">case</span> of a crash.
    double EscapeAnalysisTimeout                    <span style="color:#f92672">=</span> 60.000000                              <span style="color:#f92672">{</span>C2 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Abort EA when it reaches time limit <span style="color:#f92672">(</span>in sec<span style="color:#f92672">)</span>
      bool EstimateArgEscape                        <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Analyze bytecodes to estimate escape state of arguments
@@ -377,7 +351,7 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
      bool ExitOnFullCodeCache                      <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Exit the VM <span style="color:#66d9ef">if</span> we fill the code cache
      bool ExitOnOutOfMemoryError                   <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       JVM exits on the first occurrence of an out-of-memory error
      bool ExitVMOnVerifyError                      <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       standard exit from VM <span style="color:#66d9ef">if</span> bytecode verify error <span style="color:#f92672">(</span>only in debug mode<span style="color:#f92672">)</span>
-     bool ExplicitGCInvokesConcurrent              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       A System.gc<span style="color:#f92672">(</span><span style="color:#f92672">)</span> request invokes a concurrent collection; <span style="color:#f92672">(</span>effective only when using concurrent collectors<span style="color:#f92672">)</span>
+     bool ExplicitGCInvokesConcurrent              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       A System.gc<span style="color:#f92672">()</span> request invokes a concurrent collection; <span style="color:#f92672">(</span>effective only when using concurrent collectors<span style="color:#f92672">)</span>
      bool ExtendedDTraceProbes                     <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enable performance-impacting dtrace probes
      bool ExtensiveErrorReports                    <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Error reports are more extensive.
     ccstr ExtraSharedClassListFile                 <span style="color:#f92672">=</span>                                           <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Extra classlist <span style="color:#66d9ef">for</span> building the CDS archive file
@@ -410,7 +384,7 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
      intx FullGCALotInterval                       <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Interval between which full gc will occur with +FullGCALot
      intx FullGCALotStart                          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       For which invocation to start FullGCAlot
    double G1ConcMarkStepDurationMillis             <span style="color:#f92672">=</span> 10.000000                                 <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Target duration of individual concurrent marking steps in milliseconds.
-    uintx G1ConcRSHotCardLimit                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The threshold that defines <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=</span><span style="color:#f92672">)</span> a hot card.
+    uintx G1ConcRSHotCardLimit                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The threshold that defines <span style="color:#f92672">(</span>&gt;<span style="color:#f92672">=)</span> a hot card.
    size_t G1ConcRSLogCacheSize                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Log base <span style="color:#ae81ff">2</span> of the length of conc RS hot-card cache.
    size_t G1ConcRefinementGreenZone                <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The number of update buffers that are left in the queue by the concurrent processing threads. Will be selected ergonomically by default.
    size_t G1ConcRefinementRedZone                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum number of enqueued update buffers before mutator threads start processing new ones instead of enqueueing them. Will be selected ergonomically by default.
@@ -434,7 +408,7 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
     uintx G1MixedGCCountTarget                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The target number of mixed GCs after a marking cycle.
     uintx G1PeriodicGCInterval                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>manageable<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Number of milliseconds after a previous GC to wait before triggering a periodic gc. A value of zero disables periodically enforced gc cycles.
      bool G1PeriodicGCInvokesConcurrent            <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Determines the kind of periodic GC. Set to true to have G1 perform a concurrent GC as periodic GC, otherwise use a STW Full GC.
-   double G1PeriodicGCSystemLoadThreshold          <span style="color:#f92672">=</span> 0.000000                               <span style="color:#f92672">{</span>manageable<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum recent system wide load as returned by the 1m value of getloadavg<span style="color:#f92672">(</span><span style="color:#f92672">)</span> at which G1 triggers a periodic GC. A load above this value cancels a given periodic GC. A value of zero disables this check.
+   double G1PeriodicGCSystemLoadThreshold          <span style="color:#f92672">=</span> 0.000000                               <span style="color:#f92672">{</span>manageable<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum recent system wide load as returned by the 1m value of getloadavg<span style="color:#f92672">()</span> at which G1 triggers a periodic GC. A load above this value cancels a given periodic GC. A value of zero disables this check.
      intx G1RSetRegionEntries                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Max number of regions <span style="color:#66d9ef">for</span> which we keep bitmaps.Will be set ergonomically by default
      intx G1RSetRegionEntriesBase                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>                                       <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Max number of regions in a fine-grain table per MB.
    size_t G1RSetScanBlockSize                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Size of a work unit of cards claimed by a worker threadduring RSet scanning.
@@ -527,8 +501,8 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
      bool InlineNIOCheckIndex                      <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C1 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Intrinsify java.nio.Buffer.checkIndex
      bool InlineNatives                            <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Inline natives that are known to be part of base library DLL
      bool InlineObjectCopy                         <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       inline Object.clone and Arrays.copyOf<span style="color:#f92672">[</span>Range<span style="color:#f92672">]</span> intrinsics
-     bool InlineObjectHash                         <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Inline Object::hashCode<span style="color:#f92672">(</span><span style="color:#f92672">)</span> native that is known to be part of base library DLL
-     bool InlineReflectionGetCallerClass           <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       inline sun.reflect.Reflection.getCallerClass<span style="color:#f92672">(</span><span style="color:#f92672">)</span>, known to be part of base library DLL
+     bool InlineObjectHash                         <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Inline Object::hashCode<span style="color:#f92672">()</span> native that is known to be part of base library DLL
+     bool InlineReflectionGetCallerClass           <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       inline sun.reflect.Reflection.getCallerClass<span style="color:#f92672">()</span>, known to be part of base library DLL
      intx InlineSmallCode                          <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>                                   <span style="color:#f92672">{</span>pd product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Only inline already compiled methods <span style="color:#66d9ef">if</span> their code size is less than this
      bool InlineSynchronizedMethods                <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>C1 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Inline synchronized methods
      bool InlineThreadNatives                      <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Inline Thread.currentThread, etc
@@ -601,7 +575,7 @@ ccstrlist DisableIntrinsic                         <span style="color:#f92672">=
      intx MaxInlineLevel                           <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       maximum number of nested calls that are inlined
      intx MaxInlineSize                            <span style="color:#f92672">=</span> <span style="color:#ae81ff">35</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The maximum bytecode size of a method to be inlined
      intx MaxInterpretedSearchLength               <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>                                         <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The maximum number of interpreted frames to skip when searching <span style="color:#66d9ef">for</span> recompilee
-     intx MaxJNILocalCapacity                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">65536</span>                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum allowable local JNI handle capacity to EnsureLocalCapacity<span style="color:#f92672">(</span><span style="color:#f92672">)</span> and PushLocalFrame<span style="color:#f92672">(</span><span style="color:#f92672">)</span>, where &lt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> is unlimited, default: <span style="color:#ae81ff">65536</span>
+     intx MaxJNILocalCapacity                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">65536</span>                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum allowable local JNI handle capacity to EnsureLocalCapacity<span style="color:#f92672">()</span> and PushLocalFrame<span style="color:#f92672">()</span>, where &lt;<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> is unlimited, default: <span style="color:#ae81ff">65536</span>
      intx MaxJavaStackTraceDepth                   <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span>                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       The maximum number of lines in the stack trace <span style="color:#66d9ef">for</span> Java exceptions <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> means all<span style="color:#f92672">)</span>
      intx MaxJumpTableSize                         <span style="color:#f92672">=</span> <span style="color:#ae81ff">65000</span>                                  <span style="color:#f92672">{</span>C2 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum number of targets in a generated jump table
      intx MaxJumpTableSparseness                   <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>                                      <span style="color:#f92672">{</span>C2 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Maximum sparseness <span style="color:#66d9ef">for</span> jumptables
@@ -726,7 +700,7 @@ ccstrlist OnOutOfMemoryError                       <span style="color:#f92672">=
      intx PerBytecodeTrapLimit                     <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Limit on traps <span style="color:#f92672">(</span>of one kind<span style="color:#f92672">)</span> at a particular BCI
      intx PerMethodRecompilationCutoff             <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>                                       <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       After recompiling N times, stay in the interpreter <span style="color:#f92672">(</span>-1<span style="color:#f92672">=</span>&gt;<span style="color:#e6db74">&#39;Inf&#39;</span><span style="color:#f92672">)</span>
      intx PerMethodTrapLimit                       <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>                                       <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Limit on traps <span style="color:#f92672">(</span>of one kind<span style="color:#f92672">)</span> in a method <span style="color:#f92672">(</span>includes inlines<span style="color:#f92672">)</span>
-     bool PerfAllowAtExitRegistration              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Allow registration of atexit<span style="color:#f92672">(</span><span style="color:#f92672">)</span> methods
+     bool PerfAllowAtExitRegistration              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Allow registration of atexit<span style="color:#f92672">()</span> methods
      bool PerfBypassFileSystemCheck                <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Bypass Win32 file system criteria checks <span style="color:#f92672">(</span>Windows Only<span style="color:#f92672">)</span>
      intx PerfDataMemorySize                       <span style="color:#f92672">=</span> <span style="color:#ae81ff">32768</span>                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Size of performance data memory region. Will be rounded up to a multiple of the native os page size.
      intx PerfDataSamplingInterval                 <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Data sampling interval <span style="color:#f92672">(</span>in milliseconds<span style="color:#f92672">)</span>
@@ -946,7 +920,7 @@ ccstrlist OnOutOfMemoryError                       <span style="color:#f92672">=
      bool ShenandoahTerminationTrace               <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Tracing task termination timings
      bool ShenandoahVerify                         <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify the Shenandoah garbage collector
      intx ShenandoahVerifyLevel                    <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>                                      <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Shenandoah verification level: 0 <span style="color:#f92672">=</span> basic heap checks; 1 <span style="color:#f92672">=</span> previous level, plus basic region checks; 2 <span style="color:#f92672">=</span> previous level, plus all roots; 3 <span style="color:#f92672">=</span> previous level, plus all reachable objects; 4 <span style="color:#f92672">=</span> previous level, plus all marked objects
-     bool ShenandoahVerifyObjectEquals             <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify that <span style="color:#f92672">=</span><span style="color:#f92672">=</span> and !<span style="color:#f92672">=</span> are not used on oops. Only in fastdebug
+     bool ShenandoahVerifyObjectEquals             <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify that <span style="color:#f92672">==</span> and !<span style="color:#f92672">=</span> are not used on oops. Only in fastdebug
      bool ShenandoahVerifyOptoBarriers             <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify no missing barriers in C2
      bool ShenandoahWriteBarrier                   <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Turn on/off write barriers in Shenandoah
      bool ShowHiddenFrames                         <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       show method handle implementation frames <span style="color:#f92672">(</span>usually hidden<span style="color:#f92672">)</span>
@@ -956,7 +930,7 @@ ccstrlist OnOutOfMemoryError                       <span style="color:#f92672">=
      bool SoftMatchFailure                         <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If the DFA fails to match a node, print a message and bail out
      intx SoftRefLRUPolicyMSPerMB                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Number of milliseconds per MB of free space in the heap
      bool SparcV9RegsHiBitsZero                    <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Assume Sparc V9 I&amp;L registers on V8+ systems are zero-extended
-     bool SpecialArraysEquals                      <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       special version of Arrays.equals<span style="color:#f92672">(</span>char<span style="color:#f92672">[</span><span style="color:#f92672">]</span>,char<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span>
+     bool SpecialArraysEquals                      <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       special version of Arrays.equals<span style="color:#f92672">(</span>char<span style="color:#f92672">[]</span>,char<span style="color:#f92672">[])</span>
      bool SpecialEncodeISOArray                    <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       special version of ISO_8859_1$Encoder.encodeISOArray
      bool SpecialStringCompareTo                   <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       special version of string compareTo
      bool SpecialStringEquals                      <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       special version of string equals
@@ -1015,7 +989,7 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
     uintx TenuredGenerationSizeIncrement           <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Adaptive size percentage change in tenured generation
     uintx TenuredGenerationSizeSupplement          <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>                                        <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Supplement to TenuredGenerationSizeIncrement used at startup
     uintx TenuredGenerationSizeSupplementDecay     <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Decay factor to TenuredGenerationSizeIncrement
-    uintx TestCrashInErrorHandler                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If &gt; 0, provokes an error inside VM error handler <span style="color:#f92672">(</span>a secondary crash<span style="color:#f92672">)</span>. see test_error_handler<span style="color:#f92672">(</span><span style="color:#f92672">)</span> in vmError.cpp
+    uintx TestCrashInErrorHandler                  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If &gt; 0, provokes an error inside VM error handler <span style="color:#f92672">(</span>a secondary crash<span style="color:#f92672">)</span>. see test_error_handler<span style="color:#f92672">()</span> in vmError.cpp
      bool TestSafeFetchInErrorHandler              <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If true, tests SafeFetch inside error handler.
      bool TestUnresponsiveErrorHandler             <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       If true, simulates an unresponsive error handler.
      bool ThreadLocalHandshakes                    <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>pd product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use thread-local polls instead of global poll <span style="color:#66d9ef">for</span> safepoints.
@@ -1058,8 +1032,8 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool TimeEachLinearScan                       <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C1 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       print detailed timing of each LinearScan run
      bool TimeLinearScan                           <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C1 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       detailed timing of LinearScan phases
      bool TimeLivenessAnalysis                     <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Time computation of bytecode liveness analysis
-     bool TimeOopMap                               <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Time calls to GenerateOopMap::compute_map<span style="color:#f92672">(</span><span style="color:#f92672">)</span> in sum
-     bool TimeOopMap2                              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Time calls to GenerateOopMap::compute_map<span style="color:#f92672">(</span><span style="color:#f92672">)</span> individually
+     bool TimeOopMap                               <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Time calls to GenerateOopMap::compute_map<span style="color:#f92672">()</span> in sum
+     bool TimeOopMap2                              <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Time calls to GenerateOopMap::compute_map<span style="color:#f92672">()</span> individually
      bool TraceBytecodes                           <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Trace bytecode execution
      intx TraceBytecodesAt                         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Trace bytecodes starting with specified bytecode number
      bool TraceCISCSpill                           <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Trace allocators use of cisc spillable instructions
@@ -1139,7 +1113,7 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool UncommonNullCast                         <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>pd develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       track occurrences of null in casts; adjust compiler tactics
      intx UnguardOnExecutionViolation              <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>                                         <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Unguard page and retry on no-execute fault <span style="color:#f92672">(</span>Win32 only<span style="color:#f92672">)</span> 0<span style="color:#f92672">=</span>off, 1<span style="color:#f92672">=</span>conservative, 2<span style="color:#f92672">=</span>aggressive
      bool UnlockDiagnosticVMOptions                <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enable normal processing of flags relating to field diagnostics
-     intx UnrollLimitForProfileCheck               <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>                                      <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Don<span style="color:#ae81ff">\&#39;</span>t use profile_trip_cnt<span style="color:#f92672">(</span><span style="color:#f92672">)</span> to restrict unrolling <span style="color:#66d9ef">until</span> unrolling would push the number of unrolled iterations above UnrollLimitForProfileCheck. A higher value allows more unrolling. Zero acts as a very large value.
+     intx UnrollLimitForProfileCheck               <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>                                      <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Don<span style="color:#ae81ff">\&#39;</span>t use profile_trip_cnt<span style="color:#f92672">()</span> to restrict unrolling <span style="color:#66d9ef">until</span> unrolling would push the number of unrolled iterations above UnrollLimitForProfileCheck. A higher value allows more unrolling. Zero acts as a very large value.
      bool Use24BitFP                               <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       use FP instructions that produce 24-bit precise results
      bool Use24BitFPMode                           <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Set 24-bit FPU mode on a per-compile basis 
      bool UseAES                                   <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Control whether AES instructions are used when available
@@ -1155,7 +1129,7 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool UseAdaptiveSizeDecayMajorGCCost          <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Adaptive size decays the major cost <span style="color:#66d9ef">for</span> long major intervals
      bool UseAdaptiveSizePolicy                    <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use adaptive generation sizing policies
      bool UseAdaptiveSizePolicyFootprintGoal       <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use adaptive minimum footprint as a goal
-     bool UseAdaptiveSizePolicyWithSystemGC        <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Include statistics from System.gc<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> adaptive size policy
+     bool UseAdaptiveSizePolicyWithSystemGC        <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Include statistics from System.gc<span style="color:#f92672">()</span> <span style="color:#66d9ef">for</span> adaptive size policy
      bool UseAddressNop                            <span style="color:#f92672">=</span> false                                <span style="color:#f92672">{</span>ARCH product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use <span style="color:#e6db74">&#39;0F 1F [addr]&#39;</span> NOP instructions on x86 cpus
      bool UseAdler32Intrinsics                     <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       use intrinsics <span style="color:#66d9ef">for</span> java.util.zip.Adler32
      bool UseBASE64Intrinsics                      <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use intrinsics <span style="color:#66d9ef">for</span> java.util.Base64
@@ -1226,10 +1200,10 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool UseMallocOnly                            <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use only malloc/free <span style="color:#66d9ef">for</span> allocation <span style="color:#f92672">(</span>no resource area/arena<span style="color:#f92672">)</span>
      bool UseMathExactIntrinsics                   <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of various java.lang.Math functions
      bool UseMaximumCompactionOnSystemGC           <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use maximum compaction in the Parallel Old garbage collector <span style="color:#66d9ef">for</span> a system GC
-     bool UseMontgomeryMultiplyIntrinsic           <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.montgomeryMultiply<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
-     bool UseMontgomerySquareIntrinsic             <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.montgomerySquare<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
-     bool UseMulAddIntrinsic                       <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.mulAdd<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
-     bool UseMultiplyToLenIntrinsic                <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.multiplyToLen<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+     bool UseMontgomeryMultiplyIntrinsic           <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.montgomeryMultiply<span style="color:#f92672">()</span>
+     bool UseMontgomerySquareIntrinsic             <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.montgomerySquare<span style="color:#f92672">()</span>
+     bool UseMulAddIntrinsic                       <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.mulAdd<span style="color:#f92672">()</span>
+     bool UseMultiplyToLenIntrinsic                <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.multiplyToLen<span style="color:#f92672">()</span>
      bool UseNUMA                                  <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use NUMA <span style="color:#66d9ef">if</span> available
      bool UseNUMAInterleaving                      <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Interleave memory across NUMA nodes <span style="color:#66d9ef">if</span> available
      bool UseNewCode                               <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Testing Only: Use the new version <span style="color:#66d9ef">while</span> testing
@@ -1264,7 +1238,7 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool UseSharedSpaces                          <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use shared spaces <span style="color:#66d9ef">for</span> metadata
      bool UseSignalChaining                        <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use signal-chaining to invoke signal handlers installed by the application <span style="color:#f92672">(</span>Solaris &amp; Linux only<span style="color:#f92672">)</span>
      bool UseSlowPath                              <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C1 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       For debugging: test slow cases by always using them
-     bool UseSquareToLenIntrinsic                  <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.squareToLen<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+     bool UseSquareToLenIntrinsic                  <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of BigInteger.squareToLen<span style="color:#f92672">()</span>
      bool UseStackBanging                          <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       use stack banging <span style="color:#66d9ef">for</span> stack overflow checks <span style="color:#f92672">(</span>required <span style="color:#66d9ef">for</span> proper StackOverflow handling; disable only to measure cost of stackbanging<span style="color:#f92672">)</span>
      bool UseStoreImmI16                           <span style="color:#f92672">=</span> true                                 <span style="color:#f92672">{</span>ARCH product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use store immediate 16-bits value instruction on x86
      bool UseStrictFP                              <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       use strict fp <span style="color:#66d9ef">if</span> modifier strictfp is set
@@ -1280,7 +1254,7 @@ ccstrlist SuppressErrorAt                          <span style="color:#f92672">=
      bool UseUnalignedLoadStores                   <span style="color:#f92672">=</span> false                                <span style="color:#f92672">{</span>ARCH product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use SSE2 MOVDQU instruction <span style="color:#66d9ef">for</span> Arraycopy
      bool UseUniqueSubclasses                      <span style="color:#f92672">=</span> true                                   <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Narrow an abstract reference to the unique concrete subclass
      bool UseVectorCmov                            <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C2 product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use Vectorized Cmov
-     bool UseVectorizedMismatchIntrinsic           <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of ArraysSupport.vectorizedMismatch<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+     bool UseVectorizedMismatchIntrinsic           <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>diagnostic<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Enables intrinsification of ArraysSupport.vectorizedMismatch<span style="color:#f92672">()</span>
      bool UseXMMForArrayCopy                       <span style="color:#f92672">=</span> false                                     <span style="color:#f92672">{</span>product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use SSE2 MOVQ instruction <span style="color:#66d9ef">for</span> Arraycopy
      bool UseXMMForObjInit                         <span style="color:#f92672">=</span> false                                <span style="color:#f92672">{</span>ARCH product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use XMM/YMM MOVDQU instruction <span style="color:#66d9ef">for</span> Object Initialization
      bool UseXmmI2D                                <span style="color:#f92672">=</span> false                                <span style="color:#f92672">{</span>ARCH product<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Use SSE2 CVTDQ2PD instruction to convert Integer to Double
@@ -1318,7 +1292,7 @@ ccstrlist VerifyGCType                             <span style="color:#f92672">=
      bool VerifyHashTableKeys                      <span style="color:#f92672">=</span> true                                <span style="color:#f92672">{</span>C2 notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify the immutability of keys in the VN hash tables
      bool VerifyIdealNodeCount                     <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify that tracked dead ideal node count is accurate
      bool VerifyIterativeGVN                       <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>C2 develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify Def-Use modifications during sparse Iterative Global Value Numbering
-     bool VerifyJNIEnvThread                       <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify JNIEnv.thread <span style="color:#f92672">=</span><span style="color:#f92672">=</span> Thread::current<span style="color:#f92672">(</span><span style="color:#f92672">)</span> when entering VM from JNI
+     bool VerifyJNIEnvThread                       <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify JNIEnv.thread <span style="color:#f92672">==</span> Thread::current<span style="color:#f92672">()</span> when entering VM from JNI
      bool VerifyJNIFields                          <span style="color:#f92672">=</span> true                                      <span style="color:#f92672">{</span>develop<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify jfieldIDs <span style="color:#66d9ef">for</span> instance fields
      bool VerifyLastFrame                          <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Verify oops on last frame on entry to VM
      bool VerifyLoopOptimizations                  <span style="color:#f92672">=</span> false                               <span style="color:#f92672">{</span>C2 notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       verify major loop optimizations
@@ -1358,139 +1332,10 @@ ccstrlist VerifySubSet                             <span style="color:#f92672">=
      bool ZombieALot                               <span style="color:#f92672">=</span> false                                  <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Create zombies <span style="color:#f92672">(</span>non-entrant<span style="color:#f92672">)</span> at exit from the runtime system
      intx ZombieALotInterval                       <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>                                      <span style="color:#f92672">{</span>notproduct<span style="color:#f92672">}</span> <span style="color:#f92672">{</span>default<span style="color:#f92672">}</span>       Number of exits <span style="color:#66d9ef">until</span> ZombieALot kicks in
 </code></pre></div>
-                </div>
-            </section>
-            <div class="post-full-content" id="gitalk-container"></div>
-        </article>
-    </div>
-</main>
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed"><article class="post-card post
+<div class="post-full-content" id="gitalk-container"></div>
 
 
- ">
-
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/en/tech/react-event-source-code-reading/">
-                <img class="post-card-image"src="/images/react-event.png" alt="React source reading--Events"/>
-            </a>
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/en/tech/react-event-source-code-reading/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">React source reading--Events</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>react event source codes reading(v16.13.0)</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-75-05">15 May 2020</time>
-                            <span class="bull">&bull;</span> 3 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-
-            <article class="post-card post
-
-
- ">
-
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/en/tech/react-core-super-in-constructor/">
-                <img class="post-card-image"src="/images/react.png" alt="React source reading--constructor"/>
-            </a>
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/en/tech/react-core-super-in-constructor/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">React source reading--constructor</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>react event source codes reading(v16.13.0)</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-109-09">19 September 2020</time>
-                            <span class="bull">&bull;</span> 2 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-        </div>
-    </div>
-</aside>
-
-
-
-
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2020</section>
-                <nav class="site-footer-nav">
-                    <a href="https://www.hulin.ink">Latest Posts</a>
-                    
-                    
-                    
-                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
-                </nav>
-                <nav class="site-footer-nav">
-                  <span id="busuanzi_container_site_pv">
-                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
-                  </span>
-                  &nbsp;
-                  <span id="busuanzi_container_site_uv">
-                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-                </nav>
-            </div>
-        </footer>
-
-    </div>
-
-</body>
+        </div><p class="footer text-center">Copyright (c) 2020 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
 </html>

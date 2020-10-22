@@ -1,8 +1,8 @@
 <div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
-      <a class="site-nav-logo" href="{{ $.Site.BaseURL }}{{ $.Site.LanguagePrefix }}">{{ $.Site.Title }}</a>
+      <a class="site-nav-logo word-break-keep" href="{{ $.Site.BaseURL }}{{ $.Site.LanguagePrefix }}">{{ $.Site.Title }}</a>
       {{ range .Site.Menus.main }}
-        <a class="display-block padding-10 word-break-kepp uppercase white" href="{{ .URL }}">
+        <a class="display-block padding-10 word-break-keep uppercase white" href="{{ .URL }}">
           {{ if .Pre }}
             {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
             {{ $icon }}

@@ -1,97 +1,81 @@
 <!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html lang=""><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    
-    
-    <title>Hooks First Time · INNER PEACE</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <title>Hooks First Time · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.f9c0fd82b75a41816508d95036d6610ba091cef3d2b1bcbbd01c166e9fda7e80.css" />
 </head>
-<body class=" post-template ">
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.ink">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
 
-    <div class="site-wrapper">
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
 
-<header class="site-header"><div class="outer site-nav-main">
-    <div class="inner"><nav class="site-nav">
-    <div class="site-nav-left">
-        
-            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
-        
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
 
-        <div class="site-nav-content">
-            <ul class="nav" role="menu">
-                
-                <li class="nav-home" role="menuitem"><a href="/categories">Archive</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
-                
-            </ul>
-        </div>
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
 
-    </div>
-</nav>
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
 
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
 </div>
-</div></header>
-
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <article class="post-full post  no-image ">
-
-            <header class="post-full-header">
-
-                
-
-                <h1 class="post-full-title">Hooks First Time</h1>
-
-                
-
-                <div class="post-full-byline">
-                    <section class="post-full-byline-content">
-
-                        
-
-                        <section class="post-full-byline-meta">
-                            
-                            <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="2019-103-03">2 March 2019</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
-                                <span class="bull">&bull;</span>
-                                <span id="busuanzi_container_page_pv">
-                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
-                                </span>
-                            </div>
-                        </section>
-
-                    </section>
+<div id="content" class="main-padding-x">
+<h1>Hooks First Time</h1>
 
 
-                </div>
-            </header>
+<time datetime="2019-03-02">Mar 2, 2019</time>
 
-            
 
-            <section class="post-full-content">
-                <div class="post-content">
-                    <p>React 新特性</p>
+<br><br>
+<p>React 新特性</p>
 <p>19年初，期待以久的hooks在16.8上稳定了。在这之前我也尝试过了这些新的特性，真的很好用，完全可以取带现有的class，让有副作用的代码类似请求也能达到复用的效果。以下是我自己的一些感受。</p>
 <p>hooks最最重要的两个的api是useState和useEffect, 顾名思义，useState是用与管理状态的，useEffect是与副作用相关的。</p>
 <p>上一段官网的代码</p>
@@ -102,11 +86,11 @@
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
   <span style="color:#66d9ef">return</span> (
     <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">You</span> <span style="color:#a6e22e">clicked</span> {<span style="color:#a6e22e">count</span>} <span style="color:#a6e22e">times</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">You</span> <span style="color:#a6e22e">clicked</span> {<span style="color:#a6e22e">count</span>} <span style="color:#a6e22e">times</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
       <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)}<span style="color:#f92672">&gt;</span>
         <span style="color:#a6e22e">Click</span> <span style="color:#a6e22e">me</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">b</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
-    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
   );
 }
 </code></pre></div><p>看看是不是很很简介，想想如果像以前一样如果要使用state，那必须使用class，而且必须使用constructer申明，也写一下</p>
@@ -124,11 +108,11 @@
     <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">count</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>;
     <span style="color:#66d9ef">return</span> (
       <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">You</span> <span style="color:#a6e22e">clicked</span> {<span style="color:#a6e22e">count</span>} <span style="color:#a6e22e">times</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">You</span> <span style="color:#a6e22e">clicked</span> {<span style="color:#a6e22e">count</span>} <span style="color:#a6e22e">times</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">seState</span>({ <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>})}<span style="color:#f92672">&gt;</span>
             <span style="color:#a6e22e">Click</span> <span style="color:#a6e22e">me</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">b</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">d</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
     );
   }
 }
@@ -166,102 +150,8 @@
 </code></pre></div><p>上面的代码只有在<code>props.friend.id</code>变化的时候才会去调用函数，如果你只想这个函数在mount和unmount执行的话，只需要给useEffect的第二个参数设置为空数组就可以了。</p>
 <p>官方提供的api还有很多，有兴趣的可以自己去看看，前端无止境呀，学起来</p>
 <p>另外react作者还把相关的源码做了整理，方便查看，<a href="https://gist.github.com/gaearon/864f451ff2a2a5821fe2c4db344ebcdf">点我去看看</a></p>
-                </div>
-            </section>
-            <div class="post-full-content" id="gitalk-container"></div>
-        </article>
-    </div>
-</main>
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed"><article class="post-card post
- no-image
- ">
+<div class="post-full-content" id="gitalk-container"></div>
 
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/preload-preconnect-prefetch/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">Preload,Preconnect,Prefetch</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>script额外参数</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2019-102-02">28 February 2019</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-
-            <article class="post-card post
- no-image
- ">
-
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/cache-control-for-civilians/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">Cache Control for Civilians</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>第一篇译文</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2019-103-03">10 March 2019</time>
-                            <span class="bull">&bull;</span> 2 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-        </div>
-    </div>
-</aside>
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
@@ -279,32 +169,7 @@
 </script>
 
 
-
-
-
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2019</section>
-                <nav class="site-footer-nav">
-                    <a href="https://www.hulin.ink">Latest Posts</a>
-                    
-                    
-                    
-                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
-                </nav>
-                <nav class="site-footer-nav">
-                  <span id="busuanzi_container_site_pv">
-                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
-                  </span>
-                  &nbsp;
-                  <span id="busuanzi_container_site_uv">
-                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-                </nav>
-            </div>
-        </footer>
-
-    </div>
-
-</body>
+        </div><p class="footer text-center">Copyright (c) 2020 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
 </html>

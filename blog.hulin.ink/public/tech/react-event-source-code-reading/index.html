@@ -1,101 +1,81 @@
 <!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html lang=""><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    
-    
-    <title>React源码--事件 · INNER PEACE</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <title>React源码--事件 · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
-    <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.0381df9d7668502fcfcacac62e03efed3d3e8bcaffb967a33a221039d16fbe0d.css" />
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.f9c0fd82b75a41816508d95036d6610ba091cef3d2b1bcbbd01c166e9fda7e80.css" />
 </head>
-<body class=" post-template ">
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.ink">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
 
-    <div class="site-wrapper">
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
 
-<header class="site-header"><div class="outer site-nav-main">
-    <div class="inner"><nav class="site-nav">
-    <div class="site-nav-left">
-        
-            <a class="site-nav-logo" href="https://www.hulin.ink">INNER PEACE</a>
-        
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
 
-        <div class="site-nav-content">
-            <ul class="nav" role="menu">
-                
-                <li class="nav-home" role="menuitem"><a href="/categories">Archive</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/en">EN</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="https://github.com/flyingalex">Github</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/about">关于</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/tool">工具</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/tech">技术</a></li>
-                
-                <li class="nav-home" role="menuitem"><a href="/life">生活</a></li>
-                
-            </ul>
-        </div>
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
 
-    </div>
-</nav>
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
 
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
 </div>
-</div></header>
-
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <article class="post-full post  no-image ">
-
-            <header class="post-full-header">
-
-                
-
-                <h1 class="post-full-title">React源码--事件</h1>
-
-                
-
-                <div class="post-full-byline">
-                    <section class="post-full-byline-content">
-
-                        
-
-                        <section class="post-full-byline-meta">
-                            
-                            <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="2020-75-05">15 May 2020</time>
-                                <span class="byline-reading-time"><span class="bull">&bull;</span> 1 min read</span>
-                                <span class="bull">&bull;</span>
-                                <span id="busuanzi_container_page_pv">
-                                  本文阅读量<span id="busuanzi_value_page_pv"></span>次
-                                </span>
-                            </div>
-                        </section>
-
-                    </section>
+<div id="content" class="main-padding-x">
+<h1>React源码--事件</h1>
 
 
-                </div>
-            </header>
+<time datetime="2020-05-15">May 15, 2020</time>
 
-            
-            <figure class="post-full-image">
-                <img src="/images/react-event.png" alt="React源码--事件" />
-            </figure>
-            
 
-            <section class="post-full-content">
-                <div class="post-content">
-                    <p>React事件源码阅读(v16.13.0)</p>
+<br><br>
+<p>React事件源码阅读(v16.13.0)</p>
 <p>根据官方文档,react内的事件是通过一个合成事件SyntheticEvent来实现的，自己写了一个wrapper,并且为了性能考虑用了事件池,
 我们来看看源码内是怎么做的，本文代码都在我<a href="https://github.com/flyingalex/react-related-source-code-reading/tree/event">github
 repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
@@ -119,13 +99,13 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
 
   <span style="color:#a6e22e">render</span>() {
     <span style="color:#66d9ef">return</span> [
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Update</span> <span style="color:#a6e22e">counter</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">b</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#960050;background-color:#1e0010">,</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleClick</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Update</span> <span style="color:#a6e22e">counter</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;,</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;</span>
     ]
   }
 }
 
-<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span> <span style="color:#f92672">/</span><span style="color:#f92672">&gt;</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>));
+<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">App</span> <span style="color:#f92672">/&gt;</span>, document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;app&#39;</span>));
 </code></pre></div><p><code>handleClick</code>是本文要研究的地方。首先jsx文件是需要被编译成js，我们可以通过babel的命令行去编译
 在项目根目录跑</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">./node_modules/.bin/babel src/index.jsx
@@ -181,112 +161,8 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
 <li><a href="https://zh-hans.reactjs.org/languages">https://zh-hans.reactjs.org/languages</a></li>
 <li><a href="https://github.com/flyingalex/react-related-source-code-reading/tree/event">https://github.com/flyingalex/react-related-source-code-reading/tree/event</a></li>
 </ol>
-                </div>
-            </section>
-            <div class="post-full-content" id="gitalk-container"></div>
-        </article>
-    </div>
-</main>
-<aside class="read-next outer">
-    <div class="inner">
-        <div class="read-next-feed"><article class="post-card post
+<div class="post-full-content" id="gitalk-container"></div>
 
-
- ">
-
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/tech/learning/">
-                <img class="post-card-image"src="/images/the-missing-semester-of-your-cs-education.png" alt="CS教育中缺少的课程"/>
-            </a>
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/learning/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">CS教育中缺少的课程</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>丰富你的工具集</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-75-05">13 May 2020</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-
-            <article class="post-card post
-
-
- ">
-
-        
-            <a class="post-card-image-link" href="https://www.hulin.ink/tech/java-early-experience/">
-                <img class="post-card-image"src="/images/springinaction.jpg" alt="Java初体验"/>
-            </a>
-        
-    
-        <div class="post-card-content">
-    
-            <a class="post-card-content-link" href="https://www.hulin.ink/tech/java-early-experience/">
-    
-                <header class="post-card-header">
-                    
-
-                    <h2 class="post-card-title">Java初体验</h2>
-                </header>
-    
-                <section class="post-card-excerpt">
-                    <p><p>看Spring In Actio有感</p></p>
-                </section>
-    
-            </a>
-
-            <footer class="post-card-meta">
-                    <ul class="author-list">
-                        <li class="author-list-item">
-                            <div class="author-name-tooltip"></div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../../images/avatar.jpeg" />
-
-</a>
-                        </li>
-                    </ul>
-                    <div class="post-card-byline-content">
-                        <span></span>
-                        <span class="post-card-byline-date"><time datetime="2020-116-06">8 June 2020</time>
-                            <span class="bull">&bull;</span> 1 min read</span>
-                    </div>
-                </footer>
-    
-        </div>
-
-</article>
-    
-        </div>
-    </div>
-</aside>
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script>
@@ -304,32 +180,7 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
 </script>
 
 
-
-
-
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://www.hulin.ink">INNER PEACE</a> &copy; 2020</section>
-                <nav class="site-footer-nav">
-                    <a href="https://www.hulin.ink">Latest Posts</a>
-                    
-                    
-                    
-                    <a href="https://jonathanjanssens.com" target="_blank" rel="noopener" style="opacity: 0.5;">Hugo Casper3 by Jonathan Janssens</a>
-                </nav>
-                <nav class="site-footer-nav">
-                  <span id="busuanzi_container_site_pv">
-                    本站总访问量:<span id="busuanzi_value_site_pv"></span>次
-                  </span>
-                  &nbsp;
-                  <span id="busuanzi_container_site_uv">
-                    本站访客数:<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-                </nav>
-            </div>
-        </footer>
-
-    </div>
-
-</body>
+        </div><p class="footer text-center">Copyright (c) 2020 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
 </html>
