@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.f9c0fd82b75a41816508d95036d6610ba091cef3d2b1bcbbd01c166e9fda7e80.css" />
+  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.ccf93e9f308d54a92a92a76dafaa88050d733f9e1004078d57413f9f6205aeb1.css" />
 </head>
 <body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
@@ -103,57 +103,57 @@
 <p>在项目内创建<code>.github/workflow/main.yml</code>, 内容大概是这样的</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">name</span>: CI
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
 
-<span style="color:#66d9ef">on</span>: 
-  <span style="color:#66d9ef">push</span>:
-    <span style="color:#66d9ef">branches</span>:
-      - master
-  <span style="color:#66d9ef">schedule</span>:
-    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
+<span style="color:#f92672">on</span>: 
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">master</span>
+  <span style="color:#f92672">schedule</span>:
+    - <span style="color:#f92672">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
 
 
-<span style="color:#66d9ef">jobs</span>:
-  <span style="color:#66d9ef">build</span>:
-    <span style="color:#66d9ef">runs-on</span>: ubuntu-latest
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">build</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
 
-    <span style="color:#66d9ef">steps</span>:
-    - <span style="color:#66d9ef">uses</span>: actions/checkout@v2
-    - <span style="color:#66d9ef">uses</span>: actions/setup-python@v1
-      <span style="color:#66d9ef">with</span>:
-        <span style="color:#66d9ef">python-version</span>: <span style="color:#e6db74">&#39;3.x&#39;</span>
-    - <span style="color:#66d9ef">name</span>: generate data
-      <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">        python -m pip install --upgrade pip</span>
-        pip install -r requirements.txt
-        cd spider
-        scrapy crawl mpcomponent -o mpcomponent.json
-        scrapy crawl mpapi -o mpapi.json
-    - <span style="color:#66d9ef">name</span>: build frontend
-      <span style="color:#66d9ef">run</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">        npm install</span>
-        npm run build
-    - <span style="color:#66d9ef">name</span>: publish to netlify
-      <span style="color:#66d9ef">uses</span>: netlify/actions/cli@master
-      <span style="color:#66d9ef">with</span>:
-        <span style="color:#66d9ef">args</span>: deploy --dir=public --prod
-      <span style="color:#66d9ef">env</span>:
-        <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: NETLIFY_AUTH_TOKEN
-        <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: NETLIFY_SITE_ID
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-python@v1</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">python-version</span>: <span style="color:#e6db74">&#39;3.x&#39;</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">generate data</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        python -m pip install --upgrade pip
+</span><span style="color:#e6db74">        pip install -r requirements.txt
+</span><span style="color:#e6db74">        cd spider
+</span><span style="color:#e6db74">        scrapy crawl mpcomponent -o mpcomponent.json
+</span><span style="color:#e6db74">        scrapy crawl mpapi -o mpapi.json</span>        
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">build frontend</span>
+      <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">        npm install
+</span><span style="color:#e6db74">        npm run build</span>        
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">publish to netlify</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">netlify/actions/cli@master</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">args</span>: <span style="color:#ae81ff">deploy --dir=public --prod</span>
+      <span style="color:#f92672">env</span>:
+        <span style="color:#f92672">NETLIFY_AUTH_TOKEN</span>: <span style="color:#ae81ff">NETLIFY_AUTH_TOKEN</span>
+        <span style="color:#f92672">NETLIFY_SITE_ID</span>: <span style="color:#ae81ff">NETLIFY_SITE_ID</span>
 </code></pre></div><p>主要看:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#66d9ef">name</span>: publish to netlify
-  <span style="color:#66d9ef">uses</span>: netlify/actions/cli@master
-  <span style="color:#66d9ef">with</span>:
-    <span style="color:#66d9ef">args</span>: deploy --dir=public --prod
-  <span style="color:#66d9ef">env</span>:
-    <span style="color:#66d9ef">NETLIFY_AUTH_TOKEN</span>: NETLIFY_AUTH_TOKEN
-    <span style="color:#66d9ef">NETLIFY_SITE_ID</span>: NETLIFY_SITE_ID
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">publish to netlify</span>
+  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">netlify/actions/cli@master</span>
+  <span style="color:#f92672">with</span>:
+    <span style="color:#f92672">args</span>: <span style="color:#ae81ff">deploy --dir=public --prod</span>
+  <span style="color:#f92672">env</span>:
+    <span style="color:#f92672">NETLIFY_AUTH_TOKEN</span>: <span style="color:#ae81ff">NETLIFY_AUTH_TOKEN</span>
+    <span style="color:#f92672">NETLIFY_SITE_ID</span>: <span style="color:#ae81ff">NETLIFY_SITE_ID</span>
 </code></pre></div><p>其余代码都是构建静态网站用的
 使用了<code>netlify/actions/cli@master</code>, <code>--dir=public</code>代表你部署的目录
 然后<code>NETLIFY_AUTH_TOKEN</code>和<code>NETLIFY_SITE_ID</code>都可以到他们<a href="https://github.com/netlify/actions/tree/master/cli">cli repo</a>找到出处</p>
 <p>另外每四个小时部署一次是在这里的:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">schedule</span>:
-    - <span style="color:#66d9ef">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">schedule</span>:
+    - <span style="color:#f92672">cron</span>:  <span style="color:#e6db74">&#39;0 1 * * *&#39;</span>
 </code></pre></div><p>就这样，一个免费的自动化部署网站就好了</p>
 <p>referrence:</p>
 <ol>
@@ -182,7 +182,7 @@
 </script>
 
 
-        </div><p class="footer text-center">Copyright (c) 2020 Hulin</p>
+        </div><p class="footer text-center">Copyright (c) 2021 Hulin</p>
 <script src="https://unpkg.com/feather-icons"></script>
     </body>
 </html>

@@ -3,6 +3,14 @@
 $tablet-width: 768px;
 $mobile-width: 480px;
 
+p code {
+    color: red;
+}
+p img {
+    max-width: 100%;
+    padding: 10px 0;
+}
+
 .site-nav-logo {
     color: white;
 }

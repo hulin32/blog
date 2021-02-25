@@ -5,11 +5,7 @@
     <link>https://www.hulin.ink/categories/react-window/</link>
     <description>Recent content in react-window on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 12 Jun 2019 21:55:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://www.hulin.ink/categories/react-window/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 12 Jun 2019 21:55:21 +0800</lastBuildDate><atom:link href="https://www.hulin.ink/categories/react-window/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>react-window 源码解析--VariableSizeList</title>
       <link>https://www.hulin.ink/tech/react-window-variablesizelist/</link>

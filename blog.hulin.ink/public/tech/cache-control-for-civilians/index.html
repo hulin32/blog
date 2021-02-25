@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.f9c0fd82b75a41816508d95036d6610ba091cef3d2b1bcbbd01c166e9fda7e80.css" />
+  <link rel="stylesheet" href="https://www.hulin.ink/style.main.min.ccf93e9f308d54a92a92a76dafaa88050d733f9e1004078d57413f9f6205aeb1.css" />
 </head>
 <body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
@@ -151,7 +151,7 @@
 <p><strong>注意</strong>: 如果单单使用<code>max-age</code>会有一个非常大的风险…<code>max-age</code>可以告诉浏览器资源是否已经过时，但是它不能告诉浏览器它是否可以使用过时的版本。浏览器可能在没有验证的情况下使用过期的版本。这种行为有些不确定性，导致我们很难判断浏览器究竟做了什么。幸好，我们有一系列更明确的指令，我们可以用这些指令来增强<code>max-age</code>。感谢<a href="https://twitter.com/AndyDavies"><code>Andy Davies</code></a>的帮助</p>
 <h3 id="s-maxage">s-maxage</h3>
 <p>The s-maxage (note the absence of the - between max and age) will take precedence over the max-age directive but only in the context of shared caches. Using max-age and s-maxage in conjunction allows you to have different fresh durations for private and public caches (e.g. proxies, CDNs) respectively.</p>
-<p><code>s-maxage</code> (注意没有&rdquo;-&ldquo;在<code>max</code>和<code>age</code>之间)将优先于<code>max-age</code>指令，但仅在共享缓存的情况下有效。结合使用<code>max-age</code>和<code>s-maxage</code>，你可以分别对私有缓存和公共缓存(例如代理、CDN)拥有不同的缓存刷新时间。</p>
+<p><code>s-maxage</code> (注意没有&quot;-&ldquo;在<code>max</code>和<code>age</code>之间)将优先于<code>max-age</code>指令，但仅在共享缓存的情况下有效。结合使用<code>max-age</code>和<code>s-maxage</code>，你可以分别对私有缓存和公共缓存(例如代理、CDN)拥有不同的缓存刷新时间。</p>
 <h3 id="no-store">no-store</h3>
 <pre><code>Cache-Control: no-store
 </code></pre><p>如果我们不想缓存文件怎么办？如果文件包含敏感信息怎么办？也许这是一个包含你银行详细信息的HTML页面？又或者信息是实时的？也又可能是一个包含实时股票价格的页面？我们肯定不想缓存或从缓存中获取这样的信息: 我们总是希望清除敏感的信息，然后获取最新的实时信息。现在我们需要用<code>no-store</code>。</p>
@@ -308,7 +308,7 @@ Cache-Control: max-age=2419200, must-revalidate, stale-while-revalidate=86400
 </script>
 
 
-        </div><p class="footer text-center">Copyright (c) 2020 Hulin</p>
+        </div><p class="footer text-center">Copyright (c) 2021 Hulin</p>
 <script src="https://unpkg.com/feather-icons"></script>
     </body>
 </html>
