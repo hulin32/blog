@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>为什么你应该尝试@reach/router · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.402e129aa54db96e565dd7e9600b49d9cb0f306eaee7344a324ae19ac3c88eee.css" />
+</head>
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.dev">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>为什么你应该尝试@reach/router</h1>
+
+
+<time datetime="2018-06-05">Jun 5, 2018</time>
+
+
+<br><br>
+<p>为什么</p>
+<p>最近react-router的一个作者另外写了一个类react-router的组件<a href="https://github.com/reach/router"><code>@reach/router</code></a>，尝试后感觉太棒了。如果你的项目只是web端的话我认为可以把你的react-router换掉了。</p>
+<p>下面是我到目前看到的所有非常好的点。</p>
+<ol>
+<li>
+<p>小，就4kb,压缩后比react-router小40kb左右。</p>
+</li>
+<li>
+<p>更少的配置</p>
+<p>a. react-router需要3个包(<code>history</code>, <code>react-router-dom</code>, <code>react-router-redux</code>)，reach-router只需要一个。</p>
+<p>b. 不需要在store配置router相关信息</p>
+<p>c. 不需要显示的使用history</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// in store config file
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//react-router
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">routerMiddleware</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">createHistory</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;history/createBrowserHistory&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">history</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createHistory</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">middleware</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">routerMiddleware</span>(<span style="color:#a6e22e">history</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> { <span style="color:#a6e22e">history</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//reach/router, nothing
+</span></span></span></code></pre></div></li>
+<li>
+<p>更好用</p>
+<p>a. 当你想跳转页面时</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// react-router
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">push</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-redux&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// use it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/see-you&#39;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FooComponent</span>.<span style="color:#a6e22e">contextTypes</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">store</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// reach/router
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">navigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@reach/router&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">navigate</span>(<span style="color:#e6db74">`/lol`</span>);
+</span></span></code></pre></div><p>b.当你想取url里面的参数时</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// react-router
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">withRouter</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//use it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">match</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">iAmHere</span> } } } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">FooComponent</span>.<span style="color:#a6e22e">propTypes</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">match</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">PropTypes</span>.<span style="color:#a6e22e">object</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">withRouter</span>(<span style="color:#a6e22e">FooComponent</span>);
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// reach/router
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">iAmHere</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+</span></span></code></pre></div></li>
+<li>
+<p>基本一样的api,学习成本非常低</p>
+</li>
+<li>
+<p>源码非常简洁，总共就3个文件，900行，如果你想深入理解单页应用的路由是怎么实现的，reach-router,绝对是绝佳的下手资料。</p>
+</li>
+</ol>
+<p>不说了，去看看吧
+<a href="https://github.com/reach/router">https://github.com/reach/router</a></p>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2023 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

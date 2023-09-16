@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>Timezone · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.402e129aa54db96e565dd7e9600b49d9cb0f306eaee7344a324ae19ac3c88eee.css" />
+</head>
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.dev">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>Timezone</h1>
+
+
+<time datetime="2020-08-26">Aug 26, 2020</time>
+
+
+<br><br>
+<p>蛋疼的时区问题</p>
+<p>最近在给公司做一个小demo，写一些后端，刚开始用的php，后面客户说他只懂nodejs，所以又让给个nodejs版本，好嘛，翻译咯</p>
+<p>翻译代码其实到不难，其中最烦人的一个问题居然是因为docker时区问题，卡了好几个小时，在我本地的时区是对的，push到线上就不行了，我尝试了改docker时区:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">SET_CONTAINER_TIMEZONE=true</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">CONTAINER_TIMEZONE=Asia/Shanghai</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">TZ=Asia/Shanghai</span>
+</span></span></code></pre></div><p>还是不行，后面突发奇想，是不是宿主环境(ubuntu)本身的问题</p>
+<p><strong>还真是!!!!!</strong></p>
+<p>这里发现一个命令挺好用，可以查看系统时间</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>timedatectl
+</span></span></code></pre></div><p>通过上面这个命令你可以查看系统时间，大概是这个样</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ubuntu@VM-0-2-ubuntu:~$ timedatectl
+</span></span><span style="display:flex;"><span>                      Local time: Thu 2020-08-27 00:05:28 CST
+</span></span><span style="display:flex;"><span>                  Universal time: Wed 2020-08-26 16:05:28 UTC
+</span></span><span style="display:flex;"><span>                        RTC time: Wed 2020-08-26 16:05:29
+</span></span><span style="display:flex;"><span>                       Time zone: Asia/Shanghai <span style="color:#f92672">(</span>CST, +0800<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>       System clock synchronized: yes
+</span></span><span style="display:flex;"><span>systemd-timesyncd.service active: no
+</span></span><span style="display:flex;"><span>                 RTC in local TZ: no
+</span></span></code></pre></div><p>但是公司体统上虽然显示的是<code>Time zone: Asia/Shanghai</code>，但是时间根本不对，通过</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>timedatectl set-time TIME
+</span></span></code></pre></div><p>改系统内时间，问题解决</p>
+<p>奇葩问题</p>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2023 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

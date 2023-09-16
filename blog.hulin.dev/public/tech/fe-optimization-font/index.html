@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>前端性能优化---字体 · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.402e129aa54db96e565dd7e9600b49d9cb0f306eaee7344a324ae19ac3c88eee.css" />
+</head>
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.dev">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>前端性能优化---字体</h1>
+
+
+<time datetime="2018-02-09">Feb 9, 2018</time>
+
+
+<br><br>
+<p>前端优化</p>
+<p>当我们在开发中使用自己的字体的时候，由于字体文件一般都会比较大，所以需要对它们做优化。一般来说有这样几种方法。</p>
+<p>页面渲染的过程</p>
+<p><img src="https://user-images.githubusercontent.com/11313145/36055514-ed821e06-0e37-11e8-9fea-90e8d368f8f3.png" alt="font-crp"></p>
+<blockquote>
+<p>1.浏览器请求 HTML 文档。
+2.浏览器开始解析 HTML 响应和构建 DOM。
+3.浏览器发现 CSS、JS 以及其他资源并分派请求。
+4.浏览器在收到所有 CSS 内容后构建 CSSOM，然后将其与 DOM 树合并以构建渲染树。</p>
+<ul>
+<li>在渲染树指示需要哪些字体变体在网页上渲染指定文本后，将分派字体请求。</li>
+</ul>
+<p>5.浏览器执行布局并将内容绘制到屏幕上。</p>
+<ul>
+<li>如果字体尚不可用，浏览器可能不会渲染任何文本像素。</li>
+<li>字体可用之后，浏览器将绘制文本像素。</li>
+</ul>
+</blockquote>
+<p>字体的加载会阻塞页面的渲染，因而优化字体挺重要的</p>
+<h3 id="使用local">使用local()</h3>
+<p>当在加载自己的字体时，在最前面声明local(),像这样</p>
+<pre tabindex="0"><code>@font-face {
+  font-family: &#39;Awesome Font&#39;;
+  font-style: normal;
+  font-weight: 400;
+  src: local(&#39;Awesome Font&#39;),
+       url(&#39;/fonts/awesome.woff2&#39;) format(&#39;woff2&#39;), 
+       url(&#39;/fonts/awesome.woff&#39;) format(&#39;woff&#39;),
+       url(&#39;/fonts/awesome.ttf&#39;) format(&#39;truetype&#39;),
+       url(&#39;/fonts/awesome.eot&#39;) format(&#39;embedded-opentype&#39;);
+}
+</code></pre><p>如果字体文件在本地就不会发起新的请求</p>
+<h3 id="使用-unicode-range">使用 Unicode-range</h3>
+<p>用法</p>
+<pre tabindex="0"><code>@font-face {
+  .....
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}
+</code></pre><p>这个霸道，你可以通过指定<code>unicode-range</code>来指定需要应用字体的范围，曾经在一个活动页面内使用过
+,当时通过检查页面，发现整个项目就用了几个文字，其他全是图片，我就直接写了那几个字符的unicode,字体文件直接从200多kb降到30kb左右，性能测试字体方面直接从F变到了A.</p>
+<h3 id="内联">内联</h3>
+<p>将字体直接放在css文件中，不用发起二次请求，不过css文件会比较大。</p>
+<p>参考</p>
+<ol>
+<li><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization">Web Font Optimization</a></li>
+</ol>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2023 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

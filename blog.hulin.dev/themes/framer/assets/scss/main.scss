@@ -1,0 +1,141 @@
+@import './sanitize.scss';
+
+$tablet-width: 768px;
+$mobile-width: 480px;
+
+p code {
+    color: red;
+}
+p img {
+    max-width: 100%;
+    padding: 10px 0;
+}
+
+.site-nav-logo {
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+h1 {
+    text-align: center;
+    width: 100%;
+}
+pre {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#content {
+    max-width: 800px;
+    margin: auto;
+}
+.article-list {
+    // display: flex;
+    // flex-wrap: wrap;
+}
+.main-padding-x {
+    padding: 0 5vw;
+}
+.main-bg {
+    background-color: black;
+}
+.white {
+    color: white;
+}
+.word-break-keep {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+.nav {
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+}
+.nav-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @media only screen and (min-width: $mobile-width) {
+        position: initial;
+    }
+}
+.text-center {
+    text-align: center;
+}
+.display-block {
+    display: block;
+}
+.padding-10 {
+    padding: 10px;
+}
+.article-item {
+    border: 1px #DADADA solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    h3 {
+        margin: 0;
+    }
+    .article-date {
+        text-align: right;
+    }
+    &:hover {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            bottom: -1px;
+            left: -1px;
+            width: 4px;
+            background-color: #7768DE;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            transition: all 0.5s ease-in-out;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            animation: leftright 0.5s ease-in-out;
+            background: linear-gradient(270deg, #7768DE 0%, rgba(176, 25, 72, 0) 100%);
+        }
+    }
+    &:active {
+        
+    }
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+.footer {
+    padding-bottom: 44px;
+    @media only screen and (min-width: $mobile-width) {
+        padding-bottom: 0;
+    }
+}
+
+@keyframes leftright {
+    from {
+        right: 100%;
+    }
+
+    to {
+        right: 0;
+    }
+}

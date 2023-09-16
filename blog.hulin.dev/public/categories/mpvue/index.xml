@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mpvue on INNER PEACE</title>
+    <link>https://www.hulin.dev/categories/mpvue/</link>
+    <description>Recent content in mpvue on INNER PEACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 19 Feb 2019 22:28:37 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/categories/mpvue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mpvue Issues</title>
+      <link>https://www.hulin.dev/tech/mpvue-issues/</link>
+      <pubDate>Tue, 19 Feb 2019 22:28:37 +0800</pubDate>
+      
+      <guid>https://www.hulin.dev/tech/mpvue-issues/</guid>
+      <description>&lt;p&gt;小坑总结&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

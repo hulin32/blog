@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ partial "metadata.html" . }}
+<br><br>
+{{ .Content }}
+<div class="post-full-content" id="gitalk-container"></div>
+{{ if (.Params.gitalk) }}
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "{{if eq .Site.LanguagePrefix "/en"}}en{{else}}zh-CN{{end}}",
+    admin: ['flyingalex'],
+    id: '{{ .Slug }}',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+{{ end }}
+{{ end }}

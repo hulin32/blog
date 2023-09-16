@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>react-window 源码解析--FixedSizeList · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.402e129aa54db96e565dd7e9600b49d9cb0f306eaee7344a324ae19ac3c88eee.css" />
+</head>
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.dev">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>react-window 源码解析--FixedSizeList</h1>
+
+
+<time datetime="2019-06-11">Jun 11, 2019</time>
+
+
+<br><br>
+<p>FixedSizeList 解析</p>
+<p>先看简单的的吧，FixedSizeList在底层调用了createListComponent, createListComponent是一个高阶函数，返回一个PureComponent</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createListComponent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getItemOffset</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getEstimatedTotalSize</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getItemSize</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getOffsetForIndexAndAlignment</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getStartIndexForOffset</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getStopIndexForStartIndex</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initInstanceProps</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">shouldResetStyleCacheOnItemSizeChange</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">validateProps</span>,
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">:</span> {<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getItemOffset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetItemOffset</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getEstimatedTotalSize</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetEstimatedTotalSize</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getItemSize</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetItemSize</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getOffsetForIndexAndAlignment</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetOffsetForIndexAndAlignment</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getStartIndexForOffset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetStartIndexForOffset</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">getStopIndexForStartIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">GetStopIndexForStartIndex</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initInstanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InitInstanceProps</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">shouldResetStyleCacheOnItemSizeChange</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">validateProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ValidateProps</span>,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span>}) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">PureComponent</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>, <span style="color:#a6e22e">State</span><span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><p>别怕，我看着也头晕，作者还使用了flow类型，我也没学过，但是感觉跟ts差不太多，还是可以看得懂。</p>
+<p>然后我们根据声明周期来看看这个高阶函数吧,我就挑我认为重要的讲了.</p>
+<p>在<code>getDerivedStateFromProps</code>会对参数做一些验证,因为其会在render方法前调用，放这里验证也比价合理</p>
+<p>然后在<code>render</code>里面，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">startIndex</span>, <span style="color:#a6e22e">stopIndex</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_getRangeToRender</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startIndex</span>; <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">stopIndex</span>; <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">children</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">itemData</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">itemKey</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">itemData</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">index</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isScrolling</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">useIsScrolling</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">isScrolling</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">undefined</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_getItemStyle</span>(<span style="color:#a6e22e">index</span>),
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这里生成的<code>items</code>就是最终渲染在页面上的内容,这里巧的就是通过控制startIndex, stopIndex，只是渲染一部分的内容到页面上，所以即使有再多的数据，渲染的内容都是一样的，然后看看<code>_getRangeToRender</code>方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">_getRangeToRender</span>()<span style="color:#f92672">:</span> [<span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">number</span>, <span style="color:#a6e22e">number</span>] {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">itemCount</span>, <span style="color:#a6e22e">overscanCount</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">isScrolling</span>, <span style="color:#a6e22e">scrollDirection</span>, <span style="color:#a6e22e">scrollOffset</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 该方法是使用时才从父组件传下来的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">startIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getStartIndexForOffset</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scrollOffset</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_instanceProps</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 该方法是使用时才从父组件传下来的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getStopIndexForStartIndex</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">startIndex</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">scrollOffset</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_instanceProps</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Overscan by one item in each direction so that tab/focus works.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// If there isn&#39;t at least one extra item, tab loops back around.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">overscanBackward</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">!</span><span style="color:#a6e22e">isScrolling</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">scrollDirection</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;backward&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">?</span> Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">overscanCount</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">overscanForward</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">!</span><span style="color:#a6e22e">isScrolling</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">scrollDirection</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;forward&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">?</span> Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">overscanCount</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [
+</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">startIndex</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">overscanBackward</span>), <span style="color:#75715e">// 往前加一个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>, Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">overscanForward</span>)), <span style="color:#75715e">// 往后再加一个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">startIndex</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stopIndex</span>,
+</span></span><span style="display:flex;"><span>  ];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">getStartIndexForOffset</span><span style="color:#f92672">:</span> (
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">itemCount</span>, <span style="color:#a6e22e">itemSize</span> }<span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt;
+</span></span><span style="display:flex;"><span>  Math.<span style="color:#a6e22e">max</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 简单的将移动的个数算出来
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, Math.<span style="color:#a6e22e">floor</span>(<span style="color:#a6e22e">offset</span> <span style="color:#f92672">/</span> ((<span style="color:#a6e22e">itemSize</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>)))
+</span></span><span style="display:flex;"><span>  ),
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">getStopIndexForStartIndex</span><span style="color:#f92672">:</span> (
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">direction</span>, <span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">itemCount</span>, <span style="color:#a6e22e">itemSize</span>, <span style="color:#a6e22e">layout</span>, <span style="color:#a6e22e">width</span> }<span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">startIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scrollOffset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">direction</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">layout</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// itemSize 是每个item的大小的高或宽，根据isHorizontal 来决定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startIndex</span> <span style="color:#f92672">*</span> ((<span style="color:#a6e22e">itemSize</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> (((<span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">height</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Math.<span style="color:#a6e22e">max</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">min</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">startIndex</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        Math.<span style="color:#a6e22e">floor</span>(
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 这里的算法就是用区域的大小再加上还未完全移出的那一个的部分大小
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#75715e">// 不知道为什么要加那一部分，尝试后没有影响
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          (<span style="color:#a6e22e">size</span> <span style="color:#f92672">+</span> (<span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">offset</span>)) <span style="color:#f92672">/</span> ((<span style="color:#a6e22e">itemSize</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>)
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>然后重要的就是监听onScroll来改变scrollOffset的值了</p>
+<p>当是垂直滚动时</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">_onScrollVertical</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">event</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ScrollEvent</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">clientHeight</span>, <span style="color:#a6e22e">scrollHeight</span>, <span style="color:#a6e22e">scrollTop</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">currentTarget</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">prevState</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prevState</span>.<span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">scrollTop</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果移动距离是一样的就不更新了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Prevent Safari&#39;s elastic scrolling from causing visual shaking when scrolling past bounds.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// scrollTop 就是滚动出去的大小
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// clientHeight 是区域的大小，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// 其实这里一直都会等于scrollTop
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">scrollTop</span>, <span style="color:#a6e22e">scrollHeight</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">clientHeight</span>)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isScrolling</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollDirection</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prevState</span>.<span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;forward&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;backward&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollOffset</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollUpdateWasRequested</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_resetIsScrollingDebounced</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>当是水平滚动时</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">_onScrollHorizontal</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">event</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ScrollEvent</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">clientWidth</span>, <span style="color:#a6e22e">scrollLeft</span>, <span style="color:#a6e22e">scrollWidth</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">currentTarget</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">prevState</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prevState</span>.<span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">scrollLeft</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 如果移动距离是一样的就不更新了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">direction</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scrollLeft</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">direction</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;rtl&#39;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isNegative</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">isRTLOffsetNegative</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 这里是当向右阅读时scrollOffset的不同
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// TRICKY According to the spec, scrollLeft should be negative for RTL aligned elements.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// This is not the case for all browsers though (e.g. Chrome reports values as positive, measured relative to the left).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// It&#39;s also easier for this component if we convert offsets to the same format as they would be in for ltr.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// So the simplest solution is to determine which browser behavior we&#39;re dealing with, and convert based on it.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isNegative</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">scrollLeft</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scrollWidth</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">clientWidth</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">scrollLeft</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Prevent Safari&#39;s elastic scrolling from causing visual shaking when scrolling past bounds.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">max</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">scrollOffset</span>, <span style="color:#a6e22e">scrollWidth</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">clientWidth</span>)
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">isScrolling</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollDirection</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prevState</span>.<span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">scrollLeft</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;forward&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;backward&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollOffset</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">scrollUpdateWasRequested</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">_resetIsScrollingDebounced</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2023 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

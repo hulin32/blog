@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>react-window 源码解析--VariableSizeList · INNER PEACE</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.402e129aa54db96e565dd7e9600b49d9cb0f306eaee7344a324ae19ac3c88eee.css" />
+</head>
+<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep" href="https://www.hulin.dev">INNER PEACE</a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block padding-10 word-break-keep uppercase white" href="/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>react-window 源码解析--VariableSizeList</h1>
+
+
+<time datetime="2019-06-12">Jun 12, 2019</time>
+
+
+<br><br>
+<p>VariableSizeList解析</p>
+<p>和前面 #25 一样，最都是调用的<code>createListComponent</code>，不一样的地方就是调用那个函数时传入的方法,我们来一起看看。
+主要的就是<code>getStartIndexForOffset</code>和<code>getStopIndexForStartIndex</code>两个函数了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// 主要调用了findNearestItem
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">getStartIndexForOffset</span><span style="color:#f92672">:</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; <span style="color:#a6e22e">findNearestItem</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">instanceProps</span>, <span style="color:#a6e22e">offset</span>),
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">findNearestItem</span> <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
+</span></span><span style="display:flex;"><span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">itemMetadataMap</span>, <span style="color:#a6e22e">lastMeasuredIndex</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">instanceProps</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;offset&#39;</span>, <span style="color:#a6e22e">offset</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastMeasuredItemOffset</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastMeasuredIndex</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">itemMetadataMap</span>[<span style="color:#a6e22e">lastMeasuredIndex</span>].<span style="color:#a6e22e">offset</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">lastMeasuredItemOffset</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">offset</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果查找过就直接使用二分查找
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemBinarySearch</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">instanceProps</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">lastMeasuredIndex</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果没有就使用指数搜索
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemExponentialSearch</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">instanceProps</span>,
+</span></span><span style="display:flex;"><span>      Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">lastMeasuredIndex</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>二分查找我猜很多人都看过了，通过查找中位数来折半查找，非常的快,来主要看看指数查找</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">findNearestItemExponentialSearch</span> <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">itemCount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">interval</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 这里主要就是找到那个偏移大于现在的点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">instanceProps</span>).<span style="color:#a6e22e">offset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">interval</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">interval</span> <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 找到那个点后就可以使用二分查找了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemBinarySearch</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">instanceProps</span>,
+</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">floor</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>接下来再看看<code>getStopIndexForStartIndex</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">getStopIndexForStartIndex</span><span style="color:#f92672">:</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">startIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scrollOffset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">direction</span>, <span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">itemCount</span>, <span style="color:#a6e22e">layout</span>, <span style="color:#a6e22e">width</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">direction</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">layout</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可见区域的滑动方向的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> (((<span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">height</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">itemMetadata</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">startIndex</span>, <span style="color:#a6e22e">instanceProps</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 距离第一个的最大距离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">maxOffset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可见区域里第一个的偏移
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">itemMetadata</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">itemMetadata</span>.<span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startIndex</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">maxOffset</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stopIndex</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">stopIndex</span>, <span style="color:#a6e22e">instanceProps</span>).<span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stopIndex</span>;
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '79307730117f338d6ff58d8c07720945a5a452d4',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2023 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

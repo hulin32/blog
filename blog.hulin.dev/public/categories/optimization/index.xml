@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>optimization on INNER PEACE</title>
+    <link>https://www.hulin.dev/categories/optimization/</link>
+    <description>Recent content in optimization on INNER PEACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 28 Feb 2019 22:23:38 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Preload,Preconnect,Prefetch</title>
+      <link>https://www.hulin.dev/tech/preload-preconnect-prefetch/</link>
+      <pubDate>Thu, 28 Feb 2019 22:23:38 +0800</pubDate>
+      
+      <guid>https://www.hulin.dev/tech/preload-preconnect-prefetch/</guid>
+      <description>&lt;p&gt;script额外参数&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>前端性能优化---字体</title>
+      <link>https://www.hulin.dev/tech/fe-optimization-font/</link>
+      <pubDate>Fri, 09 Feb 2018 22:38:11 +0800</pubDate>
+      
+      <guid>https://www.hulin.dev/tech/fe-optimization-font/</guid>
+      <description>&lt;p&gt;前端优化&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>前端性能优化---图片</title>
+      <link>https://www.hulin.dev/tech/fe-optimization-img/</link>
+      <pubDate>Wed, 07 Feb 2018 22:38:11 +0800</pubDate>
+      
+      <guid>https://www.hulin.dev/tech/fe-optimization-img/</guid>
+      <description>&lt;p&gt;前端优化&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
