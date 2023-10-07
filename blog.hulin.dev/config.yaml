@@ -1,6 +1,5 @@
 baseURL: "https://www.hulin.dev"
 defaultContentLanguage: "zh"
-favicon: "favicon.ico"
 languages:
   zh:
     contentDir: "content/zh"
