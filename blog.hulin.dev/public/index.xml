@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 25 Feb 2021 23:35:27 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Composer Tips</title>
-      <link>https://www.hulin.dev/tech/composer_in_docker/</link>
+      <link>https://www.hulin.dev/tech/composer-in-docker/</link>
       <pubDate>Thu, 25 Feb 2021 23:35:27 +0800</pubDate>
       
-      <guid>https://www.hulin.dev/tech/composer_in_docker/</guid>
+      <guid>https://www.hulin.dev/tech/composer-in-docker/</guid>
       <description>&lt;p&gt;composer使用中的小知识&lt;/p&gt;</description>
     </item>
     
