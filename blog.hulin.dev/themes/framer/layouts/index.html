@@ -3,9 +3,8 @@
   <h1 class="title">{{ .Site.Title }}</h1>
 </div>
 <div class="article-list">
-    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{ range $pages.ByPublishDate.Reverse }}
-      <div class="article-item padding-10">
+    {{ range .Paginator.Pages }}
+    <div class="article-item padding-10">
         <a class="display-block" href="{{ .RelPermalink }}">
           <h3>{{ .Title }}</h3>
           <div class="article-date">
@@ -16,5 +15,6 @@
       </div>
     {{ end }}
 </div>
+{{ template "_internal/pagination.html" . }}
 {{ end }}
 

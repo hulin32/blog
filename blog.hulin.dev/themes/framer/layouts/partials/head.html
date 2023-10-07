@@ -5,6 +5,7 @@
   {{ $title := print .Title " · " .Site.Title }}
   {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
   <title>{{ $title }}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

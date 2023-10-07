@@ -3,6 +3,9 @@
 $tablet-width: 768px;
 $mobile-width: 480px;
 
+ul, ol {
+    list-style: none;
+}
 p code {
     color: red;
 }
@@ -138,4 +141,12 @@ pre {
     to {
         right: 0;
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.pagination li {
+    padding: 0 10px;
 }
