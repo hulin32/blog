@@ -6,20 +6,16 @@ aliases: ["about-us","contact"]
 author: 一介文夫
 ---
 
-I am a medical student, was taken awry, now I am a frontend dev at a foreign
-company
 - Mini program，React，Vuejs，BE's CURD
 - I like new tech very much
 
-email: hulinalex@163.com
+email: hulin2021@gmail.com
 
 github: https://github.com/flyingalex
 
 twitter: https://twitter.com/hulin50
 
 **Personal repo**:
-
-2019-nCoV map: https://github.com/flyingalex/2019-nCoV
 
 Design patterns: https://github.com/flyingalex/design-patterns-by-php
 

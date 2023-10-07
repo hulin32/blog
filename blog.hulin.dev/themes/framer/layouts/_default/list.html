@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   <div class="article-list">
-    {{ range .Pages.ByPublishDate.Reverse }}
+    {{ range .Paginator.Pages }}
       <div class="article-item padding-10 ">
         <a class="display-block" href="{{ .RelPermalink }}">
           <h3>{{ .Title }}</h3>
@@ -13,4 +13,5 @@
       </div>
     {{ end }}
   </div>
+  {{ template "_internal/pagination.html" . }}
 {{ end }}

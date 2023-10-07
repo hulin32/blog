@@ -2,6 +2,8 @@
 
 $tablet-width: 768px;
 $mobile-width: 480px;
+$theme-color: #28ABF5;
+$visited-color: #134857;
 
 ul, ol {
     list-style: none;
@@ -15,11 +17,25 @@ p img {
 }
 
 .site-nav-logo {
-    color: white;
+    padding: 10px;
+    margin-right: 30px;
+}
+.site-nav-logo img {
+    width: 50px;
+}
+
+.bold {
+    font-weight: bold;
 }
 a {
     text-decoration: none;
+    color: $theme-color;
 }
+
+a:visited {
+    color: $visited-color;
+}
+
 h1 {
     text-align: center;
     width: 100%;
@@ -41,7 +57,7 @@ pre {
     padding: 0 5vw;
 }
 .main-bg {
-    background-color: black;
+    background-color: #f0f5e5;
 }
 .white {
     color: white;
@@ -101,7 +117,7 @@ pre {
             bottom: -1px;
             left: -1px;
             width: 4px;
-            background-color: #7768DE;
+            background-color: $theme-color;
             border-top-left-radius: 2px;
             border-bottom-left-radius: 2px;
             transition: all 0.5s ease-in-out;
@@ -114,12 +130,7 @@ pre {
             left: 0;
             right: 0;
             z-index: -1;
-            animation: leftright 0.5s ease-in-out;
-            background: linear-gradient(270deg, #7768DE 0%, rgba(176, 25, 72, 0) 100%);
         }
-    }
-    &:active {
-        
     }
 }
 .uppercase {
@@ -132,17 +143,6 @@ pre {
         padding-bottom: 0;
     }
 }
-
-@keyframes leftright {
-    from {
-        right: 100%;
-    }
-
-    to {
-        right: 0;
-    }
-}
-
 .pagination {
     display: flex;
     justify-content: center;
