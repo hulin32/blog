@@ -6,7 +6,16 @@
     <description>Recent content in Teches on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Sep 2020 22:25:46 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/en/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Oct 2023 21:32:00 +0100</lastBuildDate><atom:link href="https://www.hulin.dev/en/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Write npm package with rust programming lanuage</title>
+      <link>https://www.hulin.dev/en/tech/rust/</link>
+      <pubDate>Sat, 14 Oct 2023 21:32:00 +0100</pubDate>
+      
+      <guid>https://www.hulin.dev/en/tech/rust/</guid>
+      <description>&lt;p&gt;Faster npm package&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>React source reading--constructor</title>
       <link>https://www.hulin.dev/en/tech/react-core-super-in-constructor/</link>

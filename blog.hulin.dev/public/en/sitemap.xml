@@ -2,6 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.hulin.dev/en/</loc>
+    <lastmod>2023-10-14T21:32:00+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/en/"
+                />
+  </url><url>
+    <loc>https://www.hulin.dev/en/tech/</loc>
+    <lastmod>2023-10-14T21:32:00+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/tech/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/en/tech/"
+                />
+  </url><url>
+    <loc>https://www.hulin.dev/en/tech/rust/</loc>
+    <lastmod>2023-10-14T21:32:00+01:00</lastmod>
+  </url><url>
     <loc>https://www.hulin.dev/en/categories/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
     <xhtml:link
@@ -13,19 +42,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.dev/en/categories/"
-                />
-  </url><url>
-    <loc>https://www.hulin.dev/en/</loc>
-    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/en/"
                 />
   </url><url>
     <loc>https://www.hulin.dev/en/categories/react/</loc>
@@ -52,19 +68,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.dev/en/tech/react-core-super-in-constructor/"
-                />
-  </url><url>
-    <loc>https://www.hulin.dev/en/tech/</loc>
-    <lastmod>2020-09-19T22:25:46+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/en/tech/"
                 />
   </url><url>
     <loc>https://www.hulin.dev/en/tech/java-jvm-xx-options/</loc>
