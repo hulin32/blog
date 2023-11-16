@@ -1,13 +1,30 @@
 @import './sanitize.scss';
 
+@font-face {
+    font-family: 'JetBrainsMono-Bold';
+    src: url("/static/fonts/JetBrainsMono-Bold.woff2") format('woff2');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'JetBrainsMono-Regular';
+    src: url("/static/fonts/JetBrainsMono-Bold.woff2") format('woff2');
+    font-weight: normal;
+}
+
+* {
+    font-family: JetBrainsMono-Regular, serif;
+}
+
 $tablet-width: 768px;
 $mobile-width: 480px;
 $theme-color: #28ABF5;
 $visited-color: #134857;
 
-ul, ol {
-    list-style: none;
+ul li {
+    margin: 5px 0;
 }
+
 p code {
     color: red;
 }
@@ -25,6 +42,7 @@ p img {
 }
 
 .bold {
+    font-family: JetBrainsMono-Bold, serif;
     font-weight: bold;
 }
 a {

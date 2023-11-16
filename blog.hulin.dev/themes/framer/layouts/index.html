@@ -1,20 +1,20 @@
 {{ define "main" }}
 <div id="home-jumbotron" class="text-center">
-  <h1 class="title">{{ .Site.Title }}</h1>
+    <h1 class="title">{{ .Site.Title }}</h1>
 </div>
 <div class="article-list">
-    {{ range .Paginator.Pages }}
+    {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{ range $pages.ByPublishDate.Reverse }}
     <div class="article-item padding-10">
         <a class="display-block" href="{{ .RelPermalink }}">
-          <h3>{{ .Title }}</h3>
-          <div class="article-date">
-            {{ partial "metadata.html" . }}
-            <span class="bull">&bull;</span> {{ .ReadingTime }} min read</span>
-          </div>
+            <h3>{{ .Title }}</h3>
+            <div class="article-date">
+                {{ partial "metadata.html" . }}
+                <span class="bull">&bull;</span> {{ .ReadingTime }} min read</span>
+            </div>
         </a>
-      </div>
+    </div>
     {{ end }}
 </div>
-{{ template "_internal/pagination.html" . }}
 {{ end }}
 
