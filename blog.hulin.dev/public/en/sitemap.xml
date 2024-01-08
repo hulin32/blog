@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.hulin.dev/en/tech/adventofcode/</loc>
+    <lastmod>2024-01-08T20:08:17+08:00</lastmod>
+  </url><url>
     <loc>https://www.hulin.dev/en/</loc>
-    <lastmod>2023-10-14T21:32:00+01:00</lastmod>
+    <lastmod>2024-01-08T20:08:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -16,7 +19,7 @@
                 />
   </url><url>
     <loc>https://www.hulin.dev/en/tech/</loc>
-    <lastmod>2023-10-14T21:32:00+01:00</lastmod>
+    <lastmod>2024-01-08T20:08:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
