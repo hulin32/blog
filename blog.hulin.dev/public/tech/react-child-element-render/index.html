@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -82,85 +81,85 @@
 <p>React 源码</p>
 <p>react发现个有趣的问题，在下面四种写法中，只有第一种会渲染demo</p>
 <p>显示demo</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; &lt;<span style="color:#f92672">div</span> {<span style="color:#a6e22e">...props</span>} <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demo&#34;</span> /&gt;;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Demo</span>&gt;<span style="color:#a6e22e">demo</span>&lt;/<span style="color:#f92672">Demo</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">const</span> Demo <span style="color:#fe8019">=</span> (props) =&gt; &lt;<span style="color:#fb4934">div</span> {<span style="color:#b8bb26;font-weight:bold">...props</span>} <span style="color:#b8bb26;font-weight:bold">class</span><span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;demo&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#fb4934">Demo</span>&gt;demo&lt;/<span style="color:#fb4934">Demo</span>&gt;
 </span></span></code></pre></div><p>显示hello</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">children</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demo&#34;</span> /&gt;;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Demo</span>&gt;<span style="color:#a6e22e">demo</span>&lt;/<span style="color:#f92672">Demo</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">const</span> Demo <span style="color:#fe8019">=</span> (props) =&gt; &lt;<span style="color:#fb4934">div</span> <span style="color:#b8bb26;font-weight:bold">children</span><span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;hello&#34;</span> <span style="color:#b8bb26;font-weight:bold">class</span><span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;demo&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#fb4934">Demo</span>&gt;demo&lt;/<span style="color:#fb4934">Demo</span>&gt;
 </span></span></code></pre></div><p>不显示任何信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">props</span>) =&gt; &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demo&#34;</span> /&gt;;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Demo</span>&gt;<span style="color:#a6e22e">demo</span>&lt;/<span style="color:#f92672">Demo</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">const</span> Demo <span style="color:#fe8019">=</span> (props) =&gt; &lt;<span style="color:#fb4934">div</span> <span style="color:#b8bb26;font-weight:bold">class</span><span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;demo&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#fb4934">Demo</span>&gt;demo&lt;/<span style="color:#fb4934">Demo</span>&gt;
 </span></span></code></pre></div><p>不显示任何信息</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Demo</span> <span style="color:#f92672">=</span> () =&gt; &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demo&#34;</span> /&gt;;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">Demo</span>&gt;<span style="color:#a6e22e">demo</span>&lt;/<span style="color:#f92672">Demo</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">const</span> Demo <span style="color:#fe8019">=</span> () =&gt; &lt;<span style="color:#fb4934">div</span> <span style="color:#b8bb26;font-weight:bold">class</span><span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;demo&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#fb4934">Demo</span>&gt;demo&lt;/<span style="color:#fb4934">Demo</span>&gt;
 </span></span></code></pre></div><p>why?</p>
 <p>发生上面的原因是因为<code>createElement</code>函数</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">config</span>, <span style="color:#a6e22e">children</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">propName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">void</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Reserved names are extracted
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">props</span> <span style="color:#f92672">=</span> {};
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">function</span> createElement(type, config, children) {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> propName <span style="color:#fe8019">=</span> <span style="color:#fe8019">void</span> <span style="color:#d3869b">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// Reserved names are extracted
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">var</span> props <span style="color:#fe8019">=</span> {};
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ref</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> key <span style="color:#fe8019">=</span> <span style="color:#fe8019">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> ref <span style="color:#fe8019">=</span> <span style="color:#fe8019">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> self <span style="color:#fe8019">=</span> <span style="color:#fe8019">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> source <span style="color:#fe8019">=</span> <span style="color:#fe8019">null</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">config</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">hasValidRef</span>(<span style="color:#a6e22e">config</span>)) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ref</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ref</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (config <span style="color:#fe8019">!=</span> <span style="color:#fe8019">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (hasValidRef(config)) {
+</span></span><span style="display:flex;"><span>      ref <span style="color:#fe8019">=</span> config.ref;
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">hasValidKey</span>(<span style="color:#a6e22e">config</span>)) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">key</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (hasValidKey(config)) {
+</span></span><span style="display:flex;"><span>      key <span style="color:#fe8019">=</span> <span style="color:#b8bb26">&#39;&#39;</span> <span style="color:#fe8019">+</span> config.key;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">__self</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">__self</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">__source</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">__source</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Remaining properties are added to a new props object
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">propName</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">config</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">hasOwnProperty</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">config</span>, <span style="color:#a6e22e">propName</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">RESERVED_PROPS</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#a6e22e">propName</span>)) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 这里会把parent的children复制过来
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">props</span>[<span style="color:#a6e22e">propName</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>[<span style="color:#a6e22e">propName</span>];
+</span></span><span style="display:flex;"><span>    self <span style="color:#fe8019">=</span> config.__self <span style="color:#fe8019">===</span> <span style="color:#fe8019">undefined</span> <span style="color:#fe8019">?</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">:</span> config.__self;
+</span></span><span style="display:flex;"><span>    source <span style="color:#fe8019">=</span> config.__source <span style="color:#fe8019">===</span> <span style="color:#fe8019">undefined</span> <span style="color:#fe8019">?</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">:</span> config.__source;
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// Remaining properties are added to a new props object
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">for</span> (propName <span style="color:#fe8019">in</span> config) {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">if</span> (hasOwnProperty.call(config, propName) <span style="color:#fe8019">&amp;&amp;</span> <span style="color:#fe8019">!</span>RESERVED_PROPS.hasOwnProperty(propName)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#928374;font-style:italic">// 这里会把parent的children复制过来
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>        props[propName] <span style="color:#fe8019">=</span> config[propName];
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 这里如果自身有children会覆盖来自parent的
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">childrenLength</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">childrenLength</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">children</span>;
-</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">childrenLength</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">childArray</span> <span style="color:#f92672">=</span> Array(<span style="color:#a6e22e">childrenLength</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">childrenLength</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">childArray</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 这里如果自身有children会覆盖来自parent的
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">var</span> childrenLength <span style="color:#fe8019">=</span> arguments.length <span style="color:#fe8019">-</span> <span style="color:#d3869b">2</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (childrenLength <span style="color:#fe8019">===</span> <span style="color:#d3869b">1</span>) {
+</span></span><span style="display:flex;"><span>    props.children <span style="color:#fe8019">=</span> children;
+</span></span><span style="display:flex;"><span>  } <span style="color:#fe8019">else</span> <span style="color:#fe8019">if</span> (childrenLength <span style="color:#fe8019">&gt;</span> <span style="color:#d3869b">1</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> childArray <span style="color:#fe8019">=</span> <span style="color:#fabd2f">Array</span>(childrenLength);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">for</span> (<span style="color:#fe8019">var</span> i <span style="color:#fe8019">=</span> <span style="color:#d3869b">0</span>; i <span style="color:#fe8019">&lt;</span> childrenLength; i<span style="color:#fe8019">++</span>) {
+</span></span><span style="display:flex;"><span>      childArray[i] <span style="color:#fe8019">=</span> arguments[i <span style="color:#fe8019">+</span> <span style="color:#d3869b">2</span>];
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (Object.<span style="color:#a6e22e">freeze</span>) {
-</span></span><span style="display:flex;"><span>        Object.<span style="color:#a6e22e">freeze</span>(<span style="color:#a6e22e">childArray</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">if</span> (<span style="color:#fabd2f">Object</span>.freeze) {
+</span></span><span style="display:flex;"><span>        <span style="color:#fabd2f">Object</span>.freeze(childArray);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">childArray</span>;
+</span></span><span style="display:flex;"><span>    props.children <span style="color:#fe8019">=</span> childArray;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">type</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">defaultProps</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">defaultProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">defaultProps</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">propName</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">defaultProps</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">props</span>[<span style="color:#a6e22e">propName</span>] <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">props</span>[<span style="color:#a6e22e">propName</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">defaultProps</span>[<span style="color:#a6e22e">propName</span>];
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (type <span style="color:#fe8019">&amp;&amp;</span> type.defaultProps) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> defaultProps <span style="color:#fe8019">=</span> type.defaultProps;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">for</span> (propName <span style="color:#fe8019">in</span> defaultProps) {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">if</span> (props[propName] <span style="color:#fe8019">===</span> <span style="color:#fe8019">undefined</span>) {
+</span></span><span style="display:flex;"><span>        props[propName] <span style="color:#fe8019">=</span> defaultProps[propName];
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">ref</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">displayName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;function&#39;</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">displayName</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;Unknown&#39;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">type</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">defineKeyPropWarningGetter</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">displayName</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (key <span style="color:#fe8019">||</span> ref) {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">var</span> displayName <span style="color:#fe8019">=</span> <span style="color:#fe8019">typeof</span> type <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;function&#39;</span> <span style="color:#fe8019">?</span> type.displayName <span style="color:#fe8019">||</span> type.name <span style="color:#fe8019">||</span> <span style="color:#b8bb26">&#39;Unknown&#39;</span> <span style="color:#fe8019">:</span> type;
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">if</span> (key) {
+</span></span><span style="display:flex;"><span>        defineKeyPropWarningGetter(props, displayName);
 </span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">ref</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">defineRefPropWarningGetter</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">displayName</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">if</span> (ref) {
+</span></span><span style="display:flex;"><span>        defineRefPropWarningGetter(props, displayName);
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ReactElement</span>(<span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">self</span>, <span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">ReactCurrentOwner</span>.<span style="color:#a6e22e">current</span>, <span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <div class="post-full-content" id="gitalk-container"></div>

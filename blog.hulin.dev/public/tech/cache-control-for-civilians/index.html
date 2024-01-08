@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -141,15 +140,15 @@
 <h3 id="cache-control">Cache-Control</h3>
 <p>一个最普遍、有效的管理资源缓存的方法是通过HTTP的头部字段<code>Cache-Control</code>,这个头部可以应用到每一个网站的资源，这意味着我们页面上的所有内容都可以有一个非常定制和精细的缓存策略。这也使得其非常复杂和强大。</p>
 <p>一个<code>Cache-Control</code>头部可能看起来像这样:</p>
-<pre tabindex="0"><code>Cache-Control: public, max-age=31536000
-</code></pre><p><code>Cache-Control</code>是字段名，<code>public</code>和<code>max-age=31536000</code>是指令。<code>Cache-Control</code>可以接受多个指令，在这篇博客中我会介绍这些指令以及它们的用例</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: public, max-age=31536000
+</span></span></code></pre></div><p><code>Cache-Control</code>是字段名，<code>public</code>和<code>max-age=31536000</code>是指令。<code>Cache-Control</code>可以接受多个指令，在这篇博客中我会介绍这些指令以及它们的用例</p>
 <h3 id="public-and-private">public and private</h3>
 <p><code>public</code>意味着任何可以缓存的地方都会缓存一份响应的数据。包括CDN,代理服务器等。<code>public</code>通常都是多余的，因为其他的指令(比如<code>max-age</code>)已经隐含它了。</p>
 <p>相反，<code>private</code>指令只允许在相应的接受方(客户端或浏览器)保存一份。虽然<code>private</code>不是一个安全相关的指令，但是它可以防止公共缓存(比如CDN)缓存一些用户相关的信息</p>
 <h3 id="max-age">max-age</h3>
 <p><code>max-age</code> 定义了一段时间(相对于请求时)来告诉浏览器相应是否需要刷新</p>
-<pre tabindex="0"><code>Cache-Control: max-age=60
-</code></pre><p>这条指令会告诉浏览器，它可以在接下来的60秒内使用缓存中的这个文件，而不必重新验证它。60秒后，浏览器将服务器发请求重新验证文件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: max-age=60
+</span></span></code></pre></div><p>这条指令会告诉浏览器，它可以在接下来的60秒内使用缓存中的这个文件，而不必重新验证它。60秒后，浏览器将服务器发请求重新验证文件。</p>
 <p>如果服务器有一个新文件供浏览器下载，它会返回状态码200，下载新文件，并替换掉HTTP缓存中旧文件，并按照指令缓存文件。</p>
 <p>如果服务器没有需要下载的更新副本，服务器会以304响应，并更新缓存的时间。这意味着，如果<code>Cache-Control: max-age=60</code>仍然存在，缓存文件还将缓存60秒。总共缓存120秒。</p>
 <p><strong>注意</strong>: 如果单单使用<code>max-age</code>会有一个非常大的风险…<code>max-age</code>可以告诉浏览器资源是否已经过时，但是它不能告诉浏览器它是否可以使用过时的版本。浏览器可能在没有验证的情况下使用过期的版本。这种行为有些不确定性，导致我们很难判断浏览器究竟做了什么。幸好，我们有一系列更明确的指令，我们可以用这些指令来增强<code>max-age</code>。感谢<a href="https://twitter.com/AndyDavies"><code>Andy Davies</code></a>的帮助</p>
@@ -157,20 +156,20 @@
 <p>The s-maxage (note the absence of the - between max and age) will take precedence over the max-age directive but only in the context of shared caches. Using max-age and s-maxage in conjunction allows you to have different fresh durations for private and public caches (e.g. proxies, CDNs) respectively.</p>
 <p><code>s-maxage</code> (注意没有&quot;-&ldquo;在<code>max</code>和<code>age</code>之间)将优先于<code>max-age</code>指令，但仅在共享缓存的情况下有效。结合使用<code>max-age</code>和<code>s-maxage</code>，你可以分别对私有缓存和公共缓存(例如代理、CDN)拥有不同的缓存刷新时间。</p>
 <h3 id="no-store">no-store</h3>
-<pre tabindex="0"><code>Cache-Control: no-store
-</code></pre><p>如果我们不想缓存文件怎么办？如果文件包含敏感信息怎么办？也许这是一个包含你银行详细信息的HTML页面？又或者信息是实时的？也又可能是一个包含实时股票价格的页面？我们肯定不想缓存或从缓存中获取这样的信息: 我们总是希望清除敏感的信息，然后获取最新的实时信息。现在我们需要用<code>no-store</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: no-store
+</span></span></code></pre></div><p>如果我们不想缓存文件怎么办？如果文件包含敏感信息怎么办？也许这是一个包含你银行详细信息的HTML页面？又或者信息是实时的？也又可能是一个包含实时股票价格的页面？我们肯定不想缓存或从缓存中获取这样的信息: 我们总是希望清除敏感的信息，然后获取最新的实时信息。现在我们需要用<code>no-store</code>。</p>
 <p><code>no-store</code>是一条非常强大的指令，告诉浏览器或其他设备不要缓存任何信息。任何带有这条指令的资源，无论在什么情况下都会发起请求。</p>
 <h3 id="no-cache">no-cache</h3>
-<pre tabindex="0"><code>Cache-Control: no-cache
-</code></pre><p>这个是让大多数人困惑的。<code>no-cache</code>并不意味着没有缓存。它的意思是在你向服务器重新验证缓存副本，并且服务器表示你可以使用缓存副本之前，不要使用缓存。是的，这听起来应该叫做必须重新验证！只是听起来也不是这样。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: no-cache
+</span></span></code></pre></div><p>这个是让大多数人困惑的。<code>no-cache</code>并不意味着没有缓存。它的意思是在你向服务器重新验证缓存副本，并且服务器表示你可以使用缓存副本之前，不要使用缓存。是的，这听起来应该叫做必须重新验证！只是听起来也不是这样。</p>
 <p><code>no-cache</code>实际上是一种非常聪明的方式，可以保证内容始终是最新的，但是如果可能的话，也可以使用更快的缓存策略。<code>no-cache</code>总是会发起网络请求，因为在返回浏览器的缓存之前，它必须与服务器重新验证(除非服务器有更新的响应内容)，但是如果服务器的响应良好，网络传输只是文件的头部:可以从缓存中抓取主体，而不是重新加载。</p>
 <p>所以，就像我说的，这是一种将获取最新资源和从缓存中获取文件的可能性结合起来的聪明方法，但是它会发出网络请求，至少会有HTTP头响应。</p>
 <p>一个好的<code>no-cache</code>用例几乎是任何动态HTML页面。想想一个网站的首页:它不是实时的，也不包含任何敏感信息，但是理想情况下，我们希望页面总是显示最新的内容。我们可以使用<code>cache-control: no-cache</code>来指示浏览器首先检查服务器，如果服务器没有更新的内容( 304 )，我们就使用缓存版本。如果服务器确实有一些更新的内容，它会照原样做出响应( 200 )并发送更新的文件。</p>
 <p><strong>提示</strong>:在发送<code>no-cache</code>指令的同时发送<code>max-age</code>指令是没有用的，因为重新验证的时间限制是零秒。</p>
 <h3 id="must-revalidate">must-revalidate</h3>
 <p>更令人困惑的是，虽然上面的那条指令听起来应该被称为<code>must-revalidate</code>，但事实上<code>must-revalidate</code>是不同的(但相似)。</p>
-<pre tabindex="0"><code>Cache-Control: must-revalidate, max-age=600
-</code></pre><p><code>must-revalidate</code>需要相关的<code>max-age</code>指令；上面代码中，我们把它设置为十分钟。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: must-revalidate, max-age=600
+</span></span></code></pre></div><p><code>must-revalidate</code>需要相关的<code>max-age</code>指令；上面代码中，我们把它设置为十分钟。</p>
 <p>其中<code>no-cache</code>将立即与服务器进行重新验证，并且只有在服务器认为可以的情况下才使用缓存，<code>must-revalidate</code>就像有宽限期的<code>no-cache</code>一样。在最初的十分钟里，浏览器不会发请求去服务器重新验证，但是十分钟过后，就会发请求去服务器验证了。如果服务器说没有什么新的，它会以304作为响应，并且新的缓存控制头会应用到缓存中—十分钟后才会再次发送请求。如果十分钟后，服务器上有一个更新的文件，我们会得到一个200的响应和它的内容，并且本地缓存会得到更新。</p>
 <p><code>must-revalidate</code>的一个很好的例子就是像我这样的博客:有很少改变的静态页面。当然，最新的内容是可取的，但是考虑到我的网站变化的频率，我们不需要像<code>no-cache</code>一样频繁的检测更新。十分钟验证一次足够了。</p>
 <h3 id="proxy-revalidate">proxy-revalidate</h3>
@@ -191,20 +190,20 @@
 <p>我们将在缓存刷新部分详细讨论这一点。</p>
 <p>如果我们能够以某种方式向浏览器传达我们的文件是不可变的——它的内容永远不会改变——那么我们也可以让浏览器知道，它不需要费心去检查更新的版本:永远不会有更新的版本，因为当文件的内容改变时，它就不再存在了。</p>
 <p>这正是不可变指令的作用:</p>
-<pre tabindex="0"><code>Cache-Control: max-age=31536000, immutable
-</code></pre><p>在支持<code>immutable</code>的浏览器中，用户刷新永远不会在31536000秒内导致重新验证。这意味着不会花费不必要的往返时间在304响应上，这可能会在关键路径上为我们节省大量延迟( CSS块渲染)。在高延迟连接上，这种节省可能是显而易见的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: max-age=31536000, immutable
+</span></span></code></pre></div><p>在支持<code>immutable</code>的浏览器中，用户刷新永远不会在31536000秒内导致重新验证。这意味着不会花费不必要的往返时间在304响应上，这可能会在关键路径上为我们节省大量延迟( CSS块渲染)。在高延迟连接上，这种节省可能是显而易见的。</p>
 <p><strong>注意</strong>: 你不应该把<code>immutable</code>应用到任何不是不可变的文件。您还应该有一个非常强大的缓存刷新策略，这样您就不会无意中主动缓存一个应用了不可变的文件。</p>
 <h3 id="stale-while-revalidate">stale-while-revalidate</h3>
 <p>我真的，真的希望<code>stale-while-revalidate</code>能得到有更好的支持。</p>
 <p>到目前为止，我们已经谈了很多关于重新验证的事情: 浏览器发请求到服务器检查是否有文件更新。在高延迟连接上，仅重新验证的持续时间就已很明显，并且该时间就是死时间——在我们从服务器得到响应之前，我们既不能释放缓存(304)，也不能下载新文件(200)。</p>
 <p><code>stale-while-revalidate</code>提供了一个宽限期(由我们定义)，在宽限期内，当我们检查更新版本时，允许浏览器使用过期资源。</p>
-<pre tabindex="0"><code>Cache-Control: max-age=31536000, stale-while-revalidate=86400
-</code></pre><p>这条指令告诉浏览器，“这个文件可以使用一年，但是在那一年结束后，你有一个额外的星期可以继续使用这个过时的资源，同时在后台重新验证它”。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: max-age=31536000, stale-while-revalidate=86400
+</span></span></code></pre></div><p>这条指令告诉浏览器，“这个文件可以使用一年，但是在那一年结束后，你有一个额外的星期可以继续使用这个过时的资源，同时在后台重新验证它”。</p>
 <p>对非关键资源来说，<code>stale-while-revalidate</code>是一条很好的指令，当然，我们想要最新的版本，但是我们知道，如果我们在检查更新时使用过期的资源，不会造成任何损害。</p>
 <h3 id="stale-if-error">stale-if-error</h3>
 <p>以类似于<code>tale-while-revalidate</code>的方式，<code>stale-if-error</code>允许浏览器有一个宽限期，在该宽限期内，如果重新验证的资源返回5xx类错误，你可以返回一个过期的资源。</p>
-<pre tabindex="0"><code>Cache-Control: max-age=2419200, stale-if-error=86400
-</code></pre><p>这条指令，我们指示缓存文件在28天(2419200秒)内是新的，并且如果在此之后遇到错误，我们将允许额外的一天(86400秒)，在此期间我们返回过期资源。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: max-age=2419200, stale-if-error=86400
+</span></span></code></pre></div><p>这条指令，我们指示缓存文件在28天(2419200秒)内是新的，并且如果在此之后遇到错误，我们将允许额外的一天(86400秒)，在此期间我们返回过期资源。</p>
 <h3 id="cache-busting">Cache Busting</h3>
 <p>谈论缓存而不谈论缓存刷新是不负责任的。我总是建议在考虑缓存策略之前先解决缓存刷新策略。反之则非常头痛。</p>
 <p>缓存刷新是为了解决这样一个问题: 我刚刚告诉浏览器在下一年里使用这个文件，但是我刚刚改变了它，我不想让用户等一整年后才得到新的文件！我该怎么能干预呢？！</p>
@@ -216,8 +215,8 @@
 <p>这里，我们仍然有一个可变的文件，但是我们在它的文件路径中添加了一个查询字符串。虽然比什么都不加要好，但它仍然不完美。如果在中间的什么步骤去掉了查询字符串，我们就可以回到之前的情况，即完全没有缓存刷新。许多代理服务器和CDN不会缓存带有字符串的任何内容(例如，从Cloudflare自己的文档就说过对&quot;style.css?something&quot;的请求会被替换为&quot;style.css&rdquo;)，可能是配置，也可能是处于防御性地目的(查询字符串可能包含特定于一个特定响应的信息)。</p>
 <h3 id="文件名唯一--styleae3f66css">文件名唯一 – style.ae3f66.css</h3>
 <p>指纹识别是缓存刷新文件的首选方法。通过每次内容改变时都改变文件名，我们在技术上不会缓存任何东西:我们最终会得到一个全新的文件！这非常健壮，并且允许使用不可变的。如果您可以在静态资产上实现这一点，请这样做！一旦您成功实现了这种非常可靠的缓存刷新策略，您就可以使用最激进的缓存形式:</p>
-<pre tabindex="0"><code>Cache-Control: max-age=31536000, immutable
-</code></pre><h3 id="实现细节">实现细节</h3>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Cache-Control: max-age=31536000, immutable
+</span></span></code></pre></div><h3 id="实现细节">实现细节</h3>
 <p>这个方法的关键是改变文件名，但它不一定是指纹。以下所有示例都具有相同的效果:</p>
 <ol>
 <li>/assets/style.ae3f66.css: 通过hash文件来刷新.</li>
@@ -228,8 +227,8 @@
 <h3 id="clear-site-data">Clear-Site-Data</h3>
 <p>缓存失效很难——众所周知如此——所以目前有一个规范正在帮助开发人员非常明确地一次性清除他们站点的整个缓存:<code>Clear-Site-Data</code>。</p>
 <p>我不想在这篇文章中讲太多细节，因为<code>Clear-Site-Data</code>不是缓存控制指令，而是一个全新的HTTP头。</p>
-<pre tabindex="0"><code>Clear-Site-Data: &#34;cache&#34;
-</code></pre><p>将该头应用到您的任何一个源资产将清除整个源的缓存，而不仅仅是它所附加的文件。这意味着，如果你需要从所有访问者的缓存中清除你的整个站点，你可以只将上面的标题应用到你的网页上。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Clear-Site-Data: &#34;cache&#34;
+</span></span></code></pre></div><p>将该头应用到您的任何一个源资产将清除整个源的缓存，而不仅仅是它所附加的文件。这意味着，如果你需要从所有访问者的缓存中清除你的整个站点，你可以只将上面的标题应用到你的网页上。</p>
 <p>在撰写本文时，浏览器支持仅Chrome, Android Webview, Firefox, 和 Opera。</p>
 <p><strong>提示</strong>: Clear-Site-Data将接受许多指令:&ldquo;cookies&rdquo;、&ldquo;storage&rdquo;、&ldquo;executionContexts&quot;和&rdquo;*&quot;(表示所有上述内容)。</p>
 <h3 id="例子和一些用法">例子和一些用法</h3>
@@ -237,40 +236,40 @@
 <h3 id="在线的银行页面">在线的银行页面</h3>
 <p>像网上银行应用程序页面，列出你最近的交易，当前的余额，也许还有些敏感的银行账户信息，需要是最新的(想象一下，你收到了一个列出你一周前余额的页面！)并确保不被他人看见(您肯定不希望您的银行详细信息存储在共享缓存(或者任何缓存，真的) )。</p>
 <p>为此，我们可以使用:</p>
-<pre tabindex="0"><code>Request URL: /account/
-Cache-Control: no-store
-</code></pre><p>根据规范，这足以防止浏览器在私有和共享缓存中长久的保存响应:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /account/
+</span></span><span style="display:flex;"><span>Cache-Control: no-store
+</span></span></code></pre></div><p>根据规范，这足以防止浏览器在私有和共享缓存中长久的保存响应:</p>
 <blockquote>
 <p><code>no-store</code>告诉缓存不准存储请求或响应的任何部分。该指令适用于私有和共享缓存。&ldquo;不准&quot;在这里意味着缓存不得有意将信息存储在非易失性存储器中，并且必须尽最大努力在转发信息后尽快将其从易失性存储器中移除。</p>
 </blockquote>
 <p>但是如果你想有更强的防御性，也许你可以选择:</p>
-<pre tabindex="0"><code>Request URL: /account/
-Cache-Control: private, no-cache, no-store
-</code></pre><p>这将明确指示不要在公共缓存(例如CDN )中存储任何内容，要始终提供尽可能最新的副本，并且不要将任何内容保存到存储中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /account/
+</span></span><span style="display:flex;"><span>Cache-Control: private, no-cache, no-store
+</span></span></code></pre></div><p>这将明确指示不要在公共缓存(例如CDN )中存储任何内容，要始终提供尽可能最新的副本，并且不要将任何内容保存到存储中。</p>
 <h3 id="实时列车时刻表页面">实时列车时刻表页面</h3>
 <p>如果我们正在构建一个显示近实时信息的页面，如果这些信息存在的话，我们希望确保用户总是能看到我们能给他们的最好的、最新的信息。我们可以使用:</p>
-<pre tabindex="0"><code>Request URL: /live-updates/
-Cache-Control: no-cache
-</code></pre><p>这个简单的指令意味着浏览器在与服务器确认缓存是否被允许使用前不会直接从缓存中显示响应。这意味着用户永远不会看到过时的列车信息，但是如果服务器要求缓存镜像最新的信息，他们就可以从从缓存中获取。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /live-updates/
+</span></span><span style="display:flex;"><span>Cache-Control: no-cache
+</span></span></code></pre></div><p>这个简单的指令意味着浏览器在与服务器确认缓存是否被允许使用前不会直接从缓存中显示响应。这意味着用户永远不会看到过时的列车信息，但是如果服务器要求缓存镜像最新的信息，他们就可以从从缓存中获取。</p>
 <p>对于几乎所有网页来说，这通常是一个明智的默认设置:给我们最新的可能内容，但是如果可能的话，让我们使用缓存来加速。</p>
 <h3 id="faq页面">FAQ页面</h3>
 <p>像FAQ这样的页面很可能很少更新，而且其中的内容也不太可能对时间敏感。它当然没有实时运动成绩或飞行状态那么重要。我们可能可以缓存这样的页面一段时间，并强制浏览器定期检查新内容，而不是每次访问。让我们看看:</p>
-<pre tabindex="0"><code>Request URL: /faqs/
-Cache-Control: max-age=604800, must-revalidate
-</code></pre><p>这告诉浏览器将网页缓存一周( 604800秒)，一旦这一周结束，我们就需要向服务器查询是否需要更新。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /faqs/
+</span></span><span style="display:flex;"><span>Cache-Control: max-age=604800, must-revalidate
+</span></span></code></pre></div><p>这告诉浏览器将网页缓存一周( 604800秒)，一旦这一周结束，我们就需要向服务器查询是否需要更新。</p>
 <p><strong>注意</strong>:在同一个网站中对不同的页面采用不同的缓存策略可能会导致这样一个问题: 您的 <code>no-cache</code> 主页请求它引用的最新样式，f4fa2b.css，但是您的要缓存三天的FAQ页面仍然指向样式a3f66.css。这可能会有轻微的影响，但这是一个您应该注意的场景。</p>
 <h3 id="静态的jscss">静态的js/css</h3>
 <p>假设我们的app.[fingerprint].js文件更新非常频繁——可能在我们发布的每一个版本中都是如此——但是我们也在每次文件发生变化时都会根据内容对其重命名(这非常好)，然后我们可以这样做:</p>
-<pre tabindex="0"><code>Request URL: /static/app.1be87a.js
-Cache-Control: max-age=31536000, immutable
-</code></pre><p>我们是否非常频繁地更新JS并不重要:因为我们有可靠地缓存刷新，所以我们可以想缓存多久就缓存多久。在这种情况下，我们选择缓存一年。我选择了一年，因为首先，一年是很长的时间，其次，浏览器实际上不太可能将文件保存那么长时间(浏览器有有限的存储空间可以用于HTTP缓存，所以它们自己会定期清空部分文件；用户可能也会清除他们缓存)。任何超过一年的设置不会更有效。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /static/app.1be87a.js
+</span></span><span style="display:flex;"><span>Cache-Control: max-age=31536000, immutable
+</span></span></code></pre></div><p>我们是否非常频繁地更新JS并不重要:因为我们有可靠地缓存刷新，所以我们可以想缓存多久就缓存多久。在这种情况下，我们选择缓存一年。我选择了一年，因为首先，一年是很长的时间，其次，浏览器实际上不太可能将文件保存那么长时间(浏览器有有限的存储空间可以用于HTTP缓存，所以它们自己会定期清空部分文件；用户可能也会清除他们缓存)。任何超过一年的设置不会更有效。</p>
 <p>此外，因为这个文件的内容从不改变，我们可以让浏览器知道这个文件是不可变的。即使用户刷新了页面，我们也不需要在一年内对它进行重新验证。我们不仅获得了使用缓存的速度优势，还避免了重新验证的延迟损失。</p>
 <h3 id="装饰的图片">装饰的图片</h3>
 <p>想象一张纯粹装饰性的照片伴随着一篇文章。它不是信息图或图表，它不包含任何对理解页面其余部分至关重要的内容，用户甚至不会真正注意到它是否完全丢失了。</p>
 <p>图像通常是需要下载的非常重的资源，所以我们想缓存它；它对页面并不重要，所以我们不需要获取最新版本；我们甚至有可能在图像有点过时后就不再提供图像了。让我们这样做:</p>
-<pre tabindex="0"><code>Request URL: /content/masthead.jpg
-Cache-Control: max-age=2419200, must-revalidate, stale-while-revalidate=86400
-</code></pre><p>在这里，我们告诉浏览器将图像存储28天( 2419200秒)，我们要在28天的时间限制后向服务器查询更新，如果图像过期不到一周( 86400秒)，我们在后台获取最新版本时使用该图像。</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Request URL: /content/masthead.jpg
+</span></span><span style="display:flex;"><span>Cache-Control: max-age=2419200, must-revalidate, stale-while-revalidate=86400
+</span></span></code></pre></div><p>在这里，我们告诉浏览器将图像存储28天( 2419200秒)，我们要在28天的时间限制后向服务器查询更新，如果图像过期不到一周( 86400秒)，我们在后台获取最新版本时使用该图像。</p>
 <h3 id="需要记住的">需要记住的</h3>
 <ul>
 <li>缓存刷新至关重要。在开始缓存策略之前，先制定缓存刷新策略。</li>

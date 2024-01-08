@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/en">
           <img src="/images/loog.png" />
@@ -72,70 +71,70 @@
 <h2 id="day-1">Day 1</h2>
 <p>In <a href="https://adventofcode.com/2023/day/1">Day 1</a>, its asking us to find the number in string, them combine them to be a <em>two-digit number</em>. Part1 only care about numeric char, Part2 need to consider the numeric string, one, two, etc.</p>
 <p>In my previous solution:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">is_digit_word</span>(idx: <span style="color:#66d9ef">usize</span>, chars: <span style="color:#66d9ef">&amp;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>) -&gt; Option<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#fe8019">fn</span> <span style="color:#fabd2f">is_digit_word</span>(idx: <span style="color:#fabd2f">usize</span>, chars: <span style="color:#fe8019">&amp;</span><span style="color:#fabd2f">Vec</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">char</span><span style="color:#fe8019">&gt;</span>) -&gt; <span style="color:#fabd2f">Option</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">u32</span><span style="color:#fe8019">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">..</span>.
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">find_digit</span>(idx: <span style="color:#66d9ef">usize</span>, chars: <span style="color:#66d9ef">&amp;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>, check_digit_word: <span style="color:#66d9ef">bool</span>) -&gt; <span style="color:#66d9ef">u32</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">fn</span> <span style="color:#fabd2f">find_digit</span>(idx: <span style="color:#fabd2f">usize</span>, chars: <span style="color:#fe8019">&amp;</span><span style="color:#fabd2f">Vec</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">char</span><span style="color:#fe8019">&gt;</span>, check_digit_word: <span style="color:#fabd2f">bool</span>) -&gt; <span style="color:#fabd2f">u32</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">..</span>.
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calibration_value</span>(file: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Path</span>, check_digit_word: <span style="color:#66d9ef">bool</span>) -&gt; <span style="color:#66d9ef">u32</span> {
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">pub</span> <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">calibration_value</span>(file: <span style="color:#fe8019">&amp;</span>Path, check_digit_word: <span style="color:#fabd2f">bool</span>) -&gt; <span style="color:#fabd2f">u32</span> {
 </span></span><span style="display:flex;"><span>    read_lines(file)
 </span></span><span style="display:flex;"><span>        .unwrap()
-</span></span><span style="display:flex;"><span>        .map(<span style="color:#f92672">|</span>l<span style="color:#f92672">|</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> first <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> last <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> first_idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> chars <span style="color:#f92672">=</span> l.unwrap().chars().collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;&gt;</span>();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> last_idx <span style="color:#f92672">=</span> chars.len() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        .map(<span style="color:#fe8019">|</span>l<span style="color:#fe8019">|</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> first <span style="color:#fe8019">=</span> <span style="color:#d3869b">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> last <span style="color:#fe8019">=</span> <span style="color:#d3869b">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> first_idx <span style="color:#fe8019">=</span> <span style="color:#d3869b">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">let</span> chars <span style="color:#fe8019">=</span> l.unwrap().chars().collect::<span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">Vec</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">char</span><span style="color:#fe8019">&gt;&gt;</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> last_idx <span style="color:#fe8019">=</span> chars.len() <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">loop</span> {
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> first <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>                    first <span style="color:#f92672">=</span> find_digit(first_idx, <span style="color:#f92672">&amp;</span>chars, check_digit_word);
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">loop</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">if</span> first <span style="color:#fe8019">==</span> <span style="color:#d3869b">0</span> {
+</span></span><span style="display:flex;"><span>                    first <span style="color:#fe8019">=</span> find_digit(first_idx, <span style="color:#fe8019">&amp;</span>chars, check_digit_word);
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> last <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>                    last <span style="color:#f92672">=</span> find_digit(last_idx, <span style="color:#f92672">&amp;</span>chars, check_digit_word);
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">if</span> last <span style="color:#fe8019">==</span> <span style="color:#d3869b">0</span> {
+</span></span><span style="display:flex;"><span>                    last <span style="color:#fe8019">=</span> find_digit(last_idx, <span style="color:#fe8019">&amp;</span>chars, check_digit_word);
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> first <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> last <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">if</span> first <span style="color:#fe8019">!=</span> <span style="color:#d3869b">0</span> <span style="color:#fe8019">&amp;&amp;</span> last <span style="color:#fe8019">!=</span> <span style="color:#d3869b">0</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#fe8019">break</span>
 </span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>                first_idx <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>                last_idx <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>                first_idx <span style="color:#fe8019">+=</span> <span style="color:#d3869b">1</span>;
+</span></span><span style="display:flex;"><span>                last_idx <span style="color:#fe8019">-=</span> <span style="color:#d3869b">1</span>;
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            (first <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">+</span> last
+</span></span><span style="display:flex;"><span>            (first <span style="color:#fe8019">*</span> <span style="color:#d3869b">10</span>) <span style="color:#fe8019">+</span> last
 </span></span><span style="display:flex;"><span>        })
 </span></span><span style="display:flex;"><span>        .sum()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#[cfg(test)]</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">mod</span> day1_tests {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">use</span> <span style="color:#66d9ef">super</span>::<span style="color:#f92672">*</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8ec07c">#[cfg(test)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">mod</span> day1_tests {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">use</span> <span style="color:#fe8019">super</span>::<span style="color:#fe8019">*</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[test]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">day1_1_test</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> calibration_value(Path::new(<span style="color:#e6db74">&#34;src/day1/day1_input_test1.txt&#34;</span>), <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#ae81ff">142</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8ec07c">#[test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">day1_1_test</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> result <span style="color:#fe8019">=</span> calibration_value(Path::new(<span style="color:#b8bb26">&#34;src/day1/day1_input_test1.txt&#34;</span>), <span style="color:#fe8019">false</span>);
+</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#d3869b">142</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[test]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">day1_1_answer</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> calibration_value(Path::new(<span style="color:#e6db74">&#34;src/day1/day1_input.txt&#34;</span>), <span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#ae81ff">55621</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8ec07c">#[test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">day1_1_answer</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> result <span style="color:#fe8019">=</span> calibration_value(Path::new(<span style="color:#b8bb26">&#34;src/day1/day1_input.txt&#34;</span>), <span style="color:#fe8019">false</span>);
+</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#d3869b">55621</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[test]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">day1_2_test</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> calibration_value(Path::new(<span style="color:#e6db74">&#34;src/day1/day1_input_test2.txt&#34;</span>), <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#ae81ff">281</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8ec07c">#[test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">day1_2_test</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> result <span style="color:#fe8019">=</span> calibration_value(Path::new(<span style="color:#b8bb26">&#34;src/day1/day1_input_test2.txt&#34;</span>), <span style="color:#fe8019">true</span>);
+</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#d3869b">281</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[test]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">day1_2_answer</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> result <span style="color:#f92672">=</span> calibration_value(Path::new(<span style="color:#e6db74">&#34;src/day1/day1_input.txt&#34;</span>), <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#ae81ff">53592</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#8ec07c">#[test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">day1_2_answer</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> result <span style="color:#fe8019">=</span> calibration_value(Path::new(<span style="color:#b8bb26">&#34;src/day1/day1_input.txt&#34;</span>), <span style="color:#fe8019">true</span>);
+</span></span><span style="display:flex;"><span>        assert_eq!(result, <span style="color:#d3869b">53592</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>What&rsquo;s not good:</p>
@@ -146,97 +145,97 @@
 </ol>
 <p>I am going to try to fix all of them.</p>
 <p>I want to change the whole way to write all of these quizzes and have a same api for all days solutions. I decide to create a trait for it(this is rustful)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Solution {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part1_test</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span>;  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part1</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span>;  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part2_test</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span>;  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part2</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span>;  
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#fe8019">trait</span> Solution {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part1_test</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span>;  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part1</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span>;  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part2_test</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span>;  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part2</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span>;  
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Based on day1&rsquo;s quizzes, I think its good to use strategy pattern to write the solution. So <code>is_digit_word</code> and <code>find_digit</code> can be split to their own part solution.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Day1</span>;  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Part1</span>;  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Part2</span>;  
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#fe8019">struct</span> Day1;  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">struct</span> Part1;  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">struct</span> Part2;  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">trait</span> Part {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">find_digit</span>(<span style="color:#f92672">&amp;</span>self, idx: <span style="color:#66d9ef">usize</span>, chars: <span style="color:#66d9ef">&amp;</span>[<span style="color:#66d9ef">char</span>]) -&gt; Option<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>;  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">trait</span> Part {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">find_digit</span>(<span style="color:#fe8019">&amp;</span>self, idx: <span style="color:#fabd2f">usize</span>, chars: <span style="color:#fe8019">&amp;</span>[<span style="color:#fabd2f">char</span>]) -&gt; <span style="color:#fabd2f">Option</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">u32</span><span style="color:#fe8019">&gt;</span>;  
 </span></span><span style="display:flex;"><span>}  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Part <span style="color:#66d9ef">for</span> Part2 {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">find_digit</span>(<span style="color:#f92672">&amp;</span>self, idx: <span style="color:#66d9ef">usize</span>, chars: <span style="color:#66d9ef">&amp;</span>[<span style="color:#66d9ef">char</span>]) -&gt; Option<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> {  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> chars[idx].is_ascii_digit() {  
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> chars[idx].to_digit(<span style="color:#ae81ff">10</span>);  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">impl</span> Part <span style="color:#fe8019">for</span> Part2 {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">find_digit</span>(<span style="color:#fe8019">&amp;</span>self, idx: <span style="color:#fabd2f">usize</span>, chars: <span style="color:#fe8019">&amp;</span>[<span style="color:#fabd2f">char</span>]) -&gt; <span style="color:#fabd2f">Option</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">u32</span><span style="color:#fe8019">&gt;</span> {  
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">if</span> chars[idx].is_ascii_digit() {  
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">return</span> chars[idx].to_digit(<span style="color:#d3869b">10</span>);  
 </span></span><span style="display:flex;"><span>        }  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> digits: Vec<span style="color:#f92672">&lt;&amp;</span><span style="color:#66d9ef">str</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> vec![<span style="color:#e6db74">&#34;one&#34;</span>, <span style="color:#e6db74">&#34;two&#34;</span>, <span style="color:#e6db74">&#34;three&#34;</span>, <span style="color:#e6db74">&#34;four&#34;</span>, <span style="color:#e6db74">&#34;five&#34;</span>, <span style="color:#e6db74">&#34;six&#34;</span>, <span style="color:#e6db74">&#34;seven&#34;</span>, <span style="color:#e6db74">&#34;eight&#34;</span>, <span style="color:#e6db74">&#34;nine&#34;</span>];  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> len <span style="color:#f92672">=</span> chars.len();  
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// check numbr word with 3,4,5 characters  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> r <span style="color:#66d9ef">in</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] {  
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (idx <span style="color:#f92672">+</span> r) <span style="color:#f92672">&lt;</span> len {  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> s <span style="color:#f92672">=</span> chars[idx<span style="color:#f92672">..=</span>idx <span style="color:#f92672">+</span> r].iter().collect::<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>();  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(found) <span style="color:#f92672">=</span> digits.iter().position(<span style="color:#f92672">|&amp;</span>d<span style="color:#f92672">|</span> d <span style="color:#f92672">==</span> s) {  
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> Some(found <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);  
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> digits: <span style="color:#fabd2f">Vec</span><span style="color:#fe8019">&lt;&amp;</span><span style="color:#fabd2f">str</span><span style="color:#fe8019">&gt;</span> <span style="color:#fe8019">=</span> vec![<span style="color:#b8bb26">&#34;one&#34;</span>, <span style="color:#b8bb26">&#34;two&#34;</span>, <span style="color:#b8bb26">&#34;three&#34;</span>, <span style="color:#b8bb26">&#34;four&#34;</span>, <span style="color:#b8bb26">&#34;five&#34;</span>, <span style="color:#b8bb26">&#34;six&#34;</span>, <span style="color:#b8bb26">&#34;seven&#34;</span>, <span style="color:#b8bb26">&#34;eight&#34;</span>, <span style="color:#b8bb26">&#34;nine&#34;</span>];  
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">let</span> len <span style="color:#fe8019">=</span> chars.len();  
+</span></span><span style="display:flex;"><span>        <span style="color:#928374;font-style:italic">// check numbr word with 3,4,5 characters  
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>        <span style="color:#fe8019">for</span> r <span style="color:#fe8019">in</span> [<span style="color:#d3869b">2</span>, <span style="color:#d3869b">3</span>, <span style="color:#d3869b">4</span>] {  
+</span></span><span style="display:flex;"><span>            <span style="color:#fe8019">if</span> (idx <span style="color:#fe8019">+</span> r) <span style="color:#fe8019">&lt;</span> len {  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> s <span style="color:#fe8019">=</span> chars[idx<span style="color:#fe8019">..=</span>idx <span style="color:#fe8019">+</span> r].iter().collect::<span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">String</span><span style="color:#fe8019">&gt;</span>();  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">if</span> <span style="color:#fe8019">let</span> <span style="color:#fabd2f">Some</span>(found) <span style="color:#fe8019">=</span> digits.iter().position(<span style="color:#fe8019">|&amp;</span>d<span style="color:#fe8019">|</span> d <span style="color:#fe8019">==</span> s) {  
+</span></span><span style="display:flex;"><span>                    <span style="color:#fe8019">return</span> <span style="color:#fabd2f">Some</span>(found <span style="color:#fe8019">as</span> <span style="color:#fabd2f">u32</span> <span style="color:#fe8019">+</span> <span style="color:#d3869b">1</span>);  
 </span></span><span style="display:flex;"><span>                }  
 </span></span><span style="display:flex;"><span>            }  
 </span></span><span style="display:flex;"><span>        }  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>        None  
+</span></span><span style="display:flex;"><span>        <span style="color:#fabd2f">None</span>  
 </span></span><span style="display:flex;"><span>    }  
 </span></span><span style="display:flex;"><span>}  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Part <span style="color:#66d9ef">for</span> Part1 {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">find_digit</span>(<span style="color:#f92672">&amp;</span>self, idx: <span style="color:#66d9ef">usize</span>, chars: <span style="color:#66d9ef">&amp;</span>[<span style="color:#66d9ef">char</span>]) -&gt; Option<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span> {  
-</span></span><span style="display:flex;"><span>        chars[idx].to_digit(<span style="color:#ae81ff">10</span>)  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">impl</span> Part <span style="color:#fe8019">for</span> Part1 {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">find_digit</span>(<span style="color:#fe8019">&amp;</span>self, idx: <span style="color:#fabd2f">usize</span>, chars: <span style="color:#fe8019">&amp;</span>[<span style="color:#fabd2f">char</span>]) -&gt; <span style="color:#fabd2f">Option</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">u32</span><span style="color:#fe8019">&gt;</span> {  
+</span></span><span style="display:flex;"><span>        chars[idx].to_digit(<span style="color:#d3869b">10</span>)  
 </span></span><span style="display:flex;"><span>    }  
 </span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Day1 {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">calibration_value</span><span style="color:#f92672">&lt;</span>P: <span style="color:#a6e22e">Part</span><span style="color:#f92672">&gt;</span>(<span style="color:#f92672">&amp;</span>self, part: <span style="color:#a6e22e">P</span>, input: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; <span style="color:#66d9ef">u32</span> {  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">impl</span> Day1 {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">pub</span> <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">calibration_value</span><span style="color:#fe8019">&lt;</span>P: Part<span style="color:#fe8019">&gt;</span>(<span style="color:#fe8019">&amp;</span>self, part: P, input: <span style="color:#fe8019">&amp;</span><span style="color:#fabd2f">str</span>) -&gt; <span style="color:#fabd2f">u32</span> {  
 </span></span><span style="display:flex;"><span>        input  
 </span></span><span style="display:flex;"><span>            .lines()  
-</span></span><span style="display:flex;"><span>            .map(<span style="color:#f92672">|</span>l<span style="color:#f92672">|</span> {  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> first <span style="color:#f92672">=</span> None;  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> last <span style="color:#f92672">=</span> None;  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> first_idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> chars <span style="color:#f92672">=</span> l.chars().collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;&gt;</span>();  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> last_idx <span style="color:#f92672">=</span> chars.len() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;  
+</span></span><span style="display:flex;"><span>            .map(<span style="color:#fe8019">|</span>l<span style="color:#fe8019">|</span> {  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> first <span style="color:#fe8019">=</span> <span style="color:#fabd2f">None</span>;  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> last <span style="color:#fe8019">=</span> <span style="color:#fabd2f">None</span>;  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> first_idx <span style="color:#fe8019">=</span> <span style="color:#d3869b">0</span>;  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> chars <span style="color:#fe8019">=</span> l.chars().collect::<span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">Vec</span><span style="color:#fe8019">&lt;</span><span style="color:#fabd2f">char</span><span style="color:#fe8019">&gt;&gt;</span>();  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">let</span> <span style="color:#fe8019">mut</span> last_idx <span style="color:#fe8019">=</span> chars.len() <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span>;  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">loop</span> {  
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> first.is_none() {  
-</span></span><span style="display:flex;"><span>                        first <span style="color:#f92672">=</span> part.find_digit(first_idx, <span style="color:#f92672">&amp;</span>chars);  
+</span></span><span style="display:flex;"><span>                <span style="color:#fe8019">loop</span> {  
+</span></span><span style="display:flex;"><span>                    <span style="color:#fe8019">if</span> first.is_none() {  
+</span></span><span style="display:flex;"><span>                        first <span style="color:#fe8019">=</span> part.find_digit(first_idx, <span style="color:#fe8019">&amp;</span>chars);  
 </span></span><span style="display:flex;"><span>                    }  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> last.is_none() {  
-</span></span><span style="display:flex;"><span>                        last <span style="color:#f92672">=</span> part.find_digit(last_idx, <span style="color:#f92672">&amp;</span>chars);  
+</span></span><span style="display:flex;"><span>                    <span style="color:#fe8019">if</span> last.is_none() {  
+</span></span><span style="display:flex;"><span>                        last <span style="color:#fe8019">=</span> part.find_digit(last_idx, <span style="color:#fe8019">&amp;</span>chars);  
 </span></span><span style="display:flex;"><span>                    }  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> first.is_some() <span style="color:#f92672">&amp;&amp;</span> last.is_some() {  
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">break</span>  
+</span></span><span style="display:flex;"><span>                    <span style="color:#fe8019">if</span> first.is_some() <span style="color:#fe8019">&amp;&amp;</span> last.is_some() {  
+</span></span><span style="display:flex;"><span>                        <span style="color:#fe8019">break</span>  
 </span></span><span style="display:flex;"><span>                    }  
-</span></span><span style="display:flex;"><span>                    first_idx <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;  
-</span></span><span style="display:flex;"><span>                    last_idx <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;  
+</span></span><span style="display:flex;"><span>                    first_idx <span style="color:#fe8019">+=</span> <span style="color:#d3869b">1</span>;  
+</span></span><span style="display:flex;"><span>                    last_idx <span style="color:#fe8019">-=</span> <span style="color:#d3869b">1</span>;  
 </span></span><span style="display:flex;"><span>                }  
-</span></span><span style="display:flex;"><span>                (first.unwrap() <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">+</span> last.unwrap()  
+</span></span><span style="display:flex;"><span>                (first.unwrap() <span style="color:#fe8019">*</span> <span style="color:#d3869b">10</span>) <span style="color:#fe8019">+</span> last.unwrap()  
 </span></span><span style="display:flex;"><span>            })  
 </span></span><span style="display:flex;"><span>            .sum()  
 </span></span><span style="display:flex;"><span>    }  
 </span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Solution <span style="color:#66d9ef">for</span> Day1 {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part1_test</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span> {  
-</span></span><span style="display:flex;"><span>        self.calibration_value(Part1, include_str!(<span style="color:#e6db74">&#34;day1_input_test1.txt&#34;</span>))  
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">impl</span> Solution <span style="color:#fe8019">for</span> Day1 {  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part1_test</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span> {  
+</span></span><span style="display:flex;"><span>        self.calibration_value(Part1, include_str!(<span style="color:#b8bb26">&#34;day1_input_test1.txt&#34;</span>))  
 </span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part1</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span> {  
-</span></span><span style="display:flex;"><span>        self.calibration_value(Part1, include_str!(<span style="color:#e6db74">&#34;day1_input.txt&#34;</span>))  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part2_test</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span> {  
-</span></span><span style="display:flex;"><span>        self.calibration_value(Part2, include_str!(<span style="color:#e6db74">&#34;day1_input_test2.txt&#34;</span>))  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part1</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span> {  
+</span></span><span style="display:flex;"><span>        self.calibration_value(Part1, include_str!(<span style="color:#b8bb26">&#34;day1_input.txt&#34;</span>))  
 </span></span><span style="display:flex;"><span>    }  
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">part2</span>(<span style="color:#f92672">&amp;</span>self) -&gt; <span style="color:#66d9ef">u32</span> {  
-</span></span><span style="display:flex;"><span>        self.calibration_value(Part2, include_str!(<span style="color:#e6db74">&#34;day1_input.txt&#34;</span>))  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part2_test</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span> {  
+</span></span><span style="display:flex;"><span>        self.calibration_value(Part2, include_str!(<span style="color:#b8bb26">&#34;day1_input_test2.txt&#34;</span>))  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">fn</span> <span style="color:#fabd2f">part2</span>(<span style="color:#fe8019">&amp;</span>self) -&gt; <span style="color:#fabd2f">u32</span> {  
+</span></span><span style="display:flex;"><span>        self.calibration_value(Part2, include_str!(<span style="color:#b8bb26">&#34;day1_input.txt&#34;</span>))  
 </span></span><span style="display:flex;"><span>    }  
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Then you can call day1&rsquo;s solution like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span>Day1.part1_test();
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span>Day1.part1_test();
 </span></span><span style="display:flex;"><span>Day1.part1();
 </span></span><span style="display:flex;"><span>Day1.part2_test();
 </span></span><span style="display:flex;"><span>Day1.part2();
@@ -258,7 +257,7 @@
     clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
     repo: 'blog-comments',
     owner: 'flyingalex',
-    language: "en",
+    language: "zh-CN",
     admin: ['flyingalex'],
     id: 'adventofcode',
     perPage: 50,

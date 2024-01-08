@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -83,7 +82,7 @@
 <h2 id="添加--vvv">添加 -vvv</h2>
 <p>这样可以看到安装的信息，最近就是因为这个发现个bug。</p>
 <p>在docker内跑</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require <span style="color:#e6db74">&#34;far/foo: ^2.xx&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require <span style="color:#b8bb26">&#34;far/foo: ^2.xx&#34;</span>
 </span></span></code></pre></div><p>全程没有报错，依赖也添加到composer.json了，但是vendor下就是没有安装包，傻眼了</p>
 <p>后面就加<code>-vvv</code>到composer命令最后去跑，看到最后一行是 <code>killed</code> wtf!!!</p>
 <p>又到了面向google编程了🐶，搜索相关composer install killed docker, 会发现是docker的配置问题

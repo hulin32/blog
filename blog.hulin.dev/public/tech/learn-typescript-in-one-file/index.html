@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -82,34 +81,34 @@
 <p>尝试在一个文件中装下ts的全部特性</p>
 <p>typescript 是javascript的超级，在原来的基础上引入了类型系统，让代码更加好维护，正经typescript我也还没怎么写过，但在学习中比较没有类型系统时，明显会感觉typescript在项目大后会更好的维护(还没在项目中验证)，希望在今后的代码中也能将起引入。</p>
 <p>这里我想通过创建一个类来尽量诠释其全部的概念</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// 枚举
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Gender</span> { <span style="color:#a6e22e">Female</span>, <span style="color:#a6e22e">Male</span> };
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 枚举
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">enum</span> Gender { Female, Male };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Human</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// string 类型
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;碳水化合物&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">class</span> Human {
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// string 类型
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">static</span> component: <span style="color:#fabd2f">string</span> <span style="color:#fe8019">=</span> <span style="color:#b8bb26">&#39;碳水化合物&#39;</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 接口
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Character</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>;
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 接口
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">interface</span> Character {
+</span></span><span style="display:flex;"><span>  kindly: <span style="color:#fabd2f">boolean</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 继承和实现
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Female</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Human</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">Character</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gender</span>: <span style="color:#66d9ef">Gender</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Gender</span>.<span style="color:#a6e22e">Female</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">years</span>: <span style="color:#66d9ef">number</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">kindly</span>: <span style="color:#66d9ef">boolean</span>, <span style="color:#a6e22e">years</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">kindly</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">kindly</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">years</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">years</span>;
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 继承和实现
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">class</span> Female <span style="color:#fe8019">extends</span> Human <span style="color:#fe8019">implements</span> Character {
+</span></span><span style="display:flex;"><span>  gender: <span style="color:#fabd2f">Gender</span> <span style="color:#fe8019">=</span> Gender.Female;
+</span></span><span style="display:flex;"><span>  kindly: <span style="color:#fabd2f">boolean</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">private</span> years: <span style="color:#fabd2f">number</span>;
+</span></span><span style="display:flex;"><span>  name: <span style="color:#fabd2f">string</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">constructor</span>(kindly: <span style="color:#fabd2f">boolean</span>, years: <span style="color:#fabd2f">number</span>, name: <span style="color:#fabd2f">string</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">super</span>();
+</span></span><span style="display:flex;"><span>    kindly <span style="color:#fe8019">=</span> kindly;
+</span></span><span style="display:flex;"><span>    years <span style="color:#fe8019">=</span> years;
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// void 表示没有返回值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">sayHi</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sentence</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`Hello, I am </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">years</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> years old`</span>; <span style="color:#75715e">// 类型推断
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sentence</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// void 表示没有返回值
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  sayHi()<span style="color:#fe8019">:</span> <span style="color:#fe8019">void</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">let</span> sentence <span style="color:#fe8019">=</span> <span style="color:#b8bb26">`Hello, I am </span><span style="color:#b8bb26">${</span><span style="color:#fe8019">this</span>.years<span style="color:#b8bb26">}</span><span style="color:#b8bb26"> years old`</span>; <span style="color:#928374;font-style:italic">// 类型推断
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    console.log(sentence);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>待补充&hellip;..</p>

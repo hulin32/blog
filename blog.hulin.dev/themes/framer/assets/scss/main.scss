@@ -28,6 +28,7 @@ ul li {
 p code {
     color: red;
 }
+
 p img {
     max-width: 100%;
     padding: 10px 0;
@@ -37,6 +38,7 @@ p img {
     padding: 10px;
     margin-right: 30px;
 }
+
 .site-nav-logo img {
     width: 50px;
 }
@@ -45,6 +47,7 @@ p img {
     font-family: JetBrainsMono-Bold, serif;
     font-weight: bold;
 }
+
 a {
     text-decoration: none;
     color: $theme-color;
@@ -58,60 +61,74 @@ h1 {
     text-align: center;
     width: 100%;
 }
+
 pre {
     padding: 10px;
     border-radius: 5px;
 }
 
 #content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
 }
+
 .article-list {
     // display: flex;
     // flex-wrap: wrap;
 }
+
 .main-padding-x {
     padding: 0 5vw;
 }
+
 .main-bg {
     background-color: #f0f5e5;
 }
+
 .white {
     color: white;
 }
+
 .word-break-keep {
     word-break: keep-all;
     white-space: nowrap;
 }
+
 .nav {
     display: flex;
     justify-self: start;
     align-items: center;
     overflow: auto;
     width: 100%;
+
     &::-webkit-scrollbar {
         height: 0;
     }
 }
+
 .nav-wrapper {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+
     @media only screen and (min-width: $mobile-width) {
         position: initial;
     }
 }
+
 .text-center {
     text-align: center;
 }
+
 .display-block {
     display: block;
 }
+
 .padding-10 {
     padding: 10px;
 }
+
 .article-item {
     border: 1px #DADADA solid;
     margin-left: auto;
@@ -120,14 +137,18 @@ pre {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+
     h3 {
         margin: 0;
     }
+
     .article-date {
         text-align: right;
     }
+
     &:hover {
         position: relative;
+
         &::before {
             content: '';
             position: absolute;
@@ -140,6 +161,7 @@ pre {
             border-bottom-left-radius: 2px;
             transition: all 0.5s ease-in-out;
         }
+
         &::after {
             content: '';
             position: absolute;
@@ -151,20 +173,24 @@ pre {
         }
     }
 }
+
 .uppercase {
     text-transform: uppercase;
 }
 
 .footer {
     padding-bottom: 44px;
+
     @media only screen and (min-width: $mobile-width) {
         padding-bottom: 0;
     }
 }
+
 .pagination {
     display: flex;
     justify-content: center;
 }
+
 .pagination li {
     padding: 0 10px;
 }

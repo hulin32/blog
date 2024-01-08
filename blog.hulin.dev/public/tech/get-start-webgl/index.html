@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -85,127 +84,127 @@
 <p>3D的东西想上手很久了，最近看了一些计算机图形学方面的资料，感觉国内能找到的资料真的不多，这里是一片宝地，值得探索呀。最近先看了《WebGL编程指南》，预备做下笔记，一是为了巩固知识，二也是为了将来可以回来回忆看看。</p>
 <p>WebGL是拿来在网页上做复杂三维图形的渲染的，并允许用户和它交互，WebGL起源于OpenGL的一个子集OpenGL ES 2.0, 它本身有带有一个很重要的特性：可编程着色器方法，也叫<code>着色器语言</code>，GLSL ES类似其他编程语言一样。WebGL就介绍到这里，更多的去翻一下书吧，这本书入门绝佳，市面上另外一本大家推荐的是《WebGL高级编程》，我也买了，还没看，翻了一下，感觉那本可以作为这本的深入。</p>
 <p>先从一个最简单的清空绘图区开始，HelloCanvas（我用的代码都是随书源码，请查看这个项目下的源文件）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Retrieve &lt;canvas&gt; element
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;webgl&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">function</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// Retrieve &lt;canvas&gt; element
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">var</span> canvas <span style="color:#fe8019">=</span> <span style="color:#fabd2f">document</span>.getElementById(<span style="color:#b8bb26">&#39;webgl&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 获取webgl上下文
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getWebGLContext</span>(<span style="color:#a6e22e">canvas</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to get the rendering context for WebGL&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 获取webgl上下文
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">var</span> gl <span style="color:#fe8019">=</span> getWebGLContext(canvas);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>gl) {
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#b8bb26">&#39;Failed to get the rendering context for WebGL&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 指定背景色
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 指定背景色
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  gl.clearColor(<span style="color:#d3869b">0.1</span>, <span style="color:#d3869b">0.5</span>, <span style="color:#d3869b">0.5</span>, <span style="color:#d3869b">1.0</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span> <span style="color:#75715e">// 填充
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>);
+</span></span><span style="display:flex;"><span> <span style="color:#928374;font-style:italic">// 填充
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  gl.clear(gl.COLOR_BUFFER_BIT);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>gl.clear 可以有的参数有：</p>
 <p>COLOR_BUFFER_BIT: 颜色缓冲区
 DEPTH_BUFFER_BIT: 深度缓冲区
 STENCIL_BUFFER_BIT: 模版缓冲区</p>
 <p>接下来让我们看看着色器(shader),这是编写WebGL必不可少的部分，着色器分为<code>顶点着色器(Vertex shader)</code>和<code>片元着色器(Fragment shader)</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// HelloPoint1.js (c) 2012 matsuda
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 顶点着色器程序
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">VSHADER_SOURCE</span> <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;void main() {\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;  gl_Position = vec4(0.0, 0.5, 0.0, 1.0);\n&#39;</span> <span style="color:#f92672">+</span> <span style="color:#75715e">// 设置顶点坐标
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#39;  gl_PointSize = 10.0;\n&#39;</span> <span style="color:#f92672">+</span>                    <span style="color:#75715e">// 设置点的尺寸
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#39;}\n&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// HelloPoint1.js (c) 2012 matsuda
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 顶点着色器程序
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">var</span> VSHADER_SOURCE <span style="color:#fe8019">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b8bb26">&#39;void main() {\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b8bb26">&#39;  gl_Position = vec4(0.0, 0.5, 0.0, 1.0);\n&#39;</span> <span style="color:#fe8019">+</span> <span style="color:#928374;font-style:italic">// 设置顶点坐标
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#b8bb26">&#39;  gl_PointSize = 10.0;\n&#39;</span> <span style="color:#fe8019">+</span>                    <span style="color:#928374;font-style:italic">// 设置点的尺寸
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#b8bb26">&#39;}\n&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 片元着色器程序
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">FSHADER_SOURCE</span> <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;void main() {\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n&#39;</span> <span style="color:#f92672">+</span> <span style="color:#75715e">// 设置片元颜色
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#39;}\n&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 片元着色器程序
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">var</span> FSHADER_SOURCE <span style="color:#fe8019">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b8bb26">&#39;void main() {\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#b8bb26">&#39;  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n&#39;</span> <span style="color:#fe8019">+</span> <span style="color:#928374;font-style:italic">// 设置片元颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#b8bb26">&#39;}\n&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;webgl&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">function</span> main() {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> canvas <span style="color:#fe8019">=</span> <span style="color:#fabd2f">document</span>.getElementById(<span style="color:#b8bb26">&#39;webgl&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getWebGLContext</span>(<span style="color:#a6e22e">canvas</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to get the rendering context for WebGL&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">var</span> gl <span style="color:#fe8019">=</span> getWebGLContext(canvas);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>gl) {
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#b8bb26">&#39;Failed to get the rendering context for WebGL&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化着色器
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">initShaders</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">VSHADER_SOURCE</span>, <span style="color:#a6e22e">FSHADER_SOURCE</span>)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to intialize shaders.&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 初始化着色器
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#b8bb26">&#39;Failed to intialize shaders.&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>  gl.clearColor(<span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">1.0</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>);
+</span></span><span style="display:flex;"><span>  gl.clear(gl.COLOR_BUFFER_BIT);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 绘制一个点 可以是 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    gl.{
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        POINTS, LINES, LINE_STRIP, LINE_LOOP,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">POINTS</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 绘制一个点 可以是 
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#928374;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">    gl.{
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">        POINTS, LINES, LINE_STRIP, LINE_LOOP,
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">        TRIANGLES, TRIANGLE_STRIP, TRIANGLE_FAN
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">  */</span>
+</span></span><span style="display:flex;"><span>  gl.drawArrays(gl.POINTS, <span style="color:#d3869b">0</span>, <span style="color:#d3869b">1</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>WebGL和canvas的坐标系也有所区别，中心是(0,0,0)</p>
 <p>既然GLSL ES 作为一门语言肯定也会有变量了，是的，它有，只是和我们平时用的有些许差别，我觉得可能是因为它是嵌入式的吧，不清楚。</p>
 <p>ES的变量有两个attribute和uniform,attribute的数据和顶点有关，uniform是那些与顶点无关的数据，来我们看看代码，我决定对着例子敲一遍，走起。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// HelloPoint2.js
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 顶点着色器 这里vec4是一个类型
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">VSHADER_SOURCE</span> <span style="color:#f92672">=</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;attribute vec4 a_Position; \n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;void main() {\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;  gl_Position = a_Position;\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;  gl_PointSize = 10.0;\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;} \n&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// HelloPoint2.js
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 顶点着色器 这里vec4是一个类型
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">var</span> VSHADER_SOURCE <span style="color:#fe8019">=</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;attribute vec4 a_Position; \n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;void main() {\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;  gl_Position = a_Position;\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;  gl_PointSize = 10.0;\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;} \n&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">FSHADER_SOURCE</span> <span style="color:#f92672">=</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;precision mediump float; \n&#39;</span><span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;uniform vec4 u_FragColor; \n&#39;</span><span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;void main() { \n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;   gl_FragColor = u_FragColor;\n&#39;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;}\n&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">var</span> FSHADER_SOURCE <span style="color:#fe8019">=</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;precision mediump float; \n&#39;</span><span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;uniform vec4 u_FragColor; \n&#39;</span><span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;void main() { \n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;   gl_FragColor = u_FragColor;\n&#39;</span> <span style="color:#fe8019">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#b8bb26">&#39;}\n&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">canvas</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;webgl&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">function</span> main() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> canvas <span style="color:#fe8019">=</span> <span style="color:#fabd2f">document</span>.getElementById(<span style="color:#b8bb26">&#39;webgl&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getWebGLContext</span>(<span style="color:#a6e22e">canvas</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">gl</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to get the rendering context for WebGL&#39;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> gl <span style="color:#fe8019">=</span> getWebGLContext(canvas);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>gl) {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;Failed to get the rendering context for WebGL&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">initShaders</span>(<span style="color:#a6e22e">gl</span>, <span style="color:#a6e22e">VSHADER_SOURCE</span>, <span style="color:#a6e22e">FSHADER_SOURCE</span>)) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to intialize shaders.&#39;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;Failed to intialize shaders.&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>    }    
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取a_Position变量的地址
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a_Position</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#39;a_Position&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">a_Position</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to get the storage location of a_Position&#39;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 获取a_Position变量的地址
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">var</span> a_Position <span style="color:#fe8019">=</span> gl.getAttribLocation(gl.program, <span style="color:#b8bb26">&#39;a_Position&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (a_Position <span style="color:#fe8019">&lt;</span> <span style="color:#d3869b">0</span>) {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;Failed to get the storage location of a_Position&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">u_FragColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">getAttribLocation</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">program</span>, <span style="color:#e6db74">&#39;u_FragColor&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">u_FragColor</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Failed to get the storage location of u_FragColor&#39;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> u_FragColor <span style="color:#fe8019">=</span> gl.getAttribLocation(gl.program, <span style="color:#b8bb26">&#39;u_FragColor&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (<span style="color:#fe8019">!</span>u_FragColor) {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;Failed to get the storage location of u_FragColor&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 设置顶点位置的值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">vertextAttrib3f</span>(<span style="color:#a6e22e">a_Position</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 设置顶点位置的值
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    gl.vertextAttrib3f(a_Position, <span style="color:#d3869b">0.1</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 设置颜色
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">uniform4f</span>(<span style="color:#a6e22e">u_FragColor</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 设置颜色
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    gl.uniform4f(u_FragColor, <span style="color:#d3869b">1</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">1.0</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clearColor</span>(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">clear</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">COLOR_BUFFER_BIT</span>);
+</span></span><span style="display:flex;"><span>    gl.clearColor(<span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">0.0</span>, <span style="color:#d3869b">1.0</span>);
+</span></span><span style="display:flex;"><span>    gl.clear(gl.COLOR_BUFFER_BIT);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 画
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">drawArrays</span>(<span style="color:#a6e22e">gl</span>.<span style="color:#a6e22e">POINTS</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 画
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    gl.drawArrays(gl.POINTS, <span style="color:#d3869b">0</span>, <span style="color:#d3869b">1</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>抄下来其实你会发现ES编程和我们普通的区别不大，无非是有更多的限制。
 当然你也可以在canvas上绑定事件<code>canvas.onmousedown</code>来做一些简单的交互，这里就不抄代码了，有兴趣自己去看看。</p>

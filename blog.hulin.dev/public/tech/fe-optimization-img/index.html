@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -106,15 +105,15 @@
 <p>服务器端开启文件缓存，尽量不重复获取相同的数据。</p>
 <h3 id="picture-标签-和-image-srcset-属性">&lt;picture&gt; 标签 和 image srcset 属性</h3>
 <p>如果你在img标签中这样使用</p>
-<pre tabindex="0"><code>&lt;img src=&#34;photo.png&#34; srcset=&#34;photo@2x.png 2x&#34;&gt;
-</code></pre><p>那么在像素高的设备上就会读取更高清的图片</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;img src=&#34;photo.png&#34; srcset=&#34;photo@2x.png 2x&#34;&gt;
+</span></span></code></pre></div><p>那么在像素高的设备上就会读取更高清的图片</p>
 <p>另外还有就是<em>picture</em>标签</p>
-<pre tabindex="0"><code>&lt;picture&gt;
-  &lt;source media=&#34;(min-width: 800px)&#34; srcset=&#34;head.jpg, head-2x.jpg 2x&#34;&gt;
-  &lt;source media=&#34;(min-width: 450px)&#34; srcset=&#34;head-small.jpg, head-small-2x.jpg 2x&#34;&gt;
-  &lt;img src=&#34;head-fb.jpg&#34; srcset=&#34;head-fb-2x.jpg 2x&#34; alt=&#34;a head carved out of wood&#34;&gt;
-&lt;/picture&gt;
-</code></pre><p>会使用媒体查询并且根据分辨率的不同来显示图片</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;picture&gt;
+</span></span><span style="display:flex;"><span>  &lt;source media=&#34;(min-width: 800px)&#34; srcset=&#34;head.jpg, head-2x.jpg 2x&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;source media=&#34;(min-width: 450px)&#34; srcset=&#34;head-small.jpg, head-small-2x.jpg 2x&#34;&gt;
+</span></span><span style="display:flex;"><span>  &lt;img src=&#34;head-fb.jpg&#34; srcset=&#34;head-fb-2x.jpg 2x&#34; alt=&#34;a head carved out of wood&#34;&gt;
+</span></span><span style="display:flex;"><span>&lt;/picture&gt;
+</span></span></code></pre></div><p>会使用媒体查询并且根据分辨率的不同来显示图片</p>
 <h3 id="seo">SEO</h3>
 <p>添加 alt 语义化，图片命名</p>
 <h3 id="无障碍阅读">无障碍阅读</h3>

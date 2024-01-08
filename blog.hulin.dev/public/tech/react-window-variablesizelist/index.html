@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -82,94 +81,94 @@
 <p>VariableSizeList解析</p>
 <p>和前面 #25 一样，最都是调用的<code>createListComponent</code>，不一样的地方就是调用那个函数时传入的方法,我们来一起看看。
 主要的就是<code>getStartIndexForOffset</code>和<code>getStopIndexForStartIndex</code>两个函数了</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// 主要调用了findNearestItem
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">getStartIndexForOffset</span><span style="color:#f92672">:</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>
-</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; <span style="color:#a6e22e">findNearestItem</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">instanceProps</span>, <span style="color:#a6e22e">offset</span>),
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">findNearestItem</span> <span style="color:#f92672">=</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 主要调用了findNearestItem
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>getStartIndexForOffset<span style="color:#fe8019">:</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; findNearestItem(props, instanceProps, offset),
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">const</span> findNearestItem <span style="color:#fe8019">=</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number
 </span></span><span style="display:flex;"><span>) =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">itemMetadataMap</span>, <span style="color:#a6e22e">lastMeasuredIndex</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">instanceProps</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;offset&#39;</span>, <span style="color:#a6e22e">offset</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastMeasuredItemOffset</span> <span style="color:#f92672">=</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastMeasuredIndex</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">itemMetadataMap</span>[<span style="color:#a6e22e">lastMeasuredIndex</span>].<span style="color:#a6e22e">offset</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { itemMetadataMap, lastMeasuredIndex } <span style="color:#fe8019">=</span> instanceProps;
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#b8bb26">&#39;offset&#39;</span>, offset);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> lastMeasuredItemOffset <span style="color:#fe8019">=</span>
+</span></span><span style="display:flex;"><span>    lastMeasuredIndex <span style="color:#fe8019">&gt;</span> <span style="color:#d3869b">0</span> <span style="color:#fe8019">?</span> itemMetadataMap[lastMeasuredIndex].offset <span style="color:#fe8019">:</span> <span style="color:#d3869b">0</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">lastMeasuredItemOffset</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">offset</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果查找过就直接使用二分查找
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemBinarySearch</span>(
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">instanceProps</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">lastMeasuredIndex</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (lastMeasuredItemOffset <span style="color:#fe8019">&gt;=</span> offset) {
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 如果查找过就直接使用二分查找
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">return</span> findNearestItemBinarySearch(
+</span></span><span style="display:flex;"><span>      props,
+</span></span><span style="display:flex;"><span>      instanceProps,
+</span></span><span style="display:flex;"><span>      lastMeasuredIndex,
+</span></span><span style="display:flex;"><span>      <span style="color:#d3869b">0</span>,
+</span></span><span style="display:flex;"><span>      offset
 </span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果没有就使用指数搜索
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemExponentialSearch</span>(
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">instanceProps</span>,
-</span></span><span style="display:flex;"><span>      Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">lastMeasuredIndex</span>),
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#fe8019">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 如果没有就使用指数搜索
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">return</span> findNearestItemExponentialSearch(
+</span></span><span style="display:flex;"><span>      props,
+</span></span><span style="display:flex;"><span>      instanceProps,
+</span></span><span style="display:flex;"><span>      <span style="color:#fabd2f">Math</span>.max(<span style="color:#d3869b">0</span>, lastMeasuredIndex),
+</span></span><span style="display:flex;"><span>      offset
 </span></span><span style="display:flex;"><span>    );
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>二分查找我猜很多人都看过了，通过查找中位数来折半查找，非常的快,来主要看看指数查找</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">findNearestItemExponentialSearch</span> <span style="color:#f92672">=</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">index</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>
-</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">itemCount</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">interval</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">const</span> findNearestItemExponentialSearch <span style="color:#fe8019">=</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps,
+</span></span><span style="display:flex;"><span>  index<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { itemCount } <span style="color:#fe8019">=</span> props;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">let</span> interval <span style="color:#fe8019">=</span> <span style="color:#d3869b">1</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 这里主要就是找到那个偏移大于现在的点
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">&amp;&amp;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">instanceProps</span>).<span style="color:#a6e22e">offset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 这里主要就是找到那个偏移大于现在的点
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">while</span> (
+</span></span><span style="display:flex;"><span>    index <span style="color:#fe8019">&lt;</span> itemCount <span style="color:#fe8019">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    getItemMetadata(props, index, instanceProps).offset <span style="color:#fe8019">&lt;</span> offset
 </span></span><span style="display:flex;"><span>  ) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">interval</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">interval</span> <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    index <span style="color:#fe8019">+=</span> interval;
+</span></span><span style="display:flex;"><span>    interval <span style="color:#fe8019">*=</span> <span style="color:#d3869b">2</span>;
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 找到那个点后就可以使用二分查找了
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">findNearestItemBinarySearch</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">instanceProps</span>,
-</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>),
-</span></span><span style="display:flex;"><span>    Math.<span style="color:#a6e22e">floor</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>),
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 找到那个点后就可以使用二分查找了
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">return</span> findNearestItemBinarySearch(
+</span></span><span style="display:flex;"><span>    props,
+</span></span><span style="display:flex;"><span>    instanceProps,
+</span></span><span style="display:flex;"><span>    <span style="color:#fabd2f">Math</span>.min(index, itemCount <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#fabd2f">Math</span>.floor(index <span style="color:#fe8019">/</span> <span style="color:#d3869b">2</span>),
+</span></span><span style="display:flex;"><span>    offset
 </span></span><span style="display:flex;"><span>  );
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><p>接下来再看看<code>getStopIndexForStartIndex</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">getStopIndexForStartIndex</span><span style="color:#f92672">:</span> (
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Props</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">any</span><span style="color:#f92672">&gt;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">startIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">scrollOffset</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instanceProps</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">InstanceProps</span>
-</span></span><span style="display:flex;"><span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span> =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">direction</span>, <span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">itemCount</span>, <span style="color:#a6e22e">layout</span>, <span style="color:#a6e22e">width</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>getStopIndexForStartIndex<span style="color:#fe8019">:</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  startIndex<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  scrollOffset<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { direction, height, itemCount, layout, width } <span style="color:#fe8019">=</span> props;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">direction</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">layout</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;horizontal&#39;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可见区域的滑动方向的长度
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> (((<span style="color:#a6e22e">isHorizontal</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">height</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">itemMetadata</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">startIndex</span>, <span style="color:#a6e22e">instanceProps</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 距离第一个的最大距离
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">maxOffset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scrollOffset</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> isHorizontal <span style="color:#fe8019">=</span> direction <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;horizontal&#39;</span> <span style="color:#fe8019">||</span> layout <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;horizontal&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 可见区域的滑动方向的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">const</span> size <span style="color:#fe8019">=</span> (((isHorizontal <span style="color:#fe8019">?</span> width <span style="color:#fe8019">:</span> height)<span style="color:#fe8019">:</span> any)<span style="color:#fe8019">:</span> number);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> itemMetadata <span style="color:#fe8019">=</span> getItemMetadata(props, startIndex, instanceProps);
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 距离第一个的最大距离
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">const</span> maxOffset <span style="color:#fe8019">=</span> scrollOffset <span style="color:#fe8019">+</span> size;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 可见区域里第一个的偏移
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">itemMetadata</span>.<span style="color:#a6e22e">offset</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">itemMetadata</span>.<span style="color:#a6e22e">size</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startIndex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 可见区域里第一个的偏移
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">let</span> offset <span style="color:#fe8019">=</span> itemMetadata.offset <span style="color:#fe8019">+</span> itemMetadata.size;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">let</span> stopIndex <span style="color:#fe8019">=</span> startIndex;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">stopIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">itemCount</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">offset</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">maxOffset</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stopIndex</span><span style="color:#f92672">++</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">offset</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">getItemMetadata</span>(<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">stopIndex</span>, <span style="color:#a6e22e">instanceProps</span>).<span style="color:#a6e22e">size</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">while</span> (stopIndex <span style="color:#fe8019">&lt;</span> itemCount <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span> <span style="color:#fe8019">&amp;&amp;</span> offset <span style="color:#fe8019">&lt;</span> maxOffset) {
+</span></span><span style="display:flex;"><span>    stopIndex<span style="color:#fe8019">++</span>;
+</span></span><span style="display:flex;"><span>    offset <span style="color:#fe8019">+=</span> getItemMetadata(props, stopIndex, instanceProps).size;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stopIndex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> stopIndex;
 </span></span><span style="display:flex;"><span>},
 </span></span></code></pre></div>
 <div class="post-full-content" id="gitalk-container"></div>

@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.3019434ffda90f89109790f475092c6319195fe815319232f631a0a5b8d30b27.css" />
-</head>
-<body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
   <nav id="nav" class="nav">
       <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
           <img src="/images/loog.png" />
@@ -100,24 +99,24 @@
 <p>字体的加载会阻塞页面的渲染，因而优化字体挺重要的</p>
 <h3 id="使用local">使用local()</h3>
 <p>当在加载自己的字体时，在最前面声明local(),像这样</p>
-<pre tabindex="0"><code>@font-face {
-  font-family: &#39;Awesome Font&#39;;
-  font-style: normal;
-  font-weight: 400;
-  src: local(&#39;Awesome Font&#39;),
-       url(&#39;/fonts/awesome.woff2&#39;) format(&#39;woff2&#39;), 
-       url(&#39;/fonts/awesome.woff&#39;) format(&#39;woff&#39;),
-       url(&#39;/fonts/awesome.ttf&#39;) format(&#39;truetype&#39;),
-       url(&#39;/fonts/awesome.eot&#39;) format(&#39;embedded-opentype&#39;);
-}
-</code></pre><p>如果字体文件在本地就不会发起新的请求</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@font-face {
+</span></span><span style="display:flex;"><span>  font-family: &#39;Awesome Font&#39;;
+</span></span><span style="display:flex;"><span>  font-style: normal;
+</span></span><span style="display:flex;"><span>  font-weight: 400;
+</span></span><span style="display:flex;"><span>  src: local(&#39;Awesome Font&#39;),
+</span></span><span style="display:flex;"><span>       url(&#39;/fonts/awesome.woff2&#39;) format(&#39;woff2&#39;), 
+</span></span><span style="display:flex;"><span>       url(&#39;/fonts/awesome.woff&#39;) format(&#39;woff&#39;),
+</span></span><span style="display:flex;"><span>       url(&#39;/fonts/awesome.ttf&#39;) format(&#39;truetype&#39;),
+</span></span><span style="display:flex;"><span>       url(&#39;/fonts/awesome.eot&#39;) format(&#39;embedded-opentype&#39;);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>如果字体文件在本地就不会发起新的请求</p>
 <h3 id="使用-unicode-range">使用 Unicode-range</h3>
 <p>用法</p>
-<pre tabindex="0"><code>@font-face {
-  .....
-  unicode-range: U+000-5FF; /* Latin glyphs */
-}
-</code></pre><p>这个霸道，你可以通过指定<code>unicode-range</code>来指定需要应用字体的范围，曾经在一个活动页面内使用过
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@font-face {
+</span></span><span style="display:flex;"><span>  .....
+</span></span><span style="display:flex;"><span>  unicode-range: U+000-5FF; /* Latin glyphs */
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这个霸道，你可以通过指定<code>unicode-range</code>来指定需要应用字体的范围，曾经在一个活动页面内使用过
 ,当时通过检查页面，发现整个项目就用了几个文字，其他全是图片，我就直接写了那几个字符的unicode,字体文件直接从200多kb降到30kb左右，性能测试字体方面直接从F变到了A.</p>
 <h3 id="内联">内联</h3>
 <p>将字体直接放在css文件中，不用发起二次请求，不过css文件会比较大。</p>
