@@ -13,11 +13,11 @@
     clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
     repo: 'blog-comments',
     owner: 'flyingalex',
-    language: "{{if eq .Site.LanguagePrefix " / en"}}en{{else}}zh-CN{{end}}",
+    language: "en",
     admin: ['flyingalex'],
     id: '{{ .Slug }}',
     perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev/https://github.com/login/oauth/access_token"
+    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev/?https://github.com/login/oauth/access_token"
   });
   gitalk.render('gitalk-container');
 </script>
