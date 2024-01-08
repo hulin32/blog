@@ -2,274 +2,274 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.hulin.dev/tech/composer-in-docker/</loc>
+    <loc>https://www.hulin.dev/zh/tech/composer-in-docker/</loc>
     <lastmod>2021-02-25T23:35:27+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/</loc>
+    <loc>https://www.hulin.dev/zh/</loc>
     <lastmod>2021-02-25T23:35:27+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/tech/</loc>
+    <loc>https://www.hulin.dev/zh/tech/</loc>
     <lastmod>2021-02-25T23:35:27+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/tech/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/categories/</loc>
+    <loc>https://www.hulin.dev/zh/categories/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/categories/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/categories/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/categories/react/</loc>
+    <loc>https://www.hulin.dev/zh/categories/react/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/categories/react/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/categories/react/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/categories/react/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/tech/react-core-super-in-constructor/</loc>
+    <loc>https://www.hulin.dev/zh/tech/react-core-super-in-constructor/</loc>
     <lastmod>2020-09-19T22:25:46+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/tech/react-core-super-in-constructor/"
+                href="https://www.hulin.dev/tech/react-core-super-in-constructor/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://www.hulin.dev/tech/react-core-super-in-constructor/"
+                href="https://www.hulin.dev/zh/tech/react-core-super-in-constructor/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/tech/timezone/</loc>
+    <loc>https://www.hulin.dev/zh/tech/timezone/</loc>
     <lastmod>2020-08-26T23:30:23+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/java/</loc>
+    <loc>https://www.hulin.dev/zh/categories/java/</loc>
     <lastmod>2020-07-19T09:50:29+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/java-jvm-xx-options/</loc>
+    <loc>https://www.hulin.dev/zh/tech/java-jvm-xx-options/</loc>
     <lastmod>2020-07-19T09:50:29+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/tech/java-jvm-xx-options/"
+                href="https://www.hulin.dev/tech/java-jvm-xx-options/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://www.hulin.dev/tech/java-jvm-xx-options/"
+                href="https://www.hulin.dev/zh/tech/java-jvm-xx-options/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/tech/blog-movement/</loc>
+    <loc>https://www.hulin.dev/zh/tech/blog-movement/</loc>
     <lastmod>2020-06-21T22:45:21+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/java-early-experience/</loc>
+    <loc>https://www.hulin.dev/zh/tech/java-early-experience/</loc>
     <lastmod>2020-06-08T23:28:59+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tool/notion/</loc>
+    <loc>https://www.hulin.dev/zh/tool/notion/</loc>
     <lastmod>2020-05-20T21:56:07+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tool/</loc>
+    <loc>https://www.hulin.dev/zh/tool/</loc>
     <lastmod>2020-05-20T21:56:07+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/react-event-source-code-reading/</loc>
+    <loc>https://www.hulin.dev/zh/tech/react-event-source-code-reading/</loc>
     <lastmod>2020-05-15T07:43:32+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/tech/react-event-source-code-reading/"
+                href="https://www.hulin.dev/tech/react-event-source-code-reading/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://www.hulin.dev/tech/react-event-source-code-reading/"
+                href="https://www.hulin.dev/zh/tech/react-event-source-code-reading/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/tech/learning/</loc>
+    <loc>https://www.hulin.dev/zh/tech/learning/</loc>
     <lastmod>2020-05-13T07:31:18+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/css/</loc>
+    <loc>https://www.hulin.dev/zh/tech/css/</loc>
     <lastmod>2020-04-23T22:41:39+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/github-action-and-netlify/</loc>
+    <loc>https://www.hulin.dev/zh/tech/github-action-and-netlify/</loc>
     <lastmod>2020-03-15T10:03:23+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/performance/</loc>
+    <loc>https://www.hulin.dev/zh/tech/performance/</loc>
     <lastmod>2020-03-05T20:08:17+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/tech/performance/"
+                href="https://www.hulin.dev/tech/performance/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://www.hulin.dev/tech/performance/"
+                href="https://www.hulin.dev/zh/tech/performance/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/tech/tool/</loc>
+    <loc>https://www.hulin.dev/zh/tech/tool/</loc>
     <lastmod>2020-03-01T15:50:02+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/about/</loc>
+    <loc>https://www.hulin.dev/zh/about/</loc>
     <lastmod>2020-02-02T18:44:23+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/about/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/about/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/tech/react-child-element-render/</loc>
+    <loc>https://www.hulin.dev/zh/tech/react-child-element-render/</loc>
     <lastmod>2019-07-02T21:48:30+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/redux/</loc>
+    <loc>https://www.hulin.dev/zh/categories/redux/</loc>
     <lastmod>2019-06-14T21:53:26+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/redux-source-reading/</loc>
+    <loc>https://www.hulin.dev/zh/tech/redux-source-reading/</loc>
     <lastmod>2019-06-14T21:53:26+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/react-window/</loc>
+    <loc>https://www.hulin.dev/zh/categories/react-window/</loc>
     <lastmod>2019-06-12T21:55:21+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/react-window-variablesizelist/</loc>
+    <loc>https://www.hulin.dev/zh/tech/react-window-variablesizelist/</loc>
     <lastmod>2019-06-12T21:55:21+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/react-window-fixedsizelist/</loc>
+    <loc>https://www.hulin.dev/zh/tech/react-window-fixedsizelist/</loc>
     <lastmod>2019-06-11T21:57:21+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/shell-config/</loc>
+    <loc>https://www.hulin.dev/zh/tech/shell-config/</loc>
     <lastmod>2019-04-23T21:58:34+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/css/</loc>
+    <loc>https://www.hulin.dev/zh/categories/css/</loc>
     <lastmod>2019-04-15T22:00:24+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/css-small-tips/</loc>
+    <loc>https://www.hulin.dev/zh/tech/css-small-tips/</loc>
     <lastmod>2019-04-15T22:00:24+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/cache-control-for-civilians/</loc>
+    <loc>https://www.hulin.dev/zh/tech/cache-control-for-civilians/</loc>
     <lastmod>2019-03-10T22:01:47+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/translation/</loc>
+    <loc>https://www.hulin.dev/zh/categories/translation/</loc>
     <lastmod>2019-03-10T22:01:47+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/hooks-first-time/</loc>
+    <loc>https://www.hulin.dev/zh/tech/hooks-first-time/</loc>
     <lastmod>2019-03-02T22:43:32+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/optimization/</loc>
+    <loc>https://www.hulin.dev/zh/categories/optimization/</loc>
     <lastmod>2019-02-28T22:23:38+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/preload-preconnect-prefetch/</loc>
+    <loc>https://www.hulin.dev/zh/tech/preload-preconnect-prefetch/</loc>
     <lastmod>2019-02-28T22:23:38+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/webgl/</loc>
+    <loc>https://www.hulin.dev/zh/categories/webgl/</loc>
     <lastmod>2019-02-28T22:23:38+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/get-start-webgl/</loc>
+    <loc>https://www.hulin.dev/zh/tech/get-start-webgl/</loc>
     <lastmod>2019-02-28T22:23:38+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/mpvue/</loc>
+    <loc>https://www.hulin.dev/zh/categories/mpvue/</loc>
     <lastmod>2019-02-19T22:28:37+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/mpvue-issues/</loc>
+    <loc>https://www.hulin.dev/zh/tech/mpvue-issues/</loc>
     <lastmod>2019-02-19T22:28:37+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/shell-tips/</loc>
+    <loc>https://www.hulin.dev/zh/tech/shell-tips/</loc>
     <lastmod>2018-12-12T22:29:52+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/i18n-with-100-lines/</loc>
+    <loc>https://www.hulin.dev/zh/tech/i18n-with-100-lines/</loc>
     <lastmod>2018-06-18T22:32:18+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/wheel/</loc>
+    <loc>https://www.hulin.dev/zh/categories/wheel/</loc>
     <lastmod>2018-06-18T22:32:18+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/why/</loc>
+    <loc>https://www.hulin.dev/zh/categories/why/</loc>
     <lastmod>2018-06-05T22:34:28+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/why-reach-router/</loc>
+    <loc>https://www.hulin.dev/zh/tech/why-reach-router/</loc>
     <lastmod>2018-06-05T22:34:28+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/learn-typescript-in-one-file/</loc>
+    <loc>https://www.hulin.dev/zh/tech/learn-typescript-in-one-file/</loc>
     <lastmod>2018-03-25T22:35:55+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/fe-optimization-font/</loc>
+    <loc>https://www.hulin.dev/zh/tech/fe-optimization-font/</loc>
     <lastmod>2018-02-09T22:38:11+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/fe-optimization-img/</loc>
+    <loc>https://www.hulin.dev/zh/tech/fe-optimization-img/</loc>
     <lastmod>2018-02-07T22:38:11+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/</loc>
+    <loc>https://www.hulin.dev/zh/tech/learn-some-vim-and-save-your-time/</loc>
     <lastmod>2017-12-22T22:41:13+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/categories/vim/</loc>
+    <loc>https://www.hulin.dev/zh/categories/vim/</loc>
     <lastmod>2017-12-22T22:41:13+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/life/</loc>
+    <loc>https://www.hulin.dev/zh/life/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/life/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
                 href="https://www.hulin.dev/life/"
                 />
-  </url><url>
-    <loc>https://www.hulin.dev/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/en/tags/"
-                />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
+                href="https://www.hulin.dev/zh/life/"
+                />
+  </url><url>
+    <loc>https://www.hulin.dev/zh/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
                 href="https://www.hulin.dev/tags/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tags/"
+                />
   </url><url>
-    <loc>https://www.hulin.dev/life/intro/</loc>
+    <loc>https://www.hulin.dev/zh/life/intro/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.hulin.dev/en/life/intro/"
+                href="https://www.hulin.dev/life/intro/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://www.hulin.dev/life/intro/"
+                href="https://www.hulin.dev/zh/life/intro/"
                 />
   </url>
 </urlset>

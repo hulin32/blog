@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>React源码--事件 · INNER PEACE</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
+          <img src="/images/loog.png" />
+          INNER PEACE
+      </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>React源码--事件</h1>
+
+
+<time datetime="2020-05-15">May 15, 2020</time>
+
+
+<br><br>
+<p>React事件源码阅读(v16.13.0)</p>
+<p>根据官方文档,react内的事件是通过一个合成事件SyntheticEvent来实现的，自己写了一个wrapper,并且为了性能考虑用了事件池,
+我们来看看源码内是怎么做的，本文代码都在我<a href="https://github.com/flyingalex/react-related-source-code-reading/tree/event">github
+repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
+<p>首先我们需要一个demo来看看时间是怎么运行的，demo在<code>src/index.jsx</code>文件中（不用关其他文件，这里放了我看react相关源码的所有文件，有点乱🐶）</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">import</span> React from <span style="color:#b8bb26">&#39;./react-dev/react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">import</span> { render } from <span style="color:#b8bb26">&#39;./react-dev/react-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">class</span> App <span style="color:#fe8019">extends</span> React.Component {
+</span></span><span style="display:flex;"><span>  constructor(props) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">super</span>(props);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">this</span>.state <span style="color:#fe8019">=</span> {count<span style="color:#fe8019">:</span> <span style="color:#d3869b">0</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">this</span>.handleClick <span style="color:#fe8019">=</span> <span style="color:#fe8019">this</span>.handleClick.bind(<span style="color:#fe8019">this</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  handleClick() {
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#b8bb26">&#39;hello&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">this</span>.setState((state) =&gt; {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;sasa&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span> {count<span style="color:#fe8019">:</span> state.count <span style="color:#fe8019">+</span> <span style="color:#d3869b">1</span>};
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  render() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">&lt;</span>button key<span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;1&#34;</span> onClick<span style="color:#fe8019">=</span>{<span style="color:#fe8019">this</span>.handleClick}<span style="color:#fe8019">&gt;</span>Update counter<span style="color:#fe8019">&lt;</span>/button&gt;,
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">&lt;</span>span key<span style="color:#fe8019">=</span><span style="color:#b8bb26">&#34;2&#34;</span><span style="color:#fe8019">&gt;</span>{<span style="color:#fe8019">this</span>.state.count}<span style="color:#fe8019">&lt;</span>/span&gt;
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>render(<span style="color:#fe8019">&lt;</span>App <span style="color:#fe8019">/&gt;</span>, <span style="color:#fabd2f">document</span>.getElementById(<span style="color:#b8bb26">&#39;app&#39;</span>));
+</span></span></code></pre></div><p><code>handleClick</code>是本文要研究的地方。首先jsx文件是需要被编译成js，我们可以通过babel的命令行去编译
+在项目根目录跑</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./node_modules/.bin/babel src/index.jsx
+</span></span></code></pre></div><p>就会生成一个index.compiled.js文件，这个文件也在<code>src/index.compiled.js</code>中，跑完主要部分是这样(更多的请看repo)</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>.......
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">var</span> App <span style="color:#fe8019">=</span> <span style="color:#928374;font-style:italic">/*#__PURE__*/</span> <span style="color:#fe8019">function</span> (_React$Component) {
+</span></span><span style="display:flex;"><span>  _inherits(App, _React$Component);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">function</span> App(props) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> _this;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _classCallCheck(<span style="color:#fe8019">this</span>, App);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _this <span style="color:#fe8019">=</span> _possibleConstructorReturn(<span style="color:#fe8019">this</span>, _getPrototypeOf(App).call(<span style="color:#fe8019">this</span>, props));
+</span></span><span style="display:flex;"><span>    _this.state <span style="color:#fe8019">=</span> {
+</span></span><span style="display:flex;"><span>      count<span style="color:#fe8019">:</span> <span style="color:#d3869b">0</span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    _this.handleClick <span style="color:#fe8019">=</span> _this.handleClick.bind(_assertThisInitialized(_this));
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> _this;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  _createClass(App, [{
+</span></span><span style="display:flex;"><span>    key<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#34;handleClick&#34;</span>,
+</span></span><span style="display:flex;"><span>    value<span style="color:#fe8019">:</span> <span style="color:#fe8019">function</span> handleClick() {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">this</span>.setState(<span style="color:#fe8019">function</span> (state) {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b8bb26">&#39;sasa&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span> {
+</span></span><span style="display:flex;"><span>          count<span style="color:#fe8019">:</span> state.count <span style="color:#fe8019">+</span> <span style="color:#d3869b">1</span>
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }, {
+</span></span><span style="display:flex;"><span>    key<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#34;render&#34;</span>,
+</span></span><span style="display:flex;"><span>    value<span style="color:#fe8019">:</span> <span style="color:#fe8019">function</span> render() {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">return</span> [_react[<span style="color:#b8bb26">&#34;default&#34;</span>].createElement(<span style="color:#b8bb26">&#34;button&#34;</span>, {
+</span></span><span style="display:flex;"><span>        key<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>        onClick<span style="color:#fe8019">:</span> <span style="color:#fe8019">this</span>.handleClick
+</span></span><span style="display:flex;"><span>      }, <span style="color:#b8bb26">&#34;Update counter&#34;</span>), _react[<span style="color:#b8bb26">&#34;default&#34;</span>].createElement(<span style="color:#b8bb26">&#34;span&#34;</span>, {
+</span></span><span style="display:flex;"><span>        key<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#34;2&#34;</span>
+</span></span><span style="display:flex;"><span>      }, <span style="color:#fe8019">this</span>.state.count)];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> App;
+</span></span><span style="display:flex;"><span>}(_react[<span style="color:#b8bb26">&#34;default&#34;</span>].Component);
+</span></span></code></pre></div><p>本次我们看的是事件，那react又怎么知道哪个是事件，其实就是我们写的<code>onClick</code>，那这个事件是怎么绑定的呢，通过浏览器内断点调试，你能得到一个这样的调用链，这是react第一次渲染时页面构建的其中一个步骤:
+<img src="/images/call-tree.png" alt="调用链"></p>
+<p>在<code>addEventBubbleListener</code>代码处，你就能看到，它其实就是在一个元素上调用了原生的addEventListener方法来绑定事件，当你点击时就会通过通过浏览器的事件去触发，只是触发后调用的函数react再做了一次封装，很多文章说react事件是绑定在document上的，从哪里知道的呢？就是这个函数，你如果打印element，你会发现它是根元素html。</p>
+<p>当在点击事件时，调用的是<code>dispatchDiscreteEvent</code>这个函数，在这个函数中会去初始化<code>SyntheticEvent</code>，并且是通过<code>getPooled</code>来获取<code>SyntheticEvent</code>实例,可以通过demo来证实这个，至于那个pool怎么用，我看第二次点击的时候就是直接从<code>eventPool</code>中获取的，所以我认为是缓存事件对象的，不要每次都重新创建。</p>
+<p>完。</p>
+<p>referrence:</p>
+<ol>
+<li><a href="https://zh-hans.reactjs.org/languages">https://zh-hans.reactjs.org/languages</a></li>
+<li><a href="https://github.com/flyingalex/react-related-source-code-reading/tree/event">https://github.com/flyingalex/react-related-source-code-reading/tree/event</a></li>
+</ol>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

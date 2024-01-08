@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh"><head>
+<html lang="en"><head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   
   
-  <title>React源码--constructor · INNER PEACE</title>
+  <title>React source reading--constructor · INNER PEACE</title>
   <link rel="shortcut icon" type="image/png" href="/favicon.png">
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,18 +19,11 @@
           INNER PEACE
       </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/categories">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
           
 
           
-          Archive
-        </a>
-      
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
-          
-
-          
-          EN
+          About
         </a>
       
         <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
@@ -40,46 +33,39 @@
           Github
         </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
           
 
           
-          关于
-        </a>
-      
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tool">
-          
-
-          
-          工具
+          Life
         </a>
       
         <a class="display-block bold padding-10 word-break-keep uppercase" href="/tech">
           
 
           
-          技术
+          Tech
         </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh">
           
 
           
-          生活
+          中文
         </a>
       
   </nav>
 </div>
 <div id="content" class="main-padding-x">
-<h1>React源码--constructor</h1>
+<h1>React source reading--constructor</h1>
 
 
 <time datetime="2020-09-19">Sep 19, 2020</time>
 
 
 <br><br>
-<p>React构造器源码阅读(v16.13.0)</p>
-<p>该文章的demo</p>
+<p>react event source codes reading(v16.13.0)</p>
+<p>article&rsquo;s demo</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">import</span> React from <span style="color:#b8bb26">&#39;./react-dev/react&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#fe8019">import</span> { render } from <span style="color:#b8bb26">&#39;./react-dev/react-dom&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#fe8019">class</span> App <span style="color:#fe8019">extends</span> React.Component {
@@ -107,13 +93,13 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>render(&lt;<span style="color:#fb4934">App</span> /&gt;, <span style="color:#fabd2f">document</span>.getElementById(<span style="color:#b8bb26">&#39;app&#39;</span>));
-</span></span></code></pre></div><p>我们写react代码的时候每次在写construtor的时候写<code>super(props)</code>，其实它做了什么真不知道，根据官方文档</p>
+</span></span></code></pre></div><p>When we write the actual codes, we write <code>super(props)</code> every time when we write construtor, in fact, I don&rsquo;t know what&rsquo;s happen when we call it, according to the official documentation</p>
 <blockquote>
-<p>在为 React.Component 子类实现构造函数时，应在其他语句之前前调用 super(props)。否则，this.props 在构造函数中可能会出现未定义的 bug。</p>
+<p>When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.</p>
 </blockquote>
-<p>从源码的角度看是怎么回事呢，通过命令编译上面的demo</p>
+<p>To see what&rsquo;s going on from a source-code perspective, compile above demo with this command:</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./node_modules/.bin/babel src/index.jsx
-</span></span></code></pre></div><p>当有<code>super(props)</code>的时候</p>
+</span></span></code></pre></div><p>when <code>super(props)</code> is there</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">function</span> App(propss) {
 </span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> _this;
 </span></span><span style="display:flex;"><span>
@@ -126,7 +112,7 @@
 </span></span><span style="display:flex;"><span>    _this.handleClick <span style="color:#fe8019">=</span> _this.handleClick.bind(_assertThisInitialized(_this));
 </span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> _this;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>当没有的时候</p>
+</span></span></code></pre></div><p>otherwise</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#fe8019">function</span> App(props) {
 </span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> _this;
 </span></span><span style="display:flex;"><span>
@@ -139,14 +125,14 @@
 </span></span><span style="display:flex;"><span>    _this.handleClick <span style="color:#fe8019">=</span> _this.handleClick.bind(_assertThisInitialized(_this));
 </span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> _possibleConstructorReturn(_this);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>看出什么了吗？<code>super(props)</code>就是去定义this的，如果没有的话，this就没有值，后面的代码都会报错。
-其实我觉得上面官方的说法应该更硬气一点: 写constructor时必须调用super方法🐶</p>
-<p>另外props又是做什么的呢，其实就是绑定从调用者那边传入的props到this对象上。</p>
-<p>另外当你调用super时，如果你的编辑器有代码提示的话就可以看到其实super是可以传入<code>props, context, updater</code>3个变量的，不过一般使用就是用第一个，context在这里也是很少用的</p>
+</span></span></code></pre></div><p>See what I mean? <code>super(props)</code> is to define <code>this</code>, if not there, then this has no value, and all the rest of the codes will report an error.
+In fact, I think above official statement should be more rigid: you must call the super method when writing the constructor 🐶.</p>
+<p>Also what&rsquo;s <code>props</code>, it binds the props passed from parent.</p>
+<p>In addition, when you call <code>super</code>, if your editor has a code hint, you can see that super can pass in <code>props, context, updater</code> three variables, but the general use is to use the first one, context is also rarely used here!</p>
 <p>referrence:</p>
 <ol>
 <li><a href="https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/">https://www.nstinfotech.com/difference-between-super-and-super-props-reactjs/</a></li>
-<li><a href="https://overreacted.io/zh-hans/why-do-we-write-super-props">https://overreacted.io/zh-hans/why-do-we-write-super-props</a></li>
+<li><a href="https://overreacted.io/why-do-we-write-super-props">https://overreacted.io/why-do-we-write-super-props</a></li>
 </ol>
 <div class="post-full-content" id="gitalk-container"></div>
 

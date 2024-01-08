@@ -1,5 +1,5 @@
 baseURL: "https://www.hulin.dev"
-defaultContentLanguage: "zh"
+defaultContentLanguage: "en"
 languages:
   zh:
     contentDir: "content/zh"
@@ -9,15 +9,15 @@ languages:
         - name: Github
           url: https://github.com/flyingalex
         - name: 关于
-          url: /about
+          url: /zh/about
         - name: 生活
-          url: /life
+          url: /zh/life
         - name: 技术
-          url: /tech
+          url: /zh/tech
         - name: 工具
-          url: /tool
+          url: /zh/tool
         - name: Archive
-          url: /categories
+          url: /zh/categories
         - name: EN
           url: /en
   en:
@@ -28,15 +28,15 @@ languages:
         - name: Github
           url: https://github.com/flyingalex
         - name: About
-          url: /en/about
+          url: /about
         - name: Life
-          url: /en/life
+          url: /life
         - name: Tech
-          url: /en/tech
+          url: /tech
         # - name: Tool
         # url: /en/tool
         - name: 中文
-          url: /
+          url: /zh
 theme: "framer"
 algolia:
   index: "blog"

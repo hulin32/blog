@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh"><head>
+<html lang="en"><head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -19,18 +19,11 @@
           INNER PEACE
       </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/categories">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
           
 
           
-          Archive
-        </a>
-      
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
-          
-
-          
-          EN
+          About
         </a>
       
         <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
@@ -40,32 +33,25 @@
           Github
         </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
           
 
           
-          关于
-        </a>
-      
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tool">
-          
-
-          
-          工具
+          Life
         </a>
       
         <a class="display-block bold padding-10 word-break-keep uppercase" href="/tech">
           
 
           
-          技术
+          Tech
         </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh">
           
 
           
-          生活
+          中文
         </a>
       
   </nav>
@@ -78,10 +64,10 @@
 
 
 <br><br>
-<p>虚拟机jvm的参数解释</p>
-<p>虚拟机优化的时候需要知道怎么去设置参数，编译了一个openjdk slowdebug版本，然后通过</p>
+<p>jvm -xx options&rsquo; description</p>
+<p>when you want to optimize JVM&rsquo;s performacen, you needs to know how to set parameters, I compiled a version of OpenJDK SlowDebug, and then run this command</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -XX:+UnlockDiagnosticVMOptions -XX:+UnlockExperimentalVMOptions -XX:+PrintFlagsFinal -XX:+PrintFlagsWithComments -version
-</span></span></code></pre></div><p>打印了全部参数如下，方便查阅(滚动到右边👉)</p>
+</span></span></code></pre></div><p>to print all the options for JVM, also their description(scroll to right)</p>
 <div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ccstrlist AOTLibrary                               <span style="color:#fe8019">=</span>                                           <span style="color:#fe8019">{</span>product<span style="color:#fe8019">}</span> <span style="color:#fe8019">{</span>default<span style="color:#fe8019">}</span>       AOT library
 </span></span><span style="display:flex;"><span>     bool AbortVMOnCompilationFailure              <span style="color:#fe8019">=</span> <span style="color:#fabd2f">false</span>                                  <span style="color:#fe8019">{</span>diagnostic<span style="color:#fe8019">}</span> <span style="color:#fe8019">{</span>default<span style="color:#fe8019">}</span>       Abort VM when method had failed to compile.
 </span></span><span style="display:flex;"><span>    ccstr AbortVMOnException                       <span style="color:#fe8019">=</span>                                        <span style="color:#fe8019">{</span>diagnostic<span style="color:#fe8019">}</span> <span style="color:#fe8019">{</span>default<span style="color:#fe8019">}</span>       Call fatal <span style="color:#fe8019">if</span> this exception is thrown.  Example: java -XX:AbortVMOnException<span style="color:#fe8019">=</span>java.lang.NullPointerException Foo

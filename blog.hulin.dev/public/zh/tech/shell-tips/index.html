@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>一些 Shell 小技巧 · INNER PEACE</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
+          <img src="/images/loog.png" />
+          INNER PEACE
+      </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>一些 Shell 小技巧</h1>
+
+
+<time datetime="2018-12-12">Dec 12, 2018</time>
+
+
+<br><br>
+<p>真的小</p>
+<h3 id="1-pushd-popd-dirs---终端目录栈管理">1. pushd, popd, dirs&mdash;终端目录栈管理</h3>
+<p>这几条命令可以达到的目的是在不同目录之前快速切换。
+<code>pushd</code>用于将目录压入目录栈内，<code>popd</code>弹出，<code>dirs</code>显示目录栈的内容
+<!-- raw HTML omitted -->
+当在<code>pushd</code>或 <code>popd</code>后面使用数字时是对目录栈内的内容操作，如果是目录就是新的内容</p>
+<h5 id="个人感觉-一般">个人感觉： 一般</h5>
+<h3 id="2-终端快速移动">2. 终端快速移动</h3>
+<p><code>Meta + f</code>: 向前移动一个单词
+<code>Meta + b</code>: 向后移动一个单词
+<code>Ctrl + y</code>: 粘贴最后一次的剪切
+<code>Ctrl +  a</code>: 移动到段首
+<code>Ctrl + e</code>: 移动到段尾
+<code>Ctrl + k</code>: 从当前删到段尾
+<code>Meta + d</code>: 从当前删到单词末
+<code>Ctrl + w</code>: 从当前删到前一个空白符</p>
+<p>(Meta在Mac上的设置位置Terminal &gt; Preferences &gt; Settings &gt; Keyboard）</p>
+<h5 id="个人感觉-特别是12两个很棒">个人感觉： 特别是1，2两个，很棒</h5>
+<p>###. 3 找文件&mdash;<code>find</code>
+说说应用场景，当在编辑器中想改某个名字的时候，文件内的内容都可以搜索到，但是如果要改文件名的话，编辑器可能就不好使了，这时<code>find</code>就派上用场了.
+命令格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find options starting/path expression
+</span></span></code></pre></div><p>例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># 搜索当前目录下的包含hello的文件名</span>
+</span></span><span style="display:flex;"><span>find  .  -name  <span style="color:#b8bb26">&#34;*hello*&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># 忽略大小写</span>
+</span></span><span style="display:flex;"><span>find  .  -iname  <span style="color:#b8bb26">&#34;*hello*&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"># 可以提供-type过滤文件类型, 常用的有d(目录) 和 f(文件)</span>
+</span></span><span style="display:flex;"><span>find  .  -iname  <span style="color:#b8bb26">&#34;*hello*&#34;</span> -type f
+</span></span><span style="display:flex;"><span>find  .  -iname <span style="color:#b8bb26">&#34;*hello*&#34;</span> -type d
+</span></span></code></pre></div><h5 id="个人感觉真的很好用">个人感觉：真的很好用</h5>
+<h3 id="4待续">4.待续</h3>
+<p>参考：</p>
+<ol>
+<li><a href="http://teohm.com/blog/shortcuts-to-move-faster-in-bash-command-line/">Shortcuts to move faster in Bash command line</a></li>
+</ol>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

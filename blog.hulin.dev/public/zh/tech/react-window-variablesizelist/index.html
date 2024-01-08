@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>react-window 源码解析--VariableSizeList · INNER PEACE</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
+          <img src="/images/loog.png" />
+          INNER PEACE
+      </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>react-window 源码解析--VariableSizeList</h1>
+
+
+<time datetime="2019-06-12">Jun 12, 2019</time>
+
+
+<br><br>
+<p>VariableSizeList解析</p>
+<p>和前面 #25 一样，最都是调用的<code>createListComponent</code>，不一样的地方就是调用那个函数时传入的方法,我们来一起看看。
+主要的就是<code>getStartIndexForOffset</code>和<code>getStopIndexForStartIndex</code>两个函数了</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// 主要调用了findNearestItem
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>getStartIndexForOffset<span style="color:#fe8019">:</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; findNearestItem(props, instanceProps, offset),
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">const</span> findNearestItem <span style="color:#fe8019">=</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number
+</span></span><span style="display:flex;"><span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { itemMetadataMap, lastMeasuredIndex } <span style="color:#fe8019">=</span> instanceProps;
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#b8bb26">&#39;offset&#39;</span>, offset);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> lastMeasuredItemOffset <span style="color:#fe8019">=</span>
+</span></span><span style="display:flex;"><span>    lastMeasuredIndex <span style="color:#fe8019">&gt;</span> <span style="color:#d3869b">0</span> <span style="color:#fe8019">?</span> itemMetadataMap[lastMeasuredIndex].offset <span style="color:#fe8019">:</span> <span style="color:#d3869b">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (lastMeasuredItemOffset <span style="color:#fe8019">&gt;=</span> offset) {
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 如果查找过就直接使用二分查找
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">return</span> findNearestItemBinarySearch(
+</span></span><span style="display:flex;"><span>      props,
+</span></span><span style="display:flex;"><span>      instanceProps,
+</span></span><span style="display:flex;"><span>      lastMeasuredIndex,
+</span></span><span style="display:flex;"><span>      <span style="color:#d3869b">0</span>,
+</span></span><span style="display:flex;"><span>      offset
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  } <span style="color:#fe8019">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// 如果没有就使用指数搜索
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    <span style="color:#fe8019">return</span> findNearestItemExponentialSearch(
+</span></span><span style="display:flex;"><span>      props,
+</span></span><span style="display:flex;"><span>      instanceProps,
+</span></span><span style="display:flex;"><span>      <span style="color:#fabd2f">Math</span>.max(<span style="color:#d3869b">0</span>, lastMeasuredIndex),
+</span></span><span style="display:flex;"><span>      offset
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>二分查找我猜很多人都看过了，通过查找中位数来折半查找，非常的快,来主要看看指数查找</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">const</span> findNearestItemExponentialSearch <span style="color:#fe8019">=</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps,
+</span></span><span style="display:flex;"><span>  index<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  offset<span style="color:#fe8019">:</span> number
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { itemCount } <span style="color:#fe8019">=</span> props;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">let</span> interval <span style="color:#fe8019">=</span> <span style="color:#d3869b">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 这里主要就是找到那个偏移大于现在的点
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">while</span> (
+</span></span><span style="display:flex;"><span>    index <span style="color:#fe8019">&lt;</span> itemCount <span style="color:#fe8019">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    getItemMetadata(props, index, instanceProps).offset <span style="color:#fe8019">&lt;</span> offset
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    index <span style="color:#fe8019">+=</span> interval;
+</span></span><span style="display:flex;"><span>    interval <span style="color:#fe8019">*=</span> <span style="color:#d3869b">2</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 找到那个点后就可以使用二分查找了
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">return</span> findNearestItemBinarySearch(
+</span></span><span style="display:flex;"><span>    props,
+</span></span><span style="display:flex;"><span>    instanceProps,
+</span></span><span style="display:flex;"><span>    <span style="color:#fabd2f">Math</span>.min(index, itemCount <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#fabd2f">Math</span>.floor(index <span style="color:#fe8019">/</span> <span style="color:#d3869b">2</span>),
+</span></span><span style="display:flex;"><span>    offset
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>接下来再看看<code>getStopIndexForStartIndex</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>getStopIndexForStartIndex<span style="color:#fe8019">:</span> (
+</span></span><span style="display:flex;"><span>  props<span style="color:#fe8019">:</span> Props<span style="color:#fe8019">&lt;</span>any<span style="color:#fe8019">&gt;</span>,
+</span></span><span style="display:flex;"><span>  startIndex<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  scrollOffset<span style="color:#fe8019">:</span> number,
+</span></span><span style="display:flex;"><span>  instanceProps<span style="color:#fe8019">:</span> InstanceProps
+</span></span><span style="display:flex;"><span>)<span style="color:#fe8019">:</span> number =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> { direction, height, itemCount, layout, width } <span style="color:#fe8019">=</span> props;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> isHorizontal <span style="color:#fe8019">=</span> direction <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;horizontal&#39;</span> <span style="color:#fe8019">||</span> layout <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;horizontal&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 可见区域的滑动方向的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">const</span> size <span style="color:#fe8019">=</span> (((isHorizontal <span style="color:#fe8019">?</span> width <span style="color:#fe8019">:</span> height)<span style="color:#fe8019">:</span> any)<span style="color:#fe8019">:</span> number);
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> itemMetadata <span style="color:#fe8019">=</span> getItemMetadata(props, startIndex, instanceProps);
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 距离第一个的最大距离
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">const</span> maxOffset <span style="color:#fe8019">=</span> scrollOffset <span style="color:#fe8019">+</span> size;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// 可见区域里第一个的偏移
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">let</span> offset <span style="color:#fe8019">=</span> itemMetadata.offset <span style="color:#fe8019">+</span> itemMetadata.size;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">let</span> stopIndex <span style="color:#fe8019">=</span> startIndex;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">while</span> (stopIndex <span style="color:#fe8019">&lt;</span> itemCount <span style="color:#fe8019">-</span> <span style="color:#d3869b">1</span> <span style="color:#fe8019">&amp;&amp;</span> offset <span style="color:#fe8019">&lt;</span> maxOffset) {
+</span></span><span style="display:flex;"><span>    stopIndex<span style="color:#fe8019">++</span>;
+</span></span><span style="display:flex;"><span>    offset <span style="color:#fe8019">+=</span> getItemMetadata(props, stopIndex, instanceProps).size;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> stopIndex;
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: '',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>Tailwindcss 初体验 · INNER PEACE</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
+          <img src="/images/loog.png" />
+          INNER PEACE
+      </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>Tailwindcss 初体验</h1>
+
+
+<time datetime="2020-04-23">Apr 23, 2020</time>
+
+
+<br><br>
+<p>css新的写法</p>
+<p><a href="https://www.tailwindcss.com/">Tailwindcss</a>这个框架出来很久了，不过最近因为写css比较多，但是复用性特别差，尝试过BEM，原子写法，每个项目基本都要重写，在想有没有更好的方法，不知道什么时候Tailwindcss就冒出来了，这个框架也是原子式(atomic)的，这个概念不新，之前在自己的项目中自己也这样写过，是感觉方便，但是还是用着不舒服，估计是被自己的css恶心到了(逃)</p>
+<p>文档是这样介绍的:</p>
+<blockquote>
+<p>A utility-first CSS framework for
+rapidly building custom designs</p>
+</blockquote>
+<blockquote>
+<p>Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.</p>
+</blockquote>
+<p>它就给你提供一些工具集，就是平常你写<code>backgroud</code>,<code>font-size</code>等等，每次都是定义一个class,然后添加相应的css属性，而Tailwindcss的做法是定义好一些class，每个都对应一个css属性，然后通过在元素上添加这些class来添加相应的属性，上面的图片来自于官网，你看它的class应该就知道，比如<code>text-gray-600</code>,就是字体颜色，还可以有响应式<code>md:flex</code>,当默认的不满足的时候你还可以通过写<code>tailwind.config.js</code>配置文件添加新属性的class，这个香，是真香，这样使用后基本就能达到写的一些css可以在不同项目复用了(想的话)。</p>
+<p>官网的文档我扫了一遍，用起来不难，我准备现在自己的项目中用用看，还是要点时间转换一下思维，不过这个框架我觉得是值得尝试的，用起来吧。</p>
+<p>过段时间再来谈谈感受。</p>
+<p>吐个槽，不知道是不是我自己网络问题，他们官网有的慢</p>
+<p>referrence:</p>
+<ol>
+<li><a href="https://tailwindcss.com/">https://tailwindcss.com/</a></li>
+<li><a href="https://www.tailwindcss.cn/docs/configuration">https://www.tailwindcss.cn/docs/configuration</a></li>
+</ol>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: 'css',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>

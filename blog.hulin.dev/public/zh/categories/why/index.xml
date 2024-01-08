@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>why on INNER PEACE</title>
+    <link>https://www.hulin.dev/zh/categories/why/</link>
+    <description>Recent content in why on INNER PEACE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 05 Jun 2018 22:34:28 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/zh/categories/why/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么你应该尝试@reach/router</title>
+      <link>https://www.hulin.dev/zh/tech/why-reach-router/</link>
+      <pubDate>Tue, 05 Jun 2018 22:34:28 +0800</pubDate>
+      
+      <guid>https://www.hulin.dev/zh/tech/why-reach-router/</guid>
+      <description>&lt;p&gt;为什么&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

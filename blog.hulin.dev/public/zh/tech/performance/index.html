@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  
+  
+  <title>cache in js call · INNER PEACE</title>
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
+</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
+  <nav id="nav" class="nav">
+      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
+          <img src="/images/loog.png" />
+          INNER PEACE
+      </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
+          
+
+          
+          Archive
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
+          
+
+          
+          EN
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
+          
+
+          
+          Github
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
+          
+
+          
+          关于
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
+          
+
+          
+          工具
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
+          
+
+          
+          技术
+        </a>
+      
+        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
+          
+
+          
+          生活
+        </a>
+      
+  </nav>
+</div>
+<div id="content" class="main-padding-x">
+<h1>cache in js call</h1>
+
+
+<time datetime="2020-03-05">Mar 5, 2020</time>
+
+
+<br><br>
+<p>js中的缓存做法</p>
+<p>最近网上跟老铁交流的时候，他问我一个函数是干什么的我看了好久，硬是没看出其中的奥秘，你来看看:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">function</span> _path() {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> data <span style="color:#fe8019">=</span> require(<span style="color:#b8bb26">&#34;path&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  _path <span style="color:#fe8019">=</span> <span style="color:#fe8019">function</span> _path() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> data;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> data;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>这函数干什么的？再看5min。</p>
+<p>答案在这:
+<a href="https://stackoverflow.com/a/55430181">https://stackoverflow.com/a/55430181</a> (还得面向stackoverflow编程)，
+看完理解后内心真是万马奔腾，太赞了，主要是这写法遛得不行，<strong><code>通过重新定义函数来缓存函数的调用</code></strong>，</p>
+<p>稍微再说一下stackoverflow那个答题的例子</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">function</span> f() {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#b8bb26">&#34;outer&#34;</span>);
+</span></span><span style="display:flex;"><span>  f <span style="color:#fe8019">=</span> <span style="color:#fe8019">function</span> f() {
+</span></span><span style="display:flex;"><span>    console.log(<span style="color:#b8bb26">&#34;inner&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>f(); <span style="color:#928374;font-style:italic">//outer
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>f(); <span style="color:#928374;font-style:italic">//inner
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>f(); <span style="color:#928374;font-style:italic">//inner
+</span></span></span></code></pre></div><p>第一次调f()的时候<code>outer</code>被打印，然后函数本身变成了新的f()，以后再调用的时候，<code>outer</code>是不会被调用的，只会调用新函数打印<code>inner</code>，我知道的一般是通过在对象Object上通过key的方式来做缓存，每次判断是否有key，然后再决定是否要计算。当然上面这种方法能在js内用我觉得因为js是解释型语言，代码会在</p>
+<p>突发奇想去翻了一下loadash来看看它缓存怎么做的</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// lodash
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span><span style="color:#fe8019">function</span> memoize(func, resolver) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (<span style="color:#fe8019">typeof</span> func <span style="color:#fe8019">!=</span> <span style="color:#b8bb26">&#39;function&#39;</span> <span style="color:#fe8019">||</span> (resolver <span style="color:#fe8019">!=</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">&amp;&amp;</span> <span style="color:#fe8019">typeof</span> resolver <span style="color:#fe8019">!=</span> <span style="color:#b8bb26">&#39;function&#39;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">throw</span> <span style="color:#fe8019">new</span> TypeError(FUNC_ERROR_TEXT);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> memoized <span style="color:#fe8019">=</span> <span style="color:#fe8019">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> args <span style="color:#fe8019">=</span> arguments,
+</span></span><span style="display:flex;"><span>        key <span style="color:#fe8019">=</span> resolver <span style="color:#fe8019">?</span> resolver.apply(<span style="color:#fe8019">this</span>, args) <span style="color:#fe8019">:</span> args[<span style="color:#d3869b">0</span>],
+</span></span><span style="display:flex;"><span>        cache <span style="color:#fe8019">=</span> memoized.cache;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (cache.has(key)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span> cache.get(key);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">var</span> result <span style="color:#fe8019">=</span> func.apply(<span style="color:#fe8019">this</span>, args);
+</span></span><span style="display:flex;"><span>    memoized.cache <span style="color:#fe8019">=</span> cache.set(key, result) <span style="color:#fe8019">||</span> cache;
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> result;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    memoized.cache <span style="color:#fe8019">=</span> <span style="color:#fe8019">new</span> (memoize.Cache <span style="color:#fe8019">||</span> MapCache);
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">return</span> memoized;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic">// Expose `MapCache`.
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>memoize.Cache <span style="color:#fe8019">=</span> MapCache;
+</span></span></code></pre></div><p>熟悉的味道，loadash的比较完善些，毕竟这么多人在用，这个我觉得是比较常见的做法</p>
+<p>react内也有类似的概念<code>useCallback</code>，</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#fe8019">function</span> mountCallback<span style="color:#fe8019">&lt;</span>T<span style="color:#fe8019">&gt;</span>(callback<span style="color:#fe8019">:</span> T, deps<span style="color:#fe8019">:</span> <span style="color:#fabd2f">Array</span><span style="color:#fe8019">&lt;</span>mixed<span style="color:#fe8019">&gt;</span> <span style="color:#fe8019">|</span> <span style="color:#fe8019">void</span> <span style="color:#fe8019">|</span> <span style="color:#fe8019">null</span>)<span style="color:#fe8019">:</span> T {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> hook <span style="color:#fe8019">=</span> mountWorkInProgressHook();
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> nextDeps <span style="color:#fe8019">=</span> deps <span style="color:#fe8019">===</span> <span style="color:#fe8019">undefined</span> <span style="color:#fe8019">?</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">:</span> deps;
+</span></span><span style="display:flex;"><span>  hook.memoizedState <span style="color:#fe8019">=</span> [callback, nextDeps];
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> callback;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">function</span> updateCallback<span style="color:#fe8019">&lt;</span>T<span style="color:#fe8019">&gt;</span>(callback<span style="color:#fe8019">:</span> T, deps<span style="color:#fe8019">:</span> <span style="color:#fabd2f">Array</span><span style="color:#fe8019">&lt;</span>mixed<span style="color:#fe8019">&gt;</span> <span style="color:#fe8019">|</span> <span style="color:#fe8019">void</span> <span style="color:#fe8019">|</span> <span style="color:#fe8019">null</span>)<span style="color:#fe8019">:</span> T {
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> hook <span style="color:#fe8019">=</span> updateWorkInProgressHook();
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> nextDeps <span style="color:#fe8019">=</span> deps <span style="color:#fe8019">===</span> <span style="color:#fe8019">undefined</span> <span style="color:#fe8019">?</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">:</span> deps;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">const</span> prevState <span style="color:#fe8019">=</span> hook.memoizedState;
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">if</span> (prevState <span style="color:#fe8019">!==</span> <span style="color:#fe8019">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#fe8019">if</span> (nextDeps <span style="color:#fe8019">!==</span> <span style="color:#fe8019">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> prevDeps<span style="color:#fe8019">:</span> <span style="color:#fabd2f">Array</span><span style="color:#fe8019">&lt;</span>mixed<span style="color:#fe8019">&gt;</span> <span style="color:#fe8019">|</span> <span style="color:#fe8019">null</span> <span style="color:#fe8019">=</span> prevState[<span style="color:#d3869b">1</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// 重点在这里
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">if</span> (areHookInputsEqual(nextDeps, prevDeps)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#fe8019">return</span> prevState[<span style="color:#d3869b">0</span>];
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  hook.memoizedState <span style="color:#fe8019">=</span> [callback, nextDeps];
+</span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> callback;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>我没仔细看源码，但大致分为两个部分，组件挂载的时候和更新时，对应上面<code>mountCallback</code>和<code>mountCallback</code>
+然后通过<code>areHookInputsEqual(nextDeps, prevDeps)</code>比较参数来判断是否返回缓存</p>
+<p>综上，看起来其实大家的做法差不多，只是写法有差别，根据代码的所处的情景做了响应调整。</p>
+<p>referrence:</p>
+<ol>
+<li><a href="https://github.com/facebook/react/blob/f7278034de5a289571f26666e6717c4df9f519ad/packages/react-reconciler/src/ReactFiberHooks.js">https://github.com/facebook/react/blob/f7278034de5a289571f26666e6717c4df9f519ad/packages/react-reconciler/src/ReactFiberHooks.js</a></li>
+<li><a href="https://stackoverflow.com/a/55430181">https://stackoverflow.com/a/55430181</a></li>
+<li><a href="https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L10540">https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L10540</a></li>
+</ol>
+<div class="post-full-content" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1a6c85caadf5d3eed793',
+    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
+    repo: 'blog-comments',
+    owner: 'flyingalex',
+    language: "zh-CN",
+    admin: ['flyingalex'],
+    id: 'performance',
+    perPage: 50,
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+
+        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
+<script src="https://unpkg.com/feather-icons"></script>
+    </body>
+</html>
