@@ -98,24 +98,11 @@
 </ul>
 <p>你可以通过打<code>/</code>来选择它的输入格式，里面有很多非常不错的功能，比如链接bookmark, 可以拉取一些摘要方便预览，又比如写代码长用的格式也可提供，你还能将其他一些应用的内容通过embed内嵌的方式引入，等等</p>
 <p>用起来吧，提高生产力的利器</p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>

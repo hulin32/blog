@@ -103,24 +103,11 @@ oh-my-zsh还有一个插件系统，里面维护有很多的插件，你可以�
 </span></span><span style="display:flex;"><span>  docker
 </span></span><span style="display:flex;"><span><span style="color:#fe8019">)</span>
 </span></span></code></pre></div><p>添加完后命令会有很多补全，以及提示信息</p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>

@@ -292,24 +292,11 @@
 </ul>
 <h3 id="按我说的做别按我做的去做作者调皮了">按我说的做，别按我做的去做(作者调皮了)</h3>
 <p>在别人在Hacker News上喷我虚伪之前，我想说的是我自己的缓存策略非常不好，我甚至都不打算去做。</p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>

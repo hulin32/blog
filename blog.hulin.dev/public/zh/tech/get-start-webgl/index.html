@@ -216,24 +216,11 @@ STENCIL_BUFFER_BIT: 模版缓冲区</p>
 <li>用WebGL画一个基本的图形</li>
 </ol>
 <p>书中的例子用到了两个方法<code>getWebGLContext</code>和<code>initShaders</code>，书在最后有讲过一个，代码不多，接下来让我们看看这两个方法吧. 这两个方法在这个项目的文件里，可以看一下，主要就是初始化webgl的一些操作，确实是挺繁琐的。想要用起来还是要学很多呀。</p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>

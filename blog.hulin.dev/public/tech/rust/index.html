@@ -92,24 +92,11 @@
 <p>Here is the result: <a href="https://chat.openai.com/share/b477e238-07f7-4772-84bf-e2556307ddd9">https://chat.openai.com/share/b477e238-07f7-4772-84bf-e2556307ddd9</a></p>
 <p>I am using Chatgpt 3.5, looks like result not very correct, you need to use <code>wasm-pack build --target web</code> to build it, then you can use it in browser, actually looks not very bad, even though some js function we can&rsquo;t use, but wasm-pack provide a way to let you do such <code>console.log</code>, <code>throw Error</code> things with rust way. But Looks like if the error you didn&rsquo;t throw it correctly, ex, devide 0 you didn&rsquo;t consider, then it happened, the error is very vague to debug.</p>
 <p>But all in all, WebAssembly looks very good now in browser, also I rememeber WebAssembly is the four lanuage browser supported natively.</p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: 'rust',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>

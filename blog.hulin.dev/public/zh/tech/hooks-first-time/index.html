@@ -153,24 +153,11 @@
 </span></span></code></pre></div><p>上面的代码只有在<code>props.friend.id</code>变化的时候才会去调用函数，如果你只想这个函数在mount和unmount执行的话，只需要给useEffect的第二个参数设置为空数组就可以了。</p>
 <p>官方提供的api还有很多，有兴趣的可以自己去看看，前端无止境呀，学起来</p>
 <p>另外react作者还把相关的源码做了整理，方便查看，<a href="https://gist.github.com/gaearon/864f451ff2a2a5821fe2c4db344ebcdf">点我去看看</a></p>
-<div class="post-full-content" id="gitalk-container"></div>
+<div class="post-full-content" class="utterances"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: 'd48fe6163211867b513a',
-    clientSecret: '1b05a8c576ddc9f29333b0a0a30c9b507b8887da',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "en",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-    proxy: "https://hello-world-purple-voice-5e56.hulinalex.workers.dev?https://github.com/login/oauth/access_token"
-  });
-  gitalk.render('gitalk-container');
-</script>
+<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
+  crossorigin="anonymous" async>
+  </script>
 
 
         </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
