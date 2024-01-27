@@ -6,15 +6,14 @@
     <description>Recent content in css on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 15 Apr 2019 22:00:24 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/zh/categories/css/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Apr 2019 22:00:24 +0800</lastBuildDate>
+    <atom:link href="https://www.hulin.dev/zh/categories/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS 小知识</title>
       <link>https://www.hulin.dev/zh/tech/css-small-tips/</link>
       <pubDate>Mon, 15 Apr 2019 22:00:24 +0800</pubDate>
-      
       <guid>https://www.hulin.dev/zh/tech/css-small-tips/</guid>
       <description>&lt;p&gt;一些例子&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,15 +6,14 @@
     <description>Recent content in translation on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 10 Mar 2019 22:01:47 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/zh/categories/translation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2019 22:01:47 +0800</lastBuildDate>
+    <atom:link href="https://www.hulin.dev/zh/categories/translation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cache Control for Civilians</title>
       <link>https://www.hulin.dev/zh/tech/cache-control-for-civilians/</link>
       <pubDate>Sun, 10 Mar 2019 22:01:47 +0800</pubDate>
-      
       <guid>https://www.hulin.dev/zh/tech/cache-control-for-civilians/</guid>
       <description>&lt;p&gt;第一篇译文&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

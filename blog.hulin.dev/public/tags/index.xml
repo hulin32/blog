@@ -5,6 +5,7 @@
     <link>https://www.hulin.dev/tags/</link>
     <description>Recent content in Tags on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://www.hulin.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://www.hulin.dev/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

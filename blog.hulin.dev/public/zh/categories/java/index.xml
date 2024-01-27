@@ -6,24 +6,21 @@
     <description>Recent content in java on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 19 Jul 2020 09:50:29 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/zh/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jul 2020 09:50:29 +0800</lastBuildDate>
+    <atom:link href="https://www.hulin.dev/zh/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java JVM XX Options</title>
       <link>https://www.hulin.dev/zh/tech/java-jvm-xx-options/</link>
       <pubDate>Sun, 19 Jul 2020 09:50:29 +0800</pubDate>
-      
       <guid>https://www.hulin.dev/zh/tech/java-jvm-xx-options/</guid>
       <description>&lt;p&gt;虚拟机jvm的参数解释&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Java初体验</title>
       <link>https://www.hulin.dev/zh/tech/java-early-experience/</link>
       <pubDate>Mon, 08 Jun 2020 23:28:59 +0800</pubDate>
-      
       <guid>https://www.hulin.dev/zh/tech/java-early-experience/</guid>
       <description>&lt;p&gt;看Spring In Actio有感&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
