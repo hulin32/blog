@@ -11,13 +11,13 @@ author: 一介文夫
 
 email: hulin2021@gmail.com
 
-github: https://github.com/flyingalex
+github: https://github.com/hulin32
 
-twitter: https://twitter.com/hulin50
+twitter: https://twitter.com/hulin32
 
 **Personal repo**:
 
-Design patterns: https://github.com/flyingalex/design-patterns-by-php
+Design patterns: https://github.com/hulin32/design-patterns-by-php
 
-script lang based on cpp: https://github.com/flyingalex/cpp_lox
+script lang based on cpp: https://github.com/hulin32/cpp_lox
 
