@@ -65,7 +65,16 @@
 
 <br><br>
 <p>Share session between nextjs rendered page and another server rendered page</p>
-<p>These days I am tring to do a prototype, thinking how to share the login from nodejs service to nextjs render page<img src="/images/browser-to-multi-server.png" alt="browser-to-multi-server"></p>
+<h2 id="background">Background</h2>
+<p>These days I am tring to do a prototype, thinking how to share the login from nodejs service to nextjs render page, so under one domain, some pages rendered from nextjs service directly, others rendered from a nodejs service:
+<img src="/images/browser-to-multi-server.png" alt="browser-to-multi-server"></p>
+<p>All user related logic(register/login) are in nodejs service and its session based login.</p>
+<p>Imagine you login from nodejs rendered page, then redirect to the nextjs page, how can I know if the user is login or not?</p>
+<h2 id="theory-knowledge">Theory knowledge</h2>
+<p>After searching and checked some articles, also asked AI :), I found a straightforward solution. Ignore all above info, thinking a bit HTTP protocol, between the client and server, all these communications are based on text, there is no any magic.</p>
+<p>About the session login, how is it work? If you used it before, you should know, in frontend,its rely on the session id in the cookie, then in every request, you attach this cookie to backend, backend will know if session based info should be fetched or not. That means no matter where the reqeust comes from, if you can attach the cookie in the header when the request send to server, then the server can detect it and based on that to return you data.</p>
+<h2 id="demo">Demo</h2>
+<p>I also wrote a <a href="https://github.com/hulin32/nextjs-express">demo</a> to verify this, that&rsquo;s actually work as I imagine. In the demo, I putted a cookie(<code>token=fake-token</code>) in header, then in nextjs I will read this cookie from header, then attach it to the call to the express api to get the user info</p>
 <div class="post-full-content" class="utterances"></div>
 
 <script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
