@@ -6,12 +6,8 @@ languages:
     title: "INNER PEACE"
     menu:
       main:
-        - name: Github
-          url: https://github.com/flyingalex
         - name: 关于
           url: /zh/about
-        - name: 生活
-          url: /zh/life
         - name: 技术
           url: /zh/tech
         - name: 工具
@@ -25,25 +21,37 @@ languages:
     title: "INNER PEACE"
     menu:
       main:
-        - name: Github
-          url: https://github.com/flyingalex
         - name: About
           url: /about
-        - name: Life
-          url: /life
-        - name: Tech
-          url: /tech
-        # - name: Tool
-        # url: /en/tool
         - name: 中文
           url: /zh
-theme: "framer"
+
+theme: "paper"
 algolia:
   index: "blog"
   key: "093601b4bd8cea8a8c59a9f58ed2dad4"
   appID: "DIISOO4383"
+
 markup:
   highlight:
     codeFences: true
     guessSyntax: true
     style: gruvbox
+
+params:
+  avatar: "https://hulin.dev/images/loog.png"
+  github: "https://github.com/hulin32"
+  linkedin: "https://www.linkedin.com/in/lin-hu-247638117"
+  giscus:
+    repo: "hulin32/blog"
+    repoId: "MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
+    category: "Announcements"
+    categoryId: "DIC_kwDOBoDA4s4ChWGe"
+    mapping: "url"
+    strict: "1"
+    reactionsEnabled: "1"
+    emitMetadata: "1"
+    inputPosition: "top"
+    theme: "light_tritanopia"
+    lang: "en"
+    loading: "lazy"

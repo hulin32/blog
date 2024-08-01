@@ -1,84 +1,316 @@
-<!DOCTYPE html>
-<html lang="zh"><head>
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh"
+>
+  <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Composer Tips - INNER PEACE</title>
+
+  
+  <meta name="theme-color" />
 
   
   
-  <title>Composer Tips · INNER PEACE</title>
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <meta name="description" content="composer使用中的小知识" />
+  <meta name="author" content="INNER PEACE" />
+  
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
-</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
-  <nav id="nav" class="nav">
-      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev/zh">
-          <img src="/images/loog.png" />
-          INNER PEACE
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://www.hulin.dev/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://hulin.dev/images/loog.png" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/github.svg" />
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/linkedin.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://www.hulin.dev/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://www.hulin.dev/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://www.hulin.dev/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Composer Tips">
+<meta itemprop="description" content="composer使用中的小知识"><meta itemprop="datePublished" content="2021-02-25T23:35:27+08:00" />
+<meta itemprop="dateModified" content="2021-02-25T23:35:27+08:00" />
+<meta itemprop="wordCount" content="19">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="Composer Tips" />
+<meta property="og:description" content="composer使用中的小知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.hulin.dev/zh/tech/composer-in-docker/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2021-02-25T23:35:27+08:00" />
+<meta property="article:modified_time" content="2021-02-25T23:35:27+08:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Composer Tips"/>
+<meta name="twitter:description" content="composer使用中的小知识"/>
+
+  
+  
+
+  
+  <link rel="canonical" href="https://www.hulin.dev/zh/tech/composer-in-docker/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev"
+      >INNER PEACE</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10">
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh/categories"
+        >Archive</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/en"
+        >EN</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh/about"
+        >关于</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh/tool"
+        >工具</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh/tech"
+        >技术</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-14 lg:mt-0 lg:items-center"
+    >
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/hulin32"
+        target="_blank"
+        rel="me"
+      >
+        github
       </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/categories">
-          
-
-          
-          Archive
-        </a>
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/lin-hu-247638117"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
-          
+    </nav>
+    
+  </div>
+</header>
 
-          
-          EN
-        </a>
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-14 dark:prose-invert"
+    >
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
-          
 
-          
-          Github
-        </a>
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Composer Tips</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/about">
-          
-
-          
-          关于
-        </a>
+      <time>2021年2月25日</time>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tool">
-          
-
-          
-          工具
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/tech">
-          
-
-          
-          技术
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/zh/life">
-          
-
-          
-          生活
-        </a>
       
-  </nav>
-</div>
-<div id="content" class="main-padding-x">
-<h1>Composer Tips</h1>
+    </div>
+    
+  </header>
 
-
-<time datetime="2021-02-25">Feb 25, 2021</time>
-
-
-<br><br>
-<p>composer使用中的小知识</p>
+  <section><p>composer使用中的小知识</p>
 <h2 id="添加--vvv">添加 -vvv</h2>
 <p>这样可以看到安装的信息，最近就是因为这个发现个bug。</p>
 <p>在docker内跑</p>
@@ -87,21 +319,80 @@
 <p>后面就加<code>-vvv</code>到composer命令最后去跑，看到最后一行是 <code>killed</code> wtf!!!</p>
 <p>又到了面向google编程了🐶，搜索相关composer install killed docker, 会发现是docker的配置问题
 <img src="/images/docker-setting.png" alt="image"></p>
-<p>最开始是2G，改成8G就好了，跑个下载命令2G都不够。。。</p>
-<div class="post-full-content" class="utterances"></div>
+<p>最开始是2G，改成8G就好了，跑个下载命令2G都不够。。。</p></section>
 
-<script src="https://utteranc.es/client.js" repo="flyingalex/blog-comments" issue-term="title" theme="github-light"
-  crossorigin="anonymous" async>
-  </script>
+  
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    
+    <a class="ml-auto justify-end pl-3" href="https://www.hulin.dev/zh/tech/react-core-super-in-constructor/"
+      ><span>React源码--constructor</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
-        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
-<script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "kscgvis090");
-</script><script src="https://unpkg.com/feather-icons"></script>
-    </body>
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="hulin32/blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOBoDA4s4ChWGe"
+    data-mapping="url"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light_tritanopia"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://www.hulin.dev">INNER PEACE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+
+  </body>
 </html>

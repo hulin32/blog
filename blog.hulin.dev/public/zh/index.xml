@@ -104,7 +104,7 @@
       <link>https://www.hulin.dev/zh/about/</link>
       <pubDate>Sun, 02 Feb 2020 18:44:23 +0800</pubDate>
       <guid>https://www.hulin.dev/zh/about/</guid>
-      <description>小程序，React，Vuejs，后端CURD 比较喜欢新的技术 email: hulin2021@gmail.com&#xA;github: https://github.com/hulin32&#xA;twitter: https://twitter.com/hulin32&#xA;个人项目:&#xA;设计模式相关: https://github.com/hulin32/design-patterns-by-php&#xA;cpp脚本语言: https://github.com/hulin32/cpp_lox</description>
+      <description> 小程序，React，Vuejs，后端CURD 比较喜欢新的技术 email: hulin2021@gmail.com&#xA;github: https://github.com/hulin32&#xA;twitter: https://twitter.com/hulin32&#xA;个人项目 设计模式相关: https://github.com/hulin32/design-patterns-by-php&#xA;cpp脚本语言: https://github.com/hulin32/cpp_lox&#xA;React i18n: https://github.com/hulin32/react-i18context&#xA;社区贡献 reqwest rspack </description>
     </item>
     <item>
       <title>React子元素的渲染逻辑</title>
@@ -231,13 +231,6 @@
       <pubDate>Fri, 22 Dec 2017 22:41:13 +0800</pubDate>
       <guid>https://www.hulin.dev/zh/tech/learn-some-vim-and-save-your-time/</guid>
       <description>&lt;p&gt;vim无敌&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>板块介绍</title>
-      <link>https://www.hulin.dev/zh/life/intro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.hulin.dev/zh/life/intro/</guid>
-      <description>&lt;p&gt;简单介绍&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

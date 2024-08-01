@@ -128,30 +128,6 @@
                 href="https://www.hulin.dev/about/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/life/intro/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/zh/life/intro/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/life/intro/"
-                />
-  </url><url>
-    <loc>https://www.hulin.dev/life/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/zh/life/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/life/"
-                />
-  </url><url>
     <loc>https://www.hulin.dev/tags/</loc>
     <xhtml:link
                 rel="alternate"

@@ -236,18 +236,6 @@
     <loc>https://www.hulin.dev/zh/categories/vim/</loc>
     <lastmod>2017-12-22T22:41:13+08:00</lastmod>
   </url><url>
-    <loc>https://www.hulin.dev/zh/life/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/life/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/zh/life/"
-                />
-  </url><url>
     <loc>https://www.hulin.dev/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -258,18 +246,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://www.hulin.dev/zh/tags/"
-                />
-  </url><url>
-    <loc>https://www.hulin.dev/zh/life/intro/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.hulin.dev/life/intro/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://www.hulin.dev/zh/life/intro/"
                 />
   </url>
 </urlset>
