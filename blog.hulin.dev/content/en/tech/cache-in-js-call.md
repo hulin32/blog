@@ -1,5 +1,5 @@
 ---
-title: cache in js call
+title: Cache in js call
 date: 2020-03-05T20:08:17+08:00
 feature_image: /images/cache.png
 slug: performance
