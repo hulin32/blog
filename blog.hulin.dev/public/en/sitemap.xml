@@ -196,6 +196,19 @@
                 href="https://www.hulin.dev/categories/wheel/"
                 />
   </url><url>
+    <loc>https://www.hulin.dev/tech/learn-typescript-in-one-file/</loc>
+    <lastmod>2018-03-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/learn-typescript-in-one-file/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/learn-typescript-in-one-file/"
+                />
+  </url><url>
     <loc>https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/</loc>
     <lastmod>2017-12-22T00:00:00+00:00</lastmod>
     <xhtml:link
