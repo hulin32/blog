@@ -5,16 +5,15 @@
     <link>https://www.hulin.dev/categories/wheel/</link>
     <description>Recent content in wheel on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Mon, 18 Jun 2018 22:32:18 +0800</lastBuildDate><atom:link href="https://www.hulin.dev/categories/wheel/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.hulin.dev/categories/wheel/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>100 行代码给你app国际化</title>
+      <title>Internationalize Your App with 100 Lines of Code</title>
       <link>https://www.hulin.dev/tech/i18n-with-100-lines/</link>
-      <pubDate>Mon, 18 Jun 2018 22:32:18 +0800</pubDate>
-      
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
       <guid>https://www.hulin.dev/tech/i18n-with-100-lines/</guid>
-      <description>&lt;p&gt;npm轮子&lt;/p&gt;</description>
+      <description>&lt;p&gt;npm wheel&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

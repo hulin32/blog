@@ -1,85 +1,299 @@
-<!DOCTYPE html>
-<html lang="zh"><head>
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en"
+>
+  <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Learn Some Vim and Save Your Time - INNER PEACE</title>
+
+  
+  <meta name="theme-color" />
 
   
   
-  <title>Learn Some Vim and Save Your Time · INNER PEACE</title>
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <meta name="description" content="Vim is Invincible" />
+  <meta name="author" content="INNER PEACE" />
+  
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
-</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
-  <nav id="nav" class="nav">
-      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
-          <img src="/images/loog.png" />
-          INNER PEACE
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://www.hulin.dev/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://hulin.dev/images/loog.png" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/github.svg" />
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/linkedin.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://www.hulin.dev/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://www.hulin.dev/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://www.hulin.dev/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Learn Some Vim and Save Your Time">
+<meta itemprop="description" content="Vim is Invincible"><meta itemprop="datePublished" content="2017-12-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-12-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="335">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="Learn Some Vim and Save Your Time" />
+<meta property="og:description" content="Vim is Invincible" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2017-12-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-22T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Learn Some Vim and Save Your Time"/>
+<meta name="twitter:description" content="Vim is Invincible"/>
+
+  
+  
+
+  
+  <link rel="canonical" href="https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev"
+      >INNER PEACE</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10">
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh"
+        >中文</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-14 lg:mt-0 lg:items-center"
+    >
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/hulin32"
+        target="_blank"
+        rel="me"
+      >
+        github
       </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/categories">
-          
-
-          
-          Archive
-        </a>
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/lin-hu-247638117"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
-          
+    </nav>
+    
+  </div>
+</header>
 
-          
-          EN
-        </a>
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-14 dark:prose-invert"
+    >
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
-          
 
-          
-          Github
-        </a>
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Learn Some Vim and Save Your Time</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
-          
-
-          
-          关于
-        </a>
+      <time>Dec 22, 2017</time>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tool">
-          
-
-          
-          工具
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tech">
-          
-
-          
-          技术
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
-          
-
-          
-          生活
-        </a>
       
-  </nav>
-</div>
-<div id="content" class="main-padding-x">
-<h1>Learn Some Vim and Save Your Time</h1>
+    </div>
+    
+  </header>
 
-
-<time datetime="2017-12-22">Dec 22, 2017</time>
-
-
-<br><br>
-<p>vim无敌</p>
-<p>自己学vim使用的一些命令，大多数在文后的链接能找到</p>
+  <section><p>Vim is Invincible</p>
+<p>Some Vim commands I learned to use myself. Most of them can be found in the links at the end of the article.</p>
 <h3 id="survive">Survive</h3>
 <ul>
 <li>vi/vim -&gt; open the editor</li>
@@ -132,31 +346,83 @@
 <li>:split, :vsplit -&gt; split the window</li>
 <li>tabnew -&gt; open a new tab</li>
 </ul>
+<p>referrence:</p>
 <p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/">Learn Vim Progressively</a></p>
-<p><a href="http://coolshell.cn/articles/5426.html">简明 VIM 练级攻略</a></p>
 <p><a href="http://learnvimscriptthehardway.stevelosh.com/">Learn Vimscript the Hard Way</a></p>
-<p><a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=sr_1_1?ie=UTF8&amp;qid=1488958924&amp;sr=8-1&amp;keywords=practical-vim">Practical Vim: Edit Text at the Speed of Thought</a></p>
-<p><a href="https://github.com/flyingalex/Practical-Vim">Practical-Vim 整理</a></p>
-<div class="post-full-content" id="gitalk-container"></div>
+<p><a href="https://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/ref=sr_1_1?ie=UTF8&amp;qid=1488958924&amp;sr=8-1&amp;keywords=practical-vim">Practical Vim: Edit Text at the Speed of Thought</a></p></section>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: '1a6c85caadf5d3eed793',
-    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "zh-CN",
-    admin: ['flyingalex'],
-    id: '',
-    perPage: 50,
-  });
-  gitalk.render('gitalk-container');
-</script>
+  
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    <a class="pr-3" href="https://www.hulin.dev/tech/i18n-with-100-lines/"
+      ><span class="mr-1.5">←</span><span>Internationalize Your App with 100 Lines of Code</span></a
+    >
+    
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
-        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
-<script src="https://unpkg.com/feather-icons"></script>
-    </body>
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="hulin32/blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOBoDA4s4ChWGe"
+    data-mapping="url"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light_tritanopia"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://www.hulin.dev">INNER PEACE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+
+  </body>
 </html>

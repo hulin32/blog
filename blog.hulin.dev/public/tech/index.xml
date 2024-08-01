@@ -65,7 +65,7 @@
       <description>&lt;p&gt;A New Way of Writing CSS&lt;/p&gt;</description>
     </item>
     <item>
-      <title>cache in js call</title>
+      <title>Cache in js call</title>
       <link>https://www.hulin.dev/tech/performance/</link>
       <pubDate>Thu, 05 Mar 2020 20:08:17 +0800</pubDate>
       <guid>https://www.hulin.dev/tech/performance/</guid>
@@ -84,6 +84,20 @@
       <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
       <guid>https://www.hulin.dev/tech/shell-tips/</guid>
       <description>&lt;p&gt;Really Small Tips&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Internationalize Your App with 100 Lines of Code</title>
+      <link>https://www.hulin.dev/tech/i18n-with-100-lines/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/i18n-with-100-lines/</guid>
+      <description>&lt;p&gt;npm wheel&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learn Some Vim and Save Your Time</title>
+      <link>https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/learn-some-vim-and-save-your-time/</guid>
+      <description>&lt;p&gt;Vim is Invincible&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
