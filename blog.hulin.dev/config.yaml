@@ -34,8 +34,8 @@ markup:
 
 params:
   avatar: "https://hulin.dev/images/loog.png"
-  github: "https://github.com/hulin32"
-  linkedin: "https://www.linkedin.com/in/lin-hu-247638117"
+  github: "hulin32"
+  linkedin: "lin-hu-247638117"
   giscus:
     repo: "hulin32/blog"
     repoId: "MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
