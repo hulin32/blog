@@ -51,11 +51,39 @@
       <description>&lt;p&gt;react event source codes reading(v16.13.0)&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Missing Courses in CS Education</title>
+      <link>https://www.hulin.dev/tech/learning/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/learning/</guid>
+      <description>&lt;p&gt;Enrich Your Toolkit&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First Experience with Tailwindcss</title>
+      <link>https://www.hulin.dev/tech/css/</link>
+      <pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/css/</guid>
+      <description>&lt;p&gt;A New Way of Writing CSS&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>cache in js call</title>
       <link>https://www.hulin.dev/tech/performance/</link>
       <pubDate>Thu, 05 Mar 2020 20:08:17 +0800</pubDate>
       <guid>https://www.hulin.dev/tech/performance/</guid>
       <description>&lt;p&gt;Caching in js&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rendering Logic of React Child Elements</title>
+      <link>https://www.hulin.dev/tech/react-child-element-render/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/react-child-element-render/</guid>
+      <description>&lt;p&gt;React source code&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Some Shell Tips</title>
+      <link>https://www.hulin.dev/tech/shell-tips/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/shell-tips/</guid>
+      <description>&lt;p&gt;Really Small Tips&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

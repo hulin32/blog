@@ -108,11 +108,18 @@
                 href="https://www.hulin.dev/zh/tech/react-event-source-code-reading/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/zh/tech/learning/</loc>
-    <lastmod>2020-05-13T07:31:18+08:00</lastmod>
-  </url><url>
     <loc>https://www.hulin.dev/zh/tech/css/</loc>
     <lastmod>2020-04-23T22:41:39+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/css/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/css/"
+                />
   </url><url>
     <loc>https://www.hulin.dev/zh/tech/github-action-and-netlify/</loc>
     <lastmod>2020-03-15T10:03:23+08:00</lastmod>
@@ -148,6 +155,16 @@
   </url><url>
     <loc>https://www.hulin.dev/zh/tech/react-child-element-render/</loc>
     <lastmod>2019-07-02T21:48:30+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/react-child-element-render/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/react-child-element-render/"
+                />
   </url><url>
     <loc>https://www.hulin.dev/zh/categories/redux/</loc>
     <lastmod>2019-06-14T21:53:26+08:00</lastmod>
@@ -202,6 +219,16 @@
   </url><url>
     <loc>https://www.hulin.dev/zh/tech/shell-tips/</loc>
     <lastmod>2018-12-12T22:29:52+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/shell-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/shell-tips/"
+                />
   </url><url>
     <loc>https://www.hulin.dev/zh/tech/i18n-with-100-lines/</loc>
     <lastmod>2018-06-18T22:32:18+08:00</lastmod>

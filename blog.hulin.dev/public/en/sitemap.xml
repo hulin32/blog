@@ -102,6 +102,22 @@
                 href="https://www.hulin.dev/tech/react-event-source-code-reading/"
                 />
   </url><url>
+    <loc>https://www.hulin.dev/tech/learning/</loc>
+    <lastmod>2020-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.hulin.dev/tech/css/</loc>
+    <lastmod>2020-04-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/css/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/css/"
+                />
+  </url><url>
     <loc>https://www.hulin.dev/tech/performance/</loc>
     <lastmod>2020-03-05T20:08:17+08:00</lastmod>
     <xhtml:link
@@ -126,6 +142,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.hulin.dev/about/"
+                />
+  </url><url>
+    <loc>https://www.hulin.dev/tech/react-child-element-render/</loc>
+    <lastmod>2019-07-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/react-child-element-render/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/react-child-element-render/"
+                />
+  </url><url>
+    <loc>https://www.hulin.dev/tech/shell-tips/</loc>
+    <lastmod>2018-12-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://www.hulin.dev/zh/tech/shell-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.hulin.dev/tech/shell-tips/"
                 />
   </url><url>
     <loc>https://www.hulin.dev/tags/</loc>

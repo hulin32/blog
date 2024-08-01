@@ -1,86 +1,300 @@
-<!DOCTYPE html>
-<html lang="zh"><head>
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en"
+>
+  <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>First Experience with Tailwindcss - INNER PEACE</title>
+
+  
+  <meta name="theme-color" />
 
   
   
-  <title>Tailwindcss 初体验 · INNER PEACE</title>
-  <link rel="shortcut icon" type="image/png" href="/favicon.png">
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <meta name="description" content="A New Way of Writing CSS" />
+  <meta name="author" content="INNER PEACE" />
+  
 
   
-  <link rel="stylesheet" href="https://www.hulin.dev/style.main.min.6aa654ff7b73b78da34eaf885b8d6b446d77d4a6aad5b034f7de396d0167a838.css" />
-</head><body><div id="nav-border" class="main-padding-x main-bg nav-wrapper">
-  <nav id="nav" class="nav">
-      <a class="site-nav-logo word-break-keep bold" href="https://www.hulin.dev">
-          <img src="/images/loog.png" />
-          INNER PEACE
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://www.hulin.dev/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://hulin.dev/images/loog.png" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/github.svg" />
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/linkedin.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://www.hulin.dev/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://www.hulin.dev/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://www.hulin.dev/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="First Experience with Tailwindcss">
+<meta itemprop="description" content="A New Way of Writing CSS"><meta itemprop="datePublished" content="2020-04-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="335">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="First Experience with Tailwindcss" />
+<meta property="og:description" content="A New Way of Writing CSS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.hulin.dev/tech/css/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2020-04-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-23T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="First Experience with Tailwindcss"/>
+<meta name="twitter:description" content="A New Way of Writing CSS"/>
+
+  
+  
+
+  
+  <link rel="canonical" href="https://www.hulin.dev/tech/css/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev"
+      >INNER PEACE</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10">
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh"
+        >中文</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-14 lg:mt-0 lg:items-center"
+    >
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/https://github.com/hulin32"
+        target="_blank"
+        rel="me"
+      >
+        github
       </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/categories">
-          
-
-          
-          Archive
-        </a>
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/https://www.linkedin.com/in/lin-hu-247638117"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/en">
-          
+    </nav>
+    
+  </div>
+</header>
 
-          
-          EN
-        </a>
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-14 dark:prose-invert"
+    >
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="https://github.com/flyingalex">
-          
 
-          
-          Github
-        </a>
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">First Experience with Tailwindcss</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/about">
-          
-
-          
-          关于
-        </a>
+      <time>Apr 23, 2020</time>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tool">
-          
-
-          
-          工具
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/tech">
-          
-
-          
-          技术
-        </a>
       
-        <a class="display-block bold padding-10 word-break-keep uppercase" href="/life">
-          
-
-          
-          生活
-        </a>
       
-  </nav>
-</div>
-<div id="content" class="main-padding-x">
-<h1>Tailwindcss 初体验</h1>
+    </div>
+    
+  </header>
 
-
-<time datetime="2020-04-23">Apr 23, 2020</time>
-
-
-<br><br>
-<p>css新的写法</p>
-<p><a href="https://www.tailwindcss.com/">Tailwindcss</a>这个框架出来很久了，不过最近因为写css比较多，但是复用性特别差，尝试过BEM，原子写法，每个项目基本都要重写，在想有没有更好的方法，不知道什么时候Tailwindcss就冒出来了，这个框架也是原子式(atomic)的，这个概念不新，之前在自己的项目中自己也这样写过，是感觉方便，但是还是用着不舒服，估计是被自己的css恶心到了(逃)</p>
-<p>文档是这样介绍的:</p>
+  <section><p>A New Way of Writing CSS</p>
+<p><a href="https://www.tailwindcss.com/">Tailwindcss</a>has been around for a while, but recently, as I&rsquo;ve been writing more CSS with poor reusability, I&rsquo;ve tried BEM and atomic writing styles. However, I basically have to rewrite for each project, so I was wondering if there&rsquo;s a better method. Somehow, Tailwindcss popped up. This framework is also atomic, which isn&rsquo;t a new concept. I&rsquo;ve written this way in my own projects before and found it convenient, but still not comfortable to use. I guess I was put off by my own CSS (laughs).</p>
+<p>The documentation introduces it as:</p>
 <blockquote>
 <p>A utility-first CSS framework for
 rapidly building custom designs</p>
@@ -88,35 +302,92 @@ rapidly building custom designs</p>
 <blockquote>
 <p>Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.</p>
 </blockquote>
-<p>它就给你提供一些工具集，就是平常你写<code>backgroud</code>,<code>font-size</code>等等，每次都是定义一个class,然后添加相应的css属性，而Tailwindcss的做法是定义好一些class，每个都对应一个css属性，然后通过在元素上添加这些class来添加相应的属性，上面的图片来自于官网，你看它的class应该就知道，比如<code>text-gray-600</code>,就是字体颜色，还可以有响应式<code>md:flex</code>,当默认的不满足的时候你还可以通过写<code>tailwind.config.js</code>配置文件添加新属性的class，这个香，是真香，这样使用后基本就能达到写的一些css可以在不同项目复用了(想的话)。</p>
-<p>官网的文档我扫了一遍，用起来不难，我准备现在自己的项目中用用看，还是要点时间转换一下思维，不过这个框架我觉得是值得尝试的，用起来吧。</p>
-<p>过段时间再来谈谈感受。</p>
-<p>吐个槽，不知道是不是我自己网络问题，他们官网有的慢</p>
+<p>It provides you with a set of tools. Usually, when you write <code>background</code>, <code>font-size</code>, etc., you define a class each time and then add the corresponding CSS properties. Tailwindcss&rsquo;s approach is to define some classes, each corresponding to a CSS property, and then add these properties by adding these classes to the elements. The image above is from the official website. You can tell from its classes, for example, <code>text-gray-600</code> is for font color, and there can be responsive classes like <code>md:flex</code>. When the defaults don&rsquo;t meet your needs, you can add new property classes by writing a <code>tailwind.config.js</code> configuration file. This is great, really great. After using this, you can basically achieve reuse of some CSS across different projects (if you want to).</p>
+<p>I skimmed through the documentation on the official website. It&rsquo;s not difficult to use. I&rsquo;m planning to try it in my own projects. It takes some time to switch the mindset, but I think this framework is worth trying. Let&rsquo;s use it.</p>
+<p>I&rsquo;ll talk about my feelings after a while.</p>
+<p>A little complaint: I don&rsquo;t know if it&rsquo;s my network issue, but their official website is slow sometimes.</p>
 <p>referrence:</p>
 <ol>
 <li><a href="https://tailwindcss.com/">https://tailwindcss.com/</a></li>
 <li><a href="https://www.tailwindcss.cn/docs/configuration">https://www.tailwindcss.cn/docs/configuration</a></li>
-</ol>
-<div class="post-full-content" id="gitalk-container"></div>
+</ol></section>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: '1a6c85caadf5d3eed793',
-    clientSecret: '5ad2bf687828120a2e7a2b366810a95e5969b88c',
-    repo: 'blog-comments',
-    owner: 'flyingalex',
-    language: "zh-CN",
-    admin: ['flyingalex'],
-    id: 'css',
-    perPage: 50,
-  });
-  gitalk.render('gitalk-container');
-</script>
+  
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    <a class="pr-3" href="https://www.hulin.dev/tech/learning/"
+      ><span class="mr-1.5">←</span><span>Missing Courses in CS Education</span></a
+    >
+    
+    
+    <a class="ml-auto justify-end pl-3" href="https://www.hulin.dev/tech/performance/"
+      ><span>cache in js call</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
-        </div><p class="footer text-center">Copyright (c) 2024 Hulin</p>
-<script src="https://unpkg.com/feather-icons"></script>
-    </body>
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="hulin32/blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOBoDA4s4ChWGe"
+    data-mapping="url"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light_tritanopia"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://www.hulin.dev">INNER PEACE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+
+  </body>
 </html>

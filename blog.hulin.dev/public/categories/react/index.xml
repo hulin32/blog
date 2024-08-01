@@ -15,5 +15,12 @@
       <guid>https://www.hulin.dev/tech/react-core-super-in-constructor/</guid>
       <description>&lt;p&gt;react event source codes reading(v16.13.0)&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Rendering Logic of React Child Elements</title>
+      <link>https://www.hulin.dev/tech/react-child-element-render/</link>
+      <pubDate>Tue, 02 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/react-child-element-render/</guid>
+      <description>&lt;p&gt;React source code&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
