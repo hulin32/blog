@@ -8,12 +8,6 @@ languages:
       main:
         - name: 关于
           url: /zh/about
-        - name: 技术
-          url: /zh/tech
-        - name: 工具
-          url: /zh/tool
-        - name: Archive
-          url: /zh/categories
         - name: EN
           url: /en
   en:
