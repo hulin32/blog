@@ -36,6 +36,7 @@ params:
   avatar: "https://hulin.dev/images/loog.png"
   github: "hulin32"
   linkedin: "lin-hu-247638117"
+  favicon: "/favicon.png"
   giscus:
     repo: "hulin32/blog"
     repoId: "MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
