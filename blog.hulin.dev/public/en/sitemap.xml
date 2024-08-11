@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.hulin.dev/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -15,11 +15,11 @@
                 href="https://www.hulin.dev/"
                 />
   </url><url>
-    <loc>https://www.hulin.dev/tech/nextjs-react/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <loc>https://www.hulin.dev/tech/monorepo/</loc>
+    <lastmod>2024-08-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.hulin.dev/tech/</loc>
-    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -30,6 +30,9 @@
                 hreflang="en"
                 href="https://www.hulin.dev/tech/"
                 />
+  </url><url>
+    <loc>https://www.hulin.dev/tech/nextjs-react/</loc>
+    <lastmod>2024-07-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.hulin.dev/tech/adventofcode/</loc>
     <lastmod>2024-01-08T20:08:17+08:00</lastmod>

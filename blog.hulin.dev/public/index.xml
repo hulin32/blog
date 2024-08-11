@@ -6,8 +6,15 @@
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.hulin.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monorepo thinking</title>
+      <link>https://www.hulin.dev/tech/monorepo/</link>
+      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/monorepo/</guid>
+      <description>&lt;p&gt;New ways to manage frontend&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Share Login Between Nextjs And Session Based Website</title>
       <link>https://www.hulin.dev/tech/nextjs-react/</link>
