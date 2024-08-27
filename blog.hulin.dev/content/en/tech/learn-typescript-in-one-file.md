@@ -3,6 +3,7 @@ title: Learn Typescript in One File
 date: 2018-03-25
 ---
 Attempting to Fit All TypeScript Features in One File
+(Updated with AI in 2024-8)
 <!--more-->
 
 TypeScript is a superset of JavaScript that introduces a type system on top of the original, making code more maintainable. I haven't written much serious TypeScript yet, but while learning, it's clear that TypeScript would be easier to maintain in larger projects compared to not having a type system (though I haven't verified this in a project yet). I hope to introduce it in my future code as well.
