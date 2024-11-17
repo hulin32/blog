@@ -6,8 +6,15 @@
     <description>Recent content on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.hulin.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Write better test with AI and Test Mutant Framework</title>
+      <link>https://www.hulin.dev/tech/test-mutant/</link>
+      <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.hulin.dev/tech/test-mutant/</guid>
+      <description>&lt;p&gt;Feedback loop with AI and Test Mutant Framework to improve test quality.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Monorepo thinking</title>
       <link>https://www.hulin.dev/tech/monorepo/</link>

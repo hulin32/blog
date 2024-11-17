@@ -1,0 +1,571 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Write better test with AI and Test Mutant Framework - INNER PEACE</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Feedback loop with AI and Test Mutant Framework to improve test quality." />
+  <meta name="author" content="INNER PEACE" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://www.hulin.dev/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://hulin.dev/images/loog.png" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/github.svg" />
+  
+  <link rel="preload" as="image" href="https://www.hulin.dev/linkedin.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://www.hulin.dev/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://www.hulin.dev/favicon.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://www.hulin.dev/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.121.2">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Write better test with AI and Test Mutant Framework">
+<meta itemprop="description" content="Feedback loop with AI and Test Mutant Framework to improve test quality."><meta itemprop="datePublished" content="2024-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1360">
+<meta itemprop="keywords" content="" />
+  
+  <meta property="og:title" content="Write better test with AI and Test Mutant Framework" />
+<meta property="og:description" content="Feedback loop with AI and Test Mutant Framework to improve test quality." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.hulin.dev/tech/test-mutant/" /><meta property="article:section" content="tech" />
+<meta property="article:published_time" content="2024-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-11-17T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Write better test with AI and Test Mutant Framework"/>
+<meta name="twitter:description" content="Feedback loop with AI and Test Mutant Framework to improve test quality."/>
+
+  
+  
+
+  
+  <link rel="canonical" href="https://www.hulin.dev/tech/test-mutant/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev"
+      >INNER PEACE</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10">
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about"
+        >About</a
+      >
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/zh"
+        >中文</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-14 lg:mt-0 lg:items-center"
+    >
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/hulin32"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/lin-hu-247638117"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-14 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Write better test with AI and Test Mutant Framework</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
+      
+      <time>Nov 17, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>Feedback loop with AI and Test Mutant Framework to improve test quality.</p>
+<p>I have been writing a lot of tests in my daily work, but I found it hard to write good tests in short time, and I am not sure if the tests are good enough. Thinking about a good test description is time-consuming, otherwise it will become test1/test2. I am looking for a way to improve the quality of tests, and I found AI and Test Mutant Framework can help me to improve the quality of tests and test writing speed.</p>
+<h2 id="ai-and-test-mutant-framework">AI and Test Mutant Framework</h2>
+<p>These days AI is explosion, seems like you can&rsquo;t catch the trend :D. In fact it is!  AI definitely can help a lot in different areas, I usually use it to help me quick start some new concept. In this article I will focus on how to use AI to help you write better tests, and how to use Test Mutant Framework to improve the tests AI helps you write.</p>
+<h2 id="the-work-process">The work process</h2>
+<h3 id="1-ai-test-generation">1. AI test generation</h3>
+<p>So firstly, you need to write your own logic, in FE it might be a component, in BE it might be a service. Then copy that section of code(only the logic part) to the AI test generation tool, don&rsquo;t need to care about the import part, AI is smart enough to figure out how to mock it, and then you can get a test file with a lot of test cases. This also make me feel the static type language is better choice in work than dynamic type language, since after the code generated you can see if there is any error in the test file. After this step, then you can check the test file, and see if there is any test case you want to keep, and remove it. Maybe the test logic is not good enough, but the test description I am sure it already help you a lot, you can just modify the test logic part based on the test description to make it better suit your requirement. After that, then your tests are done, easy right?</p>
+<p>Ex: There is a <a href="https://github.com/hulin32/ai-test-mutant-demo/blob/master/src/App.tsx">react component demo</a> I wrote(with AI), ask AI to generate tests with <code>@testing-library/react</code> and <code>vitest</code> for it, and then you can get a test file like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#fe8019">import</span> { describe, it, expect, vi, beforeEach } <span style="color:#fe8019">from</span> <span style="color:#b8bb26">&#39;vitest&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">import</span> { render, screen, fireEvent, waitFor } <span style="color:#fe8019">from</span> <span style="color:#b8bb26">&#39;@testing-library/react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">import</span> userEvent <span style="color:#fe8019">from</span> <span style="color:#b8bb26">&#39;@testing-library/user-event&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#fe8019">import</span> UserInfo <span style="color:#fe8019">from</span> <span style="color:#b8bb26">&#39;./UserInfo&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>describe(<span style="color:#b8bb26">&#39;UserInfo&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#928374;font-style:italic">// Mock window.alert
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>  <span style="color:#fe8019">const</span> alertMock <span style="color:#fe8019">=</span> vi.fn();
+</span></span><span style="display:flex;"><span>  <span style="color:#fabd2f">window</span>.alert <span style="color:#fe8019">=</span> alertMock;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  beforeEach(() <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#928374;font-style:italic">// Clear all mocks before each test
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>    vi.clearAllMocks();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  describe(<span style="color:#b8bb26">&#39;Login Form&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;renders login form initially&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(screen.getByText(<span style="color:#b8bb26">&#39;Login&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> })).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;updates email input value&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> emailInput <span style="color:#fe8019">=</span> screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(emailInput, <span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(emailInput).toHaveValue(<span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;updates password input value&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> passwordInput <span style="color:#fe8019">=</span> screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(passwordInput, <span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(passwordInput).toHaveValue(<span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;shows alert for invalid credentials&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;wrong@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;wrongpassword&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(alertMock).toHaveBeenCalledWith(<span style="color:#b8bb26">&#39;Invalid email or password&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;requires email and password fields&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> emailInput <span style="color:#fe8019">=</span> screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> passwordInput <span style="color:#fe8019">=</span> screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(emailInput).toHaveAttribute(<span style="color:#b8bb26">&#39;required&#39;</span>);
+</span></span><span style="display:flex;"><span>      expect(passwordInput).toHaveAttribute(<span style="color:#b8bb26">&#39;required&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  describe(<span style="color:#b8bb26">&#39;Login Success&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;shows user info after successful login&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Fill in correct credentials
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Submit form
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Check if user info is displayed
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> waitFor(() <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        expect(screen.getByText(<span style="color:#b8bb26">&#39;Welcome, John Doe!&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>        expect(screen.getByText(<span style="color:#b8bb26">&#39;Email: test@example.com&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;displays logout button when logged in&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Login
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Check for logout button
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> waitFor(() <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        expect(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Logout&#39;</span> })).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  describe(<span style="color:#b8bb26">&#39;Logout&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;returns to login form after logout&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Login first
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Wait for logout button and click it
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">const</span> logoutButton <span style="color:#fe8019">=</span> <span style="color:#fe8019">await</span> waitFor(() <span style="color:#fe8019">=&gt;</span> screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Logout&#39;</span> }));
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.click(logoutButton);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Check if we&#39;re back to login form
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      expect(screen.getByText(<span style="color:#b8bb26">&#39;Login&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>)).toBeInTheDocument();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;clears user data after logout&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Login
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;test@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;password&#39;</span>);
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Logout
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      <span style="color:#fe8019">const</span> logoutButton <span style="color:#fe8019">=</span> <span style="color:#fe8019">await</span> waitFor(() <span style="color:#fe8019">=&gt;</span> screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Logout&#39;</span> }));
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.click(logoutButton);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Verify user info is not displayed
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      expect(screen.queryByText(<span style="color:#b8bb26">&#39;Welcome, John Doe!&#39;</span>)).not.toBeInTheDocument();
+</span></span><span style="display:flex;"><span>      expect(screen.queryByText(<span style="color:#b8bb26">&#39;Email: test@example.com&#39;</span>)).not.toBeInTheDocument();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  describe(<span style="color:#b8bb26">&#39;Form Validation&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;validates email format&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">const</span> emailInput <span style="color:#fe8019">=</span> screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(emailInput, <span style="color:#b8bb26">&#39;invalid-email&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Email input should have validation error
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      expect(emailInput).toBeInvalid();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;prevents form submission with empty fields&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#928374;font-style:italic">// Alert should not be called as form validation prevents submission
+</span></span></span><span style="display:flex;"><span><span style="color:#928374;font-style:italic"></span>      expect(alertMock).not.toHaveBeenCalled();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  describe(<span style="color:#b8bb26">&#39;Edge Cases&#39;</span>, () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;handles whitespace in email and password&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39; test@example.com &#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39; password &#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(alertMock).toHaveBeenCalledWith(<span style="color:#b8bb26">&#39;Invalid email or password&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    it(<span style="color:#b8bb26">&#39;maintains form state after failed login attempt&#39;</span>, <span style="color:#fe8019">async</span> () <span style="color:#fe8019">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      render(&lt;<span style="color:#fb4934">UserInfo</span> /&gt;);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>), <span style="color:#b8bb26">&#39;wrong@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#fe8019">await</span> userEvent.<span style="color:#fe8019">type</span>(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>), <span style="color:#b8bb26">&#39;wrongpassword&#39;</span>);
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      fireEvent.submit(screen.getByRole(<span style="color:#b8bb26">&#39;button&#39;</span>, { name<span style="color:#fe8019">:</span> <span style="color:#b8bb26">&#39;Login&#39;</span> }));
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Email:&#39;</span>)).toHaveValue(<span style="color:#b8bb26">&#39;wrong@example.com&#39;</span>);
+</span></span><span style="display:flex;"><span>      expect(screen.getByLabelText(<span style="color:#b8bb26">&#39;Password:&#39;</span>)).toHaveValue(<span style="color:#b8bb26">&#39;wrongpassword&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>What do you feel? my feeling is I can&rsquo;t write so many tests in short time, and the test description is very good, if you don&rsquo;t like it, you can modify it to fit your cases. If you run test coverage, mostly it will be 100% coverage, but is it means the tests are good enough? I don&rsquo;t think so, I will talk about it in the next section.</p>
+<h3 id="2-test-mutant-framework-to-improve-the-tests-generated-by-ai">2. Test Mutant Framework to improve the tests generated by AI</h3>
+<p>After I started to use this way to write tests, I am thinking how can I make sure the tests are good enough to help me catch bug early. At some point I joined a rust meetup, someone mentioned Test Mutant Framework in rust <a href="https://mutants.rs">https://mutants.rs</a>, I was surprised that there is a tool can help you to test your tests :D. After I checked the website and got the concept, I think it is a good idea to use it to test my tests. So I started to check if there are any similiar framework for FE. Of course it has, I found <a href="https://stryker-mutator.io">https://stryker-mutator.io</a>. I was starting to use it in my daily work, and I found it is really helpful. It can help you to find out if your tests are good enough, and if there is any conditions you missed in your test. It is a good tool to help you to improve the quality of your tests. Its one step further than test coverage.</p>
+<p>Ex: here I am using <a href="https://stryker-mutator.io">https://stryker-mutator.io</a>, since its most famous framework in frontend for this, After you config it based on the test runner you are using, add your component you want to test in the <code>stryker.conf.js</code> &rsquo;s <code>mutate</code> field, and then run <code>stryker run</code>, if there are any tests are suvirved, then you can think about if there are any conditions you missed in your tests, and then add the tests to cover the conditions.</p>
+<p>With above component, I run <code>stryker run</code>, and I got some survived mutants, some of them like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#fe8019">[</span>Survived<span style="color:#fe8019">]</span> StringLiteral
+</span></span><span style="display:flex;"><span>src/App.tsx:18:45
+</span></span><span style="display:flex;"><span>-       <span style="color:#fe8019">}</span> <span style="color:#fe8019">else</span> <span style="color:#fe8019">if</span> <span style="color:#fe8019">(</span>email <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;&#39;</span> <span style="color:#fe8019">||</span> password <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;&#39;</span><span style="color:#fe8019">)</span> <span style="color:#fe8019">{</span>
+</span></span><span style="display:flex;"><span>+       <span style="color:#fe8019">}</span> <span style="color:#fe8019">else</span> <span style="color:#fe8019">if</span> <span style="color:#fe8019">(</span>email <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#39;&#39;</span> <span style="color:#fe8019">||</span> password <span style="color:#fe8019">===</span> <span style="color:#b8bb26">&#34;Stryker was here!&#34;</span><span style="color:#fe8019">)</span> <span style="color:#fe8019">{</span>
+</span></span></code></pre></div><p>This means actually even though your test coverage is 100%, but there are still some conditions you missed in your tests, you need to add tests to cover them</p>
+<h3 id="3-feedback-loop">3. Feedback loop</h3>
+<p>With test mutant framework, you can get feedback from it, and then you can improve your tests based on the feedback. And then ask AI to modify the privous generate tests if you want, run the test mutant framework again, and see if the tests are improved. After several iterations, you will find your tests are improved a lot also save a lot of time to write the tests.</p></section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    
+    <a class="ml-auto justify-end pl-3" href="https://www.hulin.dev/tech/monorepo/"
+      ><span>Monorepo thinking</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="hulin32/blog"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOBoDA4s4ChWGe"
+    data-mapping="url"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light_tritanopia"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://www.hulin.dev">INNER PEACE</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+
+  </body>
+</html>
