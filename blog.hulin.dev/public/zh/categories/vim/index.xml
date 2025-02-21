@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vim on INNER PEACE</title>
+    <title>Vim on INNER PEACE</title>
     <link>https://www.hulin.dev/zh/categories/vim/</link>
-    <description>Recent content in vim on INNER PEACE</description>
+    <description>Recent content in Vim on INNER PEACE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 22 Dec 2017 22:41:13 +0800</lastBuildDate>

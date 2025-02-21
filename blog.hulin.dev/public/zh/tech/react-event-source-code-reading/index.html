@@ -120,7 +120,7 @@
   />
 
   
-  <meta name="generator" content="Hugo 0.121.2">
+  <meta name="generator" content="Hugo 0.123.7">
 
   
   
@@ -157,7 +157,7 @@
   <body class="text-black duration-200 ease-out dark:text-white">
     <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
   <div class="relative z-50 mr-auto flex items-center">
-    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev"
+    <a class="-translate-y-[1px] text-2xl" href="https://www.hulin.dev/"
       >INNER PEACE</a
     >
     <div
@@ -369,7 +369,7 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#fe8019">return</span> App;
 </span></span><span style="display:flex;"><span>}(_react[<span style="color:#b8bb26">&#34;default&#34;</span>].Component);
 </span></span></code></pre></div><p>本次我们看的是事件，那react又怎么知道哪个是事件，其实就是我们写的<code>onClick</code>，那这个事件是怎么绑定的呢，通过浏览器内断点调试，你能得到一个这样的调用链，这是react第一次渲染时页面构建的其中一个步骤:
-<img src="/images/call-tree.png" alt="调用链"></p>
+<img alt="调用链" src="/images/call-tree.png"></p>
 <p>在<code>addEventBubbleListener</code>代码处，你就能看到，它其实就是在一个元素上调用了原生的addEventListener方法来绑定事件，当你点击时就会通过通过浏览器的事件去触发，只是触发后调用的函数react再做了一次封装，很多文章说react事件是绑定在document上的，从哪里知道的呢？就是这个函数，你如果打印element，你会发现它是根元素html。</p>
 <p>当在点击事件时，调用的是<code>dispatchDiscreteEvent</code>这个函数，在这个函数中会去初始化<code>SyntheticEvent</code>，并且是通过<code>getPooled</code>来获取<code>SyntheticEvent</code>实例,可以通过demo来证实这个，至于那个pool怎么用，我看第二次点击的时候就是直接从<code>eventPool</code>中获取的，所以我认为是缓存事件对象的，不要每次都重新创建。</p>
 <p>完。</p>
@@ -441,8 +441,8 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
   class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"
 >
   <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="https://www.hulin.dev">INNER PEACE</a>
+    &copy; 2025
+    <a class="link" href="https://www.hulin.dev/">INNER PEACE</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >powered by hugo️️</a
@@ -456,5 +456,12 @@ repo的event分支上</a>。repo里构建命令有几种，请用webpack</p>
   >
 </footer>
 
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "kscgvis090");
+  </script>
   </body>
 </html>
