@@ -26,6 +26,12 @@ algolia:
   key: "093601b4bd8cea8a8c59a9f58ed2dad4"
   appID: "DIISOO4383"
 
+# Sitemap configuration (also in config.toml)
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
 markup:
   highlight:
     codeFences: true

@@ -1,0 +1,145 @@
+{{/*
+  Archive Page
+*/}}
+{{ define "main" }}
+<div class="archive-container">
+  <h1>归档</h1>
+  <p class="archive-meta">
+    共 {{ len .Pages }} 篇文章
+  </p>
+
+  <div class="archive-list">
+    {{ range $year, $months := .Sites.Home.RegularPages.GroupByDate "2006" }}
+    <div class="archive-year">
+      <h2>{{ $year }}</h2>
+      <div class="archive-months">
+        {{ range $month, $pages := $months.GroupByDate "January" }}
+        <div class="archive-month">
+          <h3>{{ $month }}</h3>
+          <ul class="archive-pages">
+            {{ range $pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <span class="archive-date">{{ .Date.Format "Jan 2" }}</span>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+.archive-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.archive-container h1 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.archive-meta {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.archive-year {
+  margin: 2rem 0;
+}
+
+.archive-year h2 {
+  font-size: 1.5rem;
+  color: #0ea5e9;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.archive-months {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.archive-month {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.archive-month h3 {
+  font-size: 1.2rem;
+  color: #334155;
+  margin-bottom: 1rem;
+}
+
+.archive-pages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.archive-pages li {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archive-pages li a {
+  color: #475569;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.archive-pages li a:hover {
+  color: #0ea5e9;
+}
+
+.archive-date {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .archive-container h1 {
+    color: #f1f5f9;
+  }
+
+  .archive-year h2 {
+    color: #38bdf8;
+    border-bottom-color: #334155;
+  }
+
+  .archive-month {
+    background: #1e293b;
+    border-color: #334155;
+  }
+
+  .archive-month h3 {
+    color: #cbd5e1;
+  }
+
+  .archive-pages li a {
+    color: #94a3b8;
+  }
+
+  .archive-pages li a:hover {
+    color: #38bdf8;
+  }
+
+  .archive-date {
+    color: #64748b;
+  }
+}
+</style>
+{{ end }}

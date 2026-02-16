@@ -1,0 +1,86 @@
+{{/*
+  Custom single layout to add table of contents
+  Extends Paper theme's single layout
+*/}}
+{{- define "main" -}}
+{{/* Call the parent theme's content */}}
+{{- partial "theme/single.html" . }}
+{{- end -}}
+
+{{/* Add table of contents after content */}}
+{{ if and .TableOfContents (gt .WordCount 500) }}
+<div class="toc-container">
+  <div class="toc-title">📋 目录</div>
+  <div class="toc">
+    {{ .TableOfContents }}
+  </div>
+</div>
+{{ end }}
+
+<style>
+.toc-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-left: 3px solid #e2e8f0;
+  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 0 8px 8px 0;
+}
+
+.toc-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toc {
+  font-size: 0.95rem;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0.5rem;
+  margin: 0;
+}
+
+.toc ul ul {
+  padding-left: 1.5rem;
+}
+
+.toc li {
+  margin: 0.5rem 0;
+}
+
+.toc a {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.toc a:hover {
+  color: #0ea5e9;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .toc-container {
+    background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+    border-left-color: #334155;
+  }
+
+  .toc-title {
+    color: #f1f5f9;
+  }
+
+  .toc a {
+    color: #94a3b8;
+  }
+
+  .toc a:hover {
+    color: #38bdf8;
+  }
+}
+</style>

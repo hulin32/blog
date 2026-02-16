@@ -1,0 +1,11 @@
+{{/* Import Algolia Search Script */}}
+<script async defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+
+{{/* Setup Algolia Search */}}
+<script>
+window.algolia = {
+  initClient: function(apiKey, appId) {
+    return algoliasearch(appId, apiKey);
+  }
+};
+</script>
