@@ -1,70 +1,41 @@
-
-
-
-<style>
-.toc-container {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border-left: 3px solid #e2e8f0;
-  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
-  border-radius: 0 8px 8px 0;
-}
-
-.toc-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.toc {
-  font-size: 0.95rem;
-}
-
-.toc ul {
-  list-style: none;
-  padding-left: 0.5rem;
-  margin: 0;
-}
-
-.toc ul ul {
-  padding-left: 1.5rem;
-}
-
-.toc li {
-  margin: 0.5rem 0;
-}
-
-.toc a {
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.toc a:hover {
-  color: #0ea5e9;
-}
-
- 
-@media (prefers-color-scheme: dark) {
-  .toc-container {
-    background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
-    border-left-color: #334155;
-  }
-
-  .toc-title {
-    color: #f1f5f9;
-  }
-
-  .toc a {
-    color: #94a3b8;
-  }
-
-  .toc a:hover {
-    color: #38bdf8;
-  }
-}
-</style>
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=zh><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>为什么你应该尝试@reach/router - INNER PEACE</title>
+<meta name=theme-color><meta name=description content="为什么"><meta name=author content="INNER PEACE"><link rel="preload stylesheet" as=style href=https://www.hulin.dev/main.min.css><link rel=preload as=image href=https://www.hulin.dev/theme.png><link rel=preload as=image href=https://hulin.dev/images/loog.png><link rel=preload as=image href=https://www.hulin.dev/github.svg><link rel=preload as=image href=https://www.hulin.dev/linkedin.svg><script defer src=https://www.hulin.dev/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://www.hulin.dev/favicon.png><link rel=apple-touch-icon href=https://www.hulin.dev/apple-touch-icon.png><meta name=generator content="Hugo 0.121.2"><meta itemprop=name content="为什么你应该尝试@reach/router"><meta itemprop=description content="为什么"><meta itemprop=datePublished content="2018-06-05T22:34:28+08:00"><meta itemprop=dateModified content="2018-06-05T22:34:28+08:00"><meta itemprop=wordCount content="129"><meta itemprop=keywords content><meta property="og:title" content="为什么你应该尝试@reach/router"><meta property="og:description" content="为什么"><meta property="og:type" content="article"><meta property="og:url" content="https://www.hulin.dev/zh/tech/why-reach-router/"><meta property="article:section" content="tech"><meta property="article:published_time" content="2018-06-05T22:34:28+08:00"><meta property="article:modified_time" content="2018-06-05T22:34:28+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="为什么你应该尝试@reach/router"><meta name=twitter:description content="为什么"><link rel=canonical href=https://www.hulin.dev/zh/tech/why-reach-router/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-y-[1px] text-2xl" href=https://www.hulin.dev>INNER PEACE</a><div class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10"><a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/en>EN</a>
+<a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/zh/about>关于</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-14 lg:mt-0 lg:items-center"><a class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/hulin32 target=_blank rel=me>github
+</a><a class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com/in/lin-hu-247638117 target=_blank rel=me>linkedin</a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-14 dark:prose-invert"><article><header class=mb-14><h1 class="!my-0 pb-2.5">为什么你应该尝试@reach/router</h1><div class="text-xs antialiased opacity-60"><time>2018年6月5日</time></div></header><section><p>为什么</p><p>最近react-router的一个作者另外写了一个类react-router的组件<a href=https://github.com/reach/router><code>@reach/router</code></a>，尝试后感觉太棒了。如果你的项目只是web端的话我认为可以把你的react-router换掉了。</p><p>下面是我到目前看到的所有非常好的点。</p><ol><li><p>小，就4kb,压缩后比react-router小40kb左右。</p></li><li><p>更少的配置</p><p>a. react-router需要3个包(<code>history</code>, <code>react-router-dom</code>, <code>react-router-redux</code>)，reach-router只需要一个。</p><p>b. 不需要在store配置router相关信息</p><p>c. 不需要显示的使用history</p><div class=highlight><pre tabindex=0 style=color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#928374;font-style:italic>// in store config file
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic>//react-router
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>import</span> { routerMiddleware } from <span style=color:#b8bb26>&#39;react-router-redux&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fe8019>import</span> createHistory from <span style=color:#b8bb26>&#39;history/createBrowserHistory&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fe8019>const</span> history <span style=color:#fe8019>=</span> createHistory();
+</span></span><span style=display:flex><span><span style=color:#fe8019>const</span> middleware <span style=color:#fe8019>=</span> routerMiddleware(history);
+</span></span><span style=display:flex><span><span style=color:#fe8019>export</span> { history };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#928374;font-style:italic>//reach/router, nothing
+</span></span></span></code></pre></div></li><li><p>更好用</p><p>a. 当你想跳转页面时</p><div class=highlight><pre tabindex=0 style=color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#928374;font-style:italic>// react-router
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>import</span> { push } from <span style=color:#b8bb26>&#39;react-router-redux&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fe8019>import</span> { PropTypes } from <span style=color:#b8bb26>&#39;prop-types&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#928374;font-style:italic>// use it
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>this</span>.context.store.dispatch(push(<span style=color:#b8bb26>&#39;/see-you&#39;</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>FooComponent.contextTypes <span style=color:#fe8019>=</span> {
+</span></span><span style=display:flex><span>  store<span style=color:#fe8019>:</span> PropTypes.object,
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#928374;font-style:italic>// reach/router
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>import</span> { navigate } from <span style=color:#b8bb26>&#34;@reach/router&#34;</span>;
+</span></span><span style=display:flex><span>navigate(<span style=color:#b8bb26>`/lol`</span>);
+</span></span></code></pre></div><p>b.当你想取url里面的参数时</p><div class=highlight><pre tabindex=0 style=color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#928374;font-style:italic>// react-router
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>import</span> { withRouter } from <span style=color:#b8bb26>&#39;react-router-dom&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#fe8019>import</span> { PropTypes } from <span style=color:#b8bb26>&#39;prop-types&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#928374;font-style:italic>//use it
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>const</span> { match<span style=color:#fe8019>:</span> { params<span style=color:#fe8019>:</span> { iAmHere } } } <span style=color:#fe8019>=</span> <span style=color:#fe8019>this</span>.props;
+</span></span><span style=display:flex><span>FooComponent.propTypes <span style=color:#fe8019>=</span> {
+</span></span><span style=display:flex><span>    match<span style=color:#fe8019>:</span> PropTypes.object,
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span><span style=color:#fe8019>export</span> <span style=color:#fe8019>default</span> withRouter(FooComponent);
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#928374;font-style:italic>// reach/router
+</span></span></span><span style=display:flex><span><span style=color:#928374;font-style:italic></span><span style=color:#fe8019>const</span> { iAmHere } <span style=color:#fe8019>=</span> <span style=color:#fe8019>this</span>.props;
+</span></span></code></pre></div></li><li><p>基本一样的api,学习成本非常低</p></li><li><p>源码非常简洁，总共就3个文件，900行，如果你想深入理解单页应用的路由是怎么实现的，reach-router,绝对是绝佳的下手资料。</p></li></ol><p>不说了，去看看吧
+<a href=https://github.com/reach/router>https://github.com/reach/router</a></p></section><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class=pr-3 href=https://www.hulin.dev/zh/tech/i18n-with-100-lines/><span class=mr-1.5>←</span><span>100 行代码给你app国际化</span></a>
+<a class="ml-auto justify-end pl-3" href=https://www.hulin.dev/zh/tech/learn-typescript-in-one-file/><span>Learn Typescript in One File</span><span class=ml-1.5>→</span></a></nav><div class="giscus mt-24"></div><script src=https://giscus.app/client.js data-repo=hulin32/blog data-repo-id=MDEwOlJlcG9zaXRvcnkxMDkxMDEyODI data-category=Announcements data-category-id=DIC_kwDOBoDA4s4ChWGe data-mapping=url data-strict=1 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light_tritanopia data-lang=en data-loading=lazy crossorigin=anonymous async></script></article></main><footer class="mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-xs uppercase tracking-wider opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://www.hulin.dev>INNER PEACE</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer><script type=text/javascript>(function(e,t,n,s,o,i,a){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},i=t.createElement(s),i.async=1,i.src="https://www.clarity.ms/tag/"+o,a=t.getElementsByTagName(s)[0],a.parentNode.insertBefore(i,a)})(window,document,"clarity","script","kscgvis090")</script></body></html>
