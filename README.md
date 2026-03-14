@@ -1,6 +1,6 @@
 # Hulin's Blog
 
-[INNER PEACE](https://blog.hulin.dev) - 技术博客，记录学习与成长
+[INNER PEACE](https://hulin.dev) - 技术博客，记录学习与成长
 
 ## 简介
 
@@ -144,4 +144,3 @@ MIT
 
 - GitHub: [@hulin32](https://github.com/hulin32)
 - LinkedIn: [lin-hu-247638117](https://linkedin.com/in/lin-hu-247638117)
-- Email: [your-email@example.com](mailto:your-email@example.com)
