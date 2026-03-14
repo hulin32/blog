@@ -1,0 +1,269 @@
+{{/*
+  Search Page
+*/}}
+{{ define "main" }}
+<div class="search-container">
+  <h1>搜索</h1>
+  <p class="search-description">
+    查找博客中的文章、技术文章、教程等内容
+  </p>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="输入关键词搜索..."
+      autocomplete="off"
+    />
+    <div class="search-actions">
+      <button id="search-button" class="btn-search">搜索</button>
+    </div>
+  </div>
+
+  <div id="search-results" class="search-results"></div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
+  const searchResults = document.getElementById('search-results');
+
+  searchButton.addEventListener('click', performSearch);
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch();
+  });
+
+  let debounceTimer;
+  searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(performSearch, 300);
+  });
+
+  function performSearch() {
+    const query = searchInput.value.trim();
+    if (!query) {
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    // Use Algolia search if available
+    if (window.algolia && window.algolia.initClient) {
+      performAlgoliaSearch(query);
+    } else {
+      // Fallback to simple client-side search
+      performClientSearch(query);
+    }
+  }
+
+  function performAlgoliaSearch(query) {
+    const client = algoliaClient('DIISOO4383', '093601b4bd8cea8a8c59a9f58ed2dad4');
+    const index = client.initIndex('blog');
+
+    index.search(query, {
+      hitsPerPage: 10
+    }).then(({ hits }) => {
+      displayResults(hits);
+    }).catch(error => {
+      console.error('Algolia search error:', error);
+      performClientSearch(query);
+    });
+  }
+
+  function performClientSearch(query) {
+    // Get all pages from the document
+    const pages = Array.from(document.querySelectorAll('article'));
+    const results = pages
+      .map(page => ({
+        title: page.querySelector('h1')?.textContent || '',
+        url: page.querySelector('a')?.href || '',
+        excerpt: page.querySelector('p')?.textContent?.substring(0, 150) || ''
+      }))
+      .filter(page =>
+        page.title.toLowerCase().includes(query.toLowerCase()) ||
+        page.excerpt.toLowerCase().includes(query.toLowerCase())
+      );
+
+    displayResults(results);
+  }
+
+  function displayResults(results) {
+    if (results.length === 0) {
+      searchResults.innerHTML = `
+        <div class="no-results">
+          <p>没有找到匹配的结果 😔</p>
+          <p>试试其他关键词或清除搜索条件</p>
+        </div>
+      `;
+      return;
+    }
+
+    searchResults.innerHTML = `
+      <div class="results-header">
+        找到 ${results.length} 个结果
+      </div>
+      ${results.map(result => `
+        <div class="result-item">
+          <h3><a href="${result.url}">${highlightMatch(result.title, query)}</a></h3>
+          <p class="result-excerpt">${highlightMatch(result.excerpt, query)}</p>
+        </div>
+      `).join('')}
+    `;
+  }
+
+  function highlightMatch(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  // Initialize Algolia client if available
+  let algoliaClient;
+  if (typeof algolia !== 'undefined') {
+    algoliaClient = algolia;
+  }
+</script>
+
+<style>
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.search-container h1 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.search-description {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: #0ea5e9;
+}
+
+.search-actions .btn-search {
+  padding: 0 2rem;
+}
+
+.search-results {
+  margin-top: 2rem;
+}
+
+.results-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.result-item {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+.result-item h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.result-item h3 a {
+  color: #0ea5e9;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.result-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.result-excerpt {
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.result-excerpt mark {
+  background: #fef08a;
+  padding: 0 0.2rem;
+  border-radius: 2px;
+}
+
+.no-results {
+  text-align: center;
+  color: #64748b;
+  padding: 3rem;
+}
+
+.no-results p {
+  margin: 0.5rem 0;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .search-container h1 {
+    color: #f1f5f9;
+  }
+
+  .search-description {
+    color: #94a3b8;
+  }
+
+  .search-box input {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f1f5f9;
+  }
+
+  .search-box input:focus {
+    border-color: #38bdf8;
+  }
+
+  .result-item {
+    background: #1e293b;
+    border-color: #334155;
+  }
+
+  .result-item h3 a {
+    color: #38bdf8;
+  }
+
+  .results-header {
+    color: #f1f5f9;
+  }
+
+  .result-excerpt {
+    color: #94a3b8;
+  }
+
+  .result-excerpt mark {
+    background: #854d0e;
+  }
+
+  .no-results {
+    color: #64748b;
+  }
+}
+</style>
+{{ end }}

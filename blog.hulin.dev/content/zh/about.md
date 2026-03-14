@@ -27,5 +27,5 @@ React i18n: https://github.com/hulin32/react-i18context
 
 ## 社区贡献
 - [reqwest](https://github.com/seanmonstar/reqwest/pulls?q=is%3Apr+author%3Ahulin32+is%3Aclosed)
-- [rspack](https://github.com/web-infra-dev/rspack/pulls?q=is%3Apr+author%3Ahulin32+is%3Aclosed)
+- [rspack](https://github.com/web-infra-dev/rspack/pulls?q=is%3Apr+author%3Ahulin32)
 

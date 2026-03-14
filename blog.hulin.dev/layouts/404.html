@@ -1,0 +1,143 @@
+{{/*
+  404 Page Not Found
+*/}}
+{{ define "main" }}
+<div class="error-container">
+  <h1 class="error-code">404</h1>
+  <h2 class="error-title">Page Not Found</h2>
+  <p class="error-message">
+    The page you're looking for doesn't exist or has been moved.
+  </p>
+  <div class="error-actions">
+    <a href="{{ "/" | relURL }}" class="btn btn-primary">
+      ← 返回首页
+    </a>
+    <a href="{{ "/about" | relURL }}" class="btn btn-secondary">
+      关于我
+    </a>
+  </div>
+  <p class="error-suggestion">
+    🤔 Might be useful: 
+    <a href="{{ "/search" | relURL }}">搜索</a>
+    或查看
+    <a href="https://github.com/hulin32/blog/issues">GitHub Issues</a>
+  </p>
+</div>
+
+<style>
+.error-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 2px 2px 0 #0ea5e9;
+}
+
+.error-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 1rem 0;
+}
+
+.error-message {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0ea5e9;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(14, 165, 233, 0.4);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.error-suggestion {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-top: 1rem;
+}
+
+.error-suggestion a {
+  color: #0ea5e9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.error-suggestion a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .error-code {
+    color: #334155;
+  }
+
+  .error-title {
+    color: #f1f5f9;
+  }
+
+  .error-message {
+    color: #94a3b8;
+  }
+
+  .btn-secondary {
+    background: #334155;
+    color: #f1f5f9;
+  }
+
+  .btn-secondary:hover {
+    background: #475569;
+  }
+
+  .error-suggestion {
+    color: #64748b;
+  }
+}
+</style>
+{{ end }}
