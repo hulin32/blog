@@ -1,6 +1,6 @@
 ---
 title: "Vue 3 to React Migration: A Clear-Eyed Cost-Benefit Analysis"
-date: 2026-03-14T22:08:17
+date: 2026-03-14
 categories: react
 ---
 
