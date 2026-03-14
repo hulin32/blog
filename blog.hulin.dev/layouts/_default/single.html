@@ -1,86 +1,88 @@
-{{/*
-  Custom single layout to add table of contents
-  Extends Paper theme's single layout
-*/}}
-{{- define "main" -}}
-{{/* Call the parent theme's content */}}
-{{- partial "theme/single.html" . }}
-{{- end -}}
+{{ define "main" }}
 
-{{/* Add table of contents after content */}}
-{{ if and .TableOfContents (gt .WordCount 500) }}
-<div class="toc-container">
-  <div class="toc-title">📋 目录</div>
-  <div class="toc">
-    {{ .TableOfContents }}
-  </div>
-</div>
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">{{ .Title }}</h1>
+
+    {{ if ne .Type "page" }}
+    <div class="text-xs antialiased opacity-60">
+      {{ if .Date }}
+      <time>{{ .Date | time.Format ":date_medium" }}</time>
+      {{ end }}<!---->
+      {{ $single_author := or .Params.Author site.Author.name }}
+      <!---->
+      {{ if $single_author }}
+      <span class="mx-1">&middot;</span>
+      <span>{{ $single_author }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </header>
+
+  {{ if and .TableOfContents (gt .WordCount 500) }}
+  {{ partial "toc.html" . }}
+  {{ end }}
+
+  <section>{{ .Content }}</section>
+
+  <!-- Post Tags -->
+  {{ if .Params.tags }}
+  <footer class="mt-12 flex flex-wrap">
+    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="{{ $href }}"
+      >{{ . }}</a
+    >
+    {{ end }}
+  </footer>
+  {{ end }}
+
+  <!-- Post Nav -->
+  {{ if not site.Params.disablePostNavigation }}<!---->
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}<!---->
+  {{ if and (gt (len $pages) 1) (in $pages . ) }}
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    {{ with $pages.Next . }}
+    <a class="pr-3" href="{{ .Permalink }}"
+      ><span class="mr-1.5">←</span><span>{{ .Name }}</span></a
+    >
+    {{ end }}<!---->
+    {{ with $pages.Prev . }}
+    <a class="ml-auto justify-end pl-3" href="{{ .Permalink }}"
+      ><span>{{ .Name }}</span><span class="ml-1.5">→</span></a
+    >
+    {{ end }}
+  </nav>
+  {{ end }}<!---->
+  {{ end }}
+
+  <!-- mermaid -->
+  {{- partial "mermaid.html" . -}}
+
+  <!-- giscus comment -->
+  {{ if and site.Params.giscus.repo (not (eq .Params.comments false)) }}
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{ site.Params.giscus.repo }}"
+    data-repo-id="{{ site.Params.giscus.repoId }}"
+    data-category="{{ site.Params.giscus.category }}"
+    data-category-id="{{ site.Params.giscus.categoryId }}"
+    data-mapping="{{ site.Params.giscus.mapping | default (print `pathname`) }}"
+    data-strict="{{ site.Params.giscus.strict | default (print `1`) }}"
+    data-reactions-enabled="{{ site.Params.giscus.reactionsEnabled | default (print `0`) }}"
+    data-emit-metadata="{{ site.Params.giscus.emitMetadata | default (print `0`) }}"
+    data-input-position="{{ site.Params.giscus.inputPosition | default (print `top`) }}"
+    data-theme="{{ site.Params.giscus.theme | default (print `light`) }}"
+    data-lang="{{ site.Params.giscus.lang | default (print `en`) }}"
+    data-loading="{{ site.Params.giscus.loading | default (print `lazy`) }}"
+    crossorigin="anonymous"
+    async
+  ></script>
+  {{ end }}
+</article>
+
 {{ end }}
-
-<style>
-.toc-container {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border-left: 3px solid #e2e8f0;
-  background: linear-gradient(90deg, #f8fafc 0%, #ffffff 100%);
-  border-radius: 0 8px 8px 0;
-}
-
-.toc-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.toc {
-  font-size: 0.95rem;
-}
-
-.toc ul {
-  list-style: none;
-  padding-left: 0.5rem;
-  margin: 0;
-}
-
-.toc ul ul {
-  padding-left: 1.5rem;
-}
-
-.toc li {
-  margin: 0.5rem 0;
-}
-
-.toc a {
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.toc a:hover {
-  color: #0ea5e9;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .toc-container {
-    background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
-    border-left-color: #334155;
-  }
-
-  .toc-title {
-    color: #f1f5f9;
-  }
-
-  .toc a {
-    color: #94a3b8;
-  }
-
-  .toc a:hover {
-    color: #38bdf8;
-  }
-}
-</style>
